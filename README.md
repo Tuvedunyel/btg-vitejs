@@ -9,7 +9,7 @@ Vue 3, Vue Router et Sass
 ### Command Line
 
 ````bash
-npm run serve // Preview version sans compilation
-npm run dev // Preview compilation
+npm run serve // Preview avec compilation
+npm run dev // Preview version sans compilation
 npm run build // Build final pour le rendu
 ````
