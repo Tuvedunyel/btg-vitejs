@@ -2874,10 +2874,10 @@ body.single .banner:not(#single-banner) {
 }
 
 #agency-banner {
-  background: url(../static/icons/header-savoir-faire.jpg);
+  background: url('../static/icons/header-savoir-faire.jpg');
 }
 body.single .entry-header h2:not(.no-point)::after {
-  widht: 0;
+  width: 0;
   height: 0;
   background-color: transparent;
   display: none;

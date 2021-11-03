@@ -1,0 +1,65 @@
+<template>
+    <div id="overlay-menu">
+      <div class="content">
+        <div class="list-nav">
+          <div class="vague">
+            <img src="./../static/icons/wave-yellow.gif" alt="" />
+          </div>
+          <nav>
+            <div class="menu-principal-container">
+              <ul v-if="menu" id="menu-principal" class="menu-font">
+                <li
+                  v-for="(link, index) in menu"
+                  :key="index"
+                  :class=" link.slug === '#' && 'accordeon' "
+                  class="menu-item"
+                >
+                  <a v-if="link.slug === '#'"
+                    @click="toggleSubMenu"
+                    href="#"
+                    v-html="link.title"></a>
+                  <a v-else-if="link.menu_item_parent === '0'" href="#" v-html="link.title"></a>
+                </li>
+              </ul>
+            </div>
+          </nav>
+        </div>
+        <div class="logo-list">
+          <a href="mailto:contact@btg-communication.fr"
+            ><span class="screen-reader-text">Contact</span
+            ><img src="./../static/icons/contact-degrade.svg" alt="Une enveloppe"
+          /></a>
+          <a :href="data.url_facebook_rs"
+            ><span class="screen-reader-text">Facebook</span
+            ><img src="./../static/icons/facebook-degrade.svg" alt="Logo Facebook"
+          /></a>
+          <a :href="data.url_twitter_rs"
+            ><span class="screen-reader-text">Twitter</span
+            ><img src="./../static/icons/twitter-degrade.svg" alt="Logo Twitter"
+          /></a>
+        </div>
+      </div>
+    </div>
+</template>
+<script>
+import axios from "axios";
+    export default {
+        name: 'Overlays',
+        props : ['data'],
+        data () {
+            return {
+                menu: null,
+                subMenu: false,
+            }
+        },
+        mounted() {
+            axios.get('https://btg-communication.local/wp-json/better-rest-endpoints/v1/menus/principal')
+            .then((response) => this.menu = response.data)
+        },
+        methods: {
+            toggleSubMenu() {
+                this.subMenu = !this.subMenu
+            }
+        }
+    }
+</script>
