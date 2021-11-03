@@ -1,6 +1,5 @@
-
-@import url('https://fonts.googleapis.com/css2?family=Exo:wght@100;300;400;500;600;700;800&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Cabin:wght@400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Exo:wght@100;300;400;500;600;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cabin:wght@400;500;600;700&display=swap");
 
 * {
   margin: 0;
@@ -11,7 +10,7 @@
 .no-transition {
   transition: none;
 }
-@import url('https://fonts.googleapis.com/css2?family=Exo:wght@100;300;400;500;600;700;800&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Exo:wght@100;300;400;500;600;700;800&display=swap");
 
 html {
   font-size: 62.5%;
@@ -58,7 +57,7 @@ button::-moz-focus-inner {
 h1 {
   font-weight: bold;
   font-size: 5.4rem;
-  font-family: 'Cabin', sans-serif;
+  font-family: "Cabin", sans-serif;
 }
 
 h1 span {
@@ -70,7 +69,7 @@ h1 span {
 h2 {
   display: inline-block;
   text-transform: uppercase;
-  font-family: 'Cabin', sans-serif;
+  font-family: "Cabin", sans-serif;
   font-weight: bold;
   font-size: 5.6rem;
   background-color: white;
@@ -80,7 +79,7 @@ h2 {
 }
 h2:not(.no-point)::after {
   display: inline-block;
-  content: '';
+  content: "";
   background-color: black;
   width: 12px;
   height: 12px;
@@ -101,31 +100,31 @@ h2.reversed::after {
 h3 {
   font-weight: 600;
   font-size: 2rem;
-  font-family: 'Cabin', sans-serif;
+  font-family: "Cabin", sans-serif;
   flex-direction: column;
 }
 
 h4 {
   font-weight: bold;
   font-size: 1.8rem;
-  font-family: 'Cabin', sans-serif;
+  font-family: "Cabin", sans-serif;
 }
 
 h5 {
   font-weight: 500;
   font-size: 1.6rem;
-  font-family: 'Cabin', sans-serif;
+  font-family: "Cabin", sans-serif;
 }
 
 .menu-font {
   font-size: 2.4rem;
   font-weight: normal;
-  font-family: 'Cabin', sans-serif;
+  font-family: "Cabin", sans-serif;
 }
 .menu-font li a {
   font-size: 2.4rem;
   font-weight: 400;
-  font-family: 'Cabin', sans-serif;
+  font-family: "Cabin", sans-serif;
   text-decoration: none;
   color: black;
 }
@@ -140,7 +139,7 @@ html {
 
 .exo-light-21 {
   font-size: 2.1rem;
-  font-family: 'Exo', sans-serif;
+  font-family: "Exo", sans-serif;
   font-weight: 300;
 }
 .exo-light-21 strong {
@@ -149,7 +148,7 @@ html {
 
 .exo-light-18 {
   font-size: 1.8rem;
-  font-family: 'Exo', sans-serif;
+  font-family: "Exo", sans-serif;
   font-weight: 300;
 }
 .exo-light-18 ul li ul li {
@@ -161,7 +160,7 @@ html {
 
 .exo-light-16 {
   font-size: 1.6rem;
-  font-family: 'Exo', sans-serif;
+  font-family: "Exo", sans-serif;
   font-weight: 300;
 }
 .exo-light-16 strong {
@@ -170,13 +169,13 @@ html {
 
 .exo-bold-21 {
   font-size: 2.1rem;
-  font-family: 'Exo', sans-serif;
+  font-family: "Exo", sans-serif;
   font-weight: bold;
 }
 
 .exo-light-14 {
   font-size: 1.4rem;
-  font-family: 'Exo', sans-serif;
+  font-family: "Exo", sans-serif;
   font-weight: light;
 }
 .exo-light-14 strong {
@@ -188,7 +187,7 @@ html {
   color: black;
   text-decoration: none;
   position: relative;
-  font-family: 'Cabin', sans-serif;
+  font-family: "Cabin", sans-serif;
   font-size: 2.1rem;
   text-transform: uppercase;
   padding: 25px 33px 25px 33px;
@@ -200,7 +199,7 @@ html {
   top: 0;
   left: 0;
   z-index: 2;
-  content: '';
+  content: "";
   width: calc(100% - 9px);
   height: calc(100% - 9px);
   border: 5px solid black;
@@ -226,7 +225,7 @@ html {
 }
 
 .form-button {
-  font-family: 'Cabin', sans-serif;
+  font-family: "Cabin", sans-serif;
   font-size: 2.1rem;
   text-transform: uppercase;
   color: white;
@@ -275,7 +274,7 @@ html {
   overflow: hidden;
 }
 .map::before {
-  content: '';
+  content: "";
   pointer-events: none;
   box-shadow: inset 0 11.3px 20px 0 rgba(0, 0, 0, 0.35),
     inset 0 -11.3px 20px 0 rgba(0, 0, 0, 0.35);
@@ -334,7 +333,7 @@ html {
   position: absolute;
 }
 .map::after {
-  content: '';
+  content: "";
   background-color: #082d49;
   mix-blend-mode: multiply;
   position: absolute;
@@ -450,7 +449,7 @@ footer {
   justify-content: space-between;
   color: white;
   align-items: center;
-  font-family: 'Cabin', sans-serif;
+  font-family: "Cabin", sans-serif;
   font-size: 1.4rem;
   font-weight: bold;
 }
@@ -518,7 +517,7 @@ footer a:not(.mentions):hover img {
   align-items: flex-start;
 }
 #overlay-menu .content::after {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: -299px;
@@ -552,7 +551,7 @@ footer a:not(.mentions):hover img {
   text-decoration: none;
 }
 #overlay-menu .content .list-nav nav ul li a::after {
-  content: '';
+  content: "";
   pointer-events: none;
   position: absolute;
   left: 0;
@@ -611,7 +610,7 @@ footer a:not(.mentions):hover img {
   align-items: center;
 }
 #overlay-contact .content::after {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   right: -299px;
@@ -696,7 +695,7 @@ footer a:not(.mentions):hover img {
 }
 #overlay-contact .content .formulaire .entree form input::placeholder {
   font-size: 1.6rem;
-  font-family: 'Exo', sans-serif;
+  font-family: "Exo", sans-serif;
   font-weight: 300;
   color: black;
   opacity: 1;
@@ -714,18 +713,18 @@ footer a:not(.mentions):hover img {
   resize: none;
   padding: 15px;
   font-size: 1.6rem;
-  font-family: 'Exo', sans-serif;
+  font-family: "Exo", sans-serif;
   font-weight: 300;
   margin-bottom: 12px;
 }
 #overlay-contact .content .formulaire .entree form p textarea::placeholder {
   font-size: 1.6rem;
-  font-family: 'Exo', sans-serif;
+  font-family: "Exo", sans-serif;
   font-weight: 300;
   color: black;
   opacity: 1;
 }
-#overlay-contact .content .formulaire .entree form input[type='submit'] {
+#overlay-contact .content .formulaire .entree form input[type="submit"] {
   width: auto;
   display: inline-flex;
   align-self: flex-end;
@@ -734,7 +733,7 @@ footer a:not(.mentions):hover img {
   align-self: flex-end;
   font-weight: 600;
   font-size: 2rem;
-  font-family: 'Cabin', sans-serif;
+  font-family: "Cabin", sans-serif;
   text-transform: uppercase;
   padding: 12px 40px;
   color: white;
@@ -742,7 +741,7 @@ footer a:not(.mentions):hover img {
   border: 2px white solid;
   border-radius: 4px;
 }
-#overlay-contact .content .formulaire .entree form input[type='submit']:hover {
+#overlay-contact .content .formulaire .entree form input[type="submit"]:hover {
   background-color: white;
   color: black;
 }
@@ -871,7 +870,7 @@ footer a:not(.mentions):hover img {
 #acc-header .bot h1 {
   font-weight: 600;
   font-size: 2.4rem;
-  font-family: 'Cabin', sans-serif;
+  font-family: "Cabin", sans-serif;
 }
 
 #acc-projet .container {
@@ -1010,7 +1009,7 @@ footer a:not(.mentions):hover img {
   width: 56%;
   padding-top: 50px;
   padding-bottom: 100px;
-  background-image: url('../static/ce-que-lon-fait.jpg');
+  background-image: url("../static/ce-que-lon-fait.jpg");
   background-size: cover;
   background-position: center center;
   color: white;
@@ -1094,7 +1093,7 @@ footer a:not(.mentions):hover img {
 }
 #acc-clients .container .pourquoi-pas p {
   margin-top: 16px;
-  font-family: 'Exo', sans-serif;
+  font-family: "Exo", sans-serif;
   font-size: 2.6rem;
   color: #010101;
   font-weight: 300;
@@ -1121,7 +1120,7 @@ footer a:not(.mentions):hover img {
   height: 112%;
   top: -6%;
   left: -2.5%;
-  background-image: url('../static/icons/grille.png');
+  background-image: url("../static/icons/grille.png");
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
@@ -1326,7 +1325,7 @@ footer a:not(.mentions):hover img {
 }
 
 #team-banner {
-  background-image: url('../static/header-equipe.jpg');
+  background-image: url("../static/header-equipe.jpg");
 }
 
 .membre:not(#romain) {
@@ -1473,7 +1472,7 @@ footer a:not(.mentions):hover img {
 }
 #agency .right .desc p {
   font-size: 1.6rem;
-  font-family: 'Exo', sans-serif;
+  font-family: "Exo", sans-serif;
   font-weight: normal;
   width: 630px;
 }
@@ -1574,7 +1573,7 @@ footer a:not(.mentions):hover img {
   margin-top: 3rem;
 }
 #skills .skills-list .skill .desc a::before {
-  content: '';
+  content: "";
   background-image: url(https://www.btg-communication.fr/wp-content/themes/btg/img/icons/show-more.svg);
   -webkit-transition: all 0.2s linear;
   transition: all 0.2s linear;
@@ -1594,7 +1593,7 @@ footer a:not(.mentions):hover img {
 }
 
 #real-banner {
-  background-image: url('../static/header-realisation.jpg');
+  background-image: url("../static/header-realisation.jpg");
 }
 
 #reals {
@@ -1634,7 +1633,7 @@ footer a:not(.mentions):hover img {
   transform: rotate(180deg);
 }
 #reals .container .filters .filter-item p {
-  font-family: 'Cabin', sans-serif;
+  font-family: "Cabin", sans-serif;
   font-weight: normal;
   font-size: 2rem;
   margin-top: 7px;
@@ -1710,7 +1709,7 @@ footer a:not(.mentions):hover img {
   background-color: #0e5e9d;
 }
 #reals .container #real-list .real-item .desc h2 {
-  font-family: 'Exo', sans-serif;
+  font-family: "Exo", sans-serif;
   font-size: 2.8rem;
   text-transform: uppercase;
   background-color: transparent;
@@ -1737,7 +1736,7 @@ footer a:not(.mentions):hover img {
   padding: 0 8px;
   opacity: 0;
   color: white;
-  font-family: 'Cabin', sans-serif;
+  font-family: "Cabin", sans-serif;
   font-weight: 600;
   font-size: 1.8rem;
   position: relative;
@@ -1762,7 +1761,7 @@ footer a:not(.mentions):hover img {
 }
 
 #clients-banner {
-  background-image: url('../static/header-rex.jpg');
+  background-image: url("../static/header-rex.jpg");
 }
 
 #clients {
@@ -1801,7 +1800,7 @@ footer a:not(.mentions):hover img {
   cursor: pointer;
 }
 #clients .clients-list .client .video::after {
-  content: '';
+  content: "";
   position: absolute;
   top: 140px;
   left: calc(50% - 20px);
@@ -2045,7 +2044,7 @@ body.single-post #single-banner .back {
 #single-main .container p {
   padding: 0 60px;
   font-size: 1.8rem;
-  font-family: 'Exo', sans-serif;
+  font-family: "Exo", sans-serif;
   font-weight: 300;
 }
 #single-main .container .exerpt {
@@ -2080,7 +2079,7 @@ body.single-post #single-banner .back {
 #single-main .container .elems-container p a {
   font-weight: 700;
   font-size: 1.8rem;
-  font-family: 'Cabin', sans-serif;
+  font-family: "Cabin", sans-serif;
   color: black;
   text-decoration: none;
 }
@@ -2176,7 +2175,7 @@ body.single-post #single-banner .back {
   background-color: #0e5e9d;
 }
 #single-main .container .other-projects .real-item .desc h3 {
-  font-family: 'Exo', sans-serif;
+  font-family: "Exo", sans-serif;
   font-size: 2.8rem;
   text-transform: uppercase;
   font-weight: bold;
@@ -2200,7 +2199,7 @@ body.single-post #single-banner .back {
 #single-main .container .other-projects .real-item .desc p {
   opacity: 0;
   color: white;
-  font-family: 'Cabin', sans-serif;
+  font-family: "Cabin", sans-serif;
   font-weight: 600;
   font-size: 1.8rem;
   position: relative;
@@ -2237,7 +2236,7 @@ body.single-post #single-banner .back {
 }
 #not-found-banner h1 {
   color: black;
-  font-family: 'Exo', sans-serif;
+  font-family: "Exo", sans-serif;
   font-size: 11rem;
   line-height: 11rem;
   margin-bottom: 0;
@@ -2300,7 +2299,7 @@ body.single-post #single-banner .back {
 #acc-newsletter h2 {
   background-color: transparent;
   font-size: 24px;
-  font-family: 'Cabin', sans-serif;
+  font-family: "Cabin", sans-serif;
   font-weight: 400;
   padding: 0;
 }
@@ -2309,7 +2308,7 @@ body.single-post #single-banner .back {
 }
 #acc-newsletter h3 {
   font-size: 21px;
-  font-family: 'Exo', sans-serif;
+  font-family: "Exo", sans-serif;
   font-weight: 200;
   width: 850px;
 }
@@ -2401,11 +2400,11 @@ body.single-post #single-banner .back {
 }
 
 html {
-  font-family: 'Cabin', sans-serif;
+  font-family: "Cabin", sans-serif;
 }
 html #single-main h1:not(.no-point)::after {
   display: inline-block;
-  content: '';
+  content: "";
   background-color: black;
   width: 12px;
   height: 12px;
@@ -2456,7 +2455,7 @@ html #page h4 {
 }
 #single-main .other-kills li a::before {
   display: block;
-  content: ' ';
+  content: " ";
   position: absolute;
   top: 0;
   bottom: 0;
@@ -2470,26 +2469,26 @@ html #page h4 {
 }
 #single-main .other-kills li:first-child a::before {
   background-image: linear-gradient(-45.9deg, #8670cc, 50%, #ff5e81);
-  -webkit-mask-image: url('../static/icons/strategie-kills.svg');
-  mask-image: url('../static/icons/strategie-kills.svg');
+  -webkit-mask-image: url("../static/icons/strategie-kills.svg");
+  mask-image: url("../static/icons/strategie-kills.svg");
 }
 #single-main .other-kills li:nth-child(2) a::before {
-  background-image: url('../static/icons/filter-identite-degrade.svg');
+  background-image: url("../static/icons/filter-identite-degrade.svg");
 }
 #single-main .other-kills li:nth-child(3) a::before {
-  background-image: url('../static/icons/filter-graphisme-degrade.svg');
+  background-image: url("../static/icons/filter-graphisme-degrade.svg");
 }
 #single-main .other-kills li:nth-child(4) a::before {
-  background-image: url('../static/icons/filter-edition-degrade.svg');
+  background-image: url("../static/icons/filter-edition-degrade.svg");
 }
 #single-main .other-kills li:nth-child(5) a::before {
-  background-image: url('../static/icons/filter-web-degrade.svg');
+  background-image: url("../static/icons/filter-web-degrade.svg");
 }
 #single-main .other-kills li:nth-child(6) a::before {
-  background-image: url('../static/icons/filter-motion-degrade.svg');
+  background-image: url("../static/icons/filter-motion-degrade.svg");
 }
 #single-main .other-kills li p {
-  font-family: 'Cabin', sans-serif;
+  font-family: "Cabin", sans-serif;
   font-weight: normal;
   font-size: 2rem;
   margin-top: 7px;
@@ -2506,8 +2505,8 @@ html #page h4 {
 }
 #overlay-menu .content .list-nav nav ul li.accordeon > a::before {
   pointer-events: all;
-  content: '';
-  background-image: url('../static/icons/show-more.svg');
+  content: "";
+  background-image: url("../static/icons/show-more.svg");
   background-repeat: no-repeat;
   width: 40px;
   height: 40px;
@@ -2537,7 +2536,7 @@ html #page h4 {
   border-bottom: 2px solid #9d9d9d;
 }
 #overlay-menu .content .list-nav nav ul li.visible > a::before {
-  background-image: url('../static/icons/close.svg');
+  background-image: url("../static/icons/close.svg");
 }
 #overlay-menu .content .list-nav nav ul li.visible .sub-menu {
   max-height: 240px;
@@ -2549,7 +2548,7 @@ header .banner-home {
   z-index: -2;
 }
 header .banner-home::after {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   bottom: 0;
@@ -2601,7 +2600,7 @@ header .banner-home::after {
 #primary .site-main .page-header .container ul li a {
   text-decoration: none;
   color: black;
-  font-family: 'Cabin', sans-serif;
+  font-family: "Cabin", sans-serif;
   font-weight: 600;
   text-transform: uppercase;
   font-size: 20px;
@@ -2671,7 +2670,7 @@ header .banner-home::after {
   background-color: transparent;
   font-size: 28px;
   font-weight: 600;
-  font-family: 'cabin', sans-serif;
+  font-family: "cabin", sans-serif;
   padding-bottom: 0;
 }
 #primary .site-main .container .content-blog article {
@@ -2688,7 +2687,7 @@ header .banner-home::after {
   flex-direction: column;
 }
 #primary .site-main .container .content-blog article .entry-header h1 {
-  font-family: 'Exo', sans-serif;
+  font-family: "Exo", sans-serif;
   font-weight: 600;
   font-size: 28px;
   padding: 5px 0 20px 5px;
@@ -2711,7 +2710,7 @@ header .banner-home::after {
 #primary .site-main .container .content-blog article .entry-header h2 {
   font-size: 18px;
   font-weight: 600;
-  font-family: 'cabin', sans-serif;
+  font-family: "cabin", sans-serif;
   background-color: #fff;
   padding-bottom: 0;
 }
@@ -2814,8 +2813,8 @@ header .banner-home::after {
   padding-bottom: 17px;
 }
 #primary .site-main .container .content-blog article .entry-footer a::after {
-  content: '';
-  background-image: url('../static/icons/show-more.svg');
+  content: "";
+  background-image: url("../static/icons/show-more.svg");
   width: 35px;
   height: 35px;
   position: absolute;
@@ -2849,7 +2848,7 @@ header .banner-home::after {
 #primary .site-main .navigation ul li a {
   color: black;
   text-decoration: none;
-  font-family: 'Cabin', sans-serif;
+  font-family: "Cabin", sans-serif;
   font-weight: 600;
   font-size: 24px;
   padding: 5px;
@@ -2858,7 +2857,7 @@ header .banner-home::after {
   color: #e3775b;
 }
 #primary .site-main .navigation ul li + li::before {
-  content: '/';
+  content: "/";
   font-size: 24px;
 }
 #primary .classic-button {
@@ -2871,7 +2870,7 @@ body.single .banner:not(#single-banner) {
 }
 
 #agency-banner {
-  background: url('../static/icons/header-savoir-faire.jpg');
+  background: url("../static/icons/header-savoir-faire.jpg");
 }
 body.single .entry-header h2:not(.no-point)::after {
   width: 0;
@@ -2894,7 +2893,7 @@ body.single h3 {
   margin-top: 30px;
 }
 body.single h3.articles {
-  font-family: 'Exo', sans-serif;
+  font-family: "Exo", sans-serif;
   font-weight: 600;
   font-size: 28px;
   margin-bottom: 20px;
@@ -2914,7 +2913,7 @@ body.single p.elem {
 body.single p.elem a {
   font-weight: 700;
   font-size: 1.8rem;
-  font-family: 'Cabin', sans-serif;
+  font-family: "Cabin", sans-serif;
   color: black;
   text-decoration: none;
 }
@@ -2928,13 +2927,13 @@ body.single ul li {
 .blog .container .content-blog article .entry-header h3 {
   font-size: 18px;
   font-weight: 600;
-  font-family: 'cabin', sans-serif;
+  font-family: "cabin", sans-serif;
   background-color: #fff;
   padding-bottom: 0;
 }
 
 .search-results .container .content-blog article .entry-header h2 {
-  font-family: 'Exo', sans-serif !important;
+  font-family: "Exo", sans-serif !important;
   font-weight: 600 !important;
   font-size: 28px !important;
   padding: 5px 0 20px 5px !important;
@@ -2953,13 +2952,13 @@ body.single ul li {
 .search-results .container .content-blog article .entry-header h3 {
   font-size: 18px;
   font-weight: 600;
-  font-family: 'cabin', sans-serif;
+  font-family: "cabin", sans-serif;
   background-color: #fff;
   padding-bottom: 0;
 }
 
 .archive .container .content-blog article .entry-header h2 {
-  font-family: 'Exo', sans-serif !important;
+  font-family: "Exo", sans-serif !important;
   font-weight: 600 !important;
   font-size: 28px !important;
   padding: 5px 0 20px 5px !important;
@@ -2972,7 +2971,7 @@ body.single ul li {
 .archive .container .content-blog article .entry-header h3 {
   font-size: 18px;
   font-weight: 600;
-  font-family: 'cabin', sans-serif;
+  font-family: "cabin", sans-serif;
   background-color: #fff;
   padding-bottom: 0;
 }
@@ -3522,7 +3521,7 @@ body.single ul li {
     padding: 0;
   }
   #acc-clients .container .clients-list .grille {
-    background-image: url('../static/icons/grille-tablet.png');
+    background-image: url("../static/icons/grille-tablet.png");
     width: 102%;
     height: 105%;
     top: -2.5%;
@@ -3701,7 +3700,7 @@ body.single ul li {
     display: inline-block;
     align-self: center;
     text-align: center;
-    font-family: 'Cabin', sans-serif;
+    font-family: "Cabin", sans-serif;
     font-size: 1.55rem;
     text-transform: uppercase;
     margin-top: 25px;
@@ -3751,7 +3750,7 @@ body.single ul li {
     margin-right: 15px;
   }
   #primary .site-main .page-header .resp-nav .openlist::after {
-    content: '';
+    content: "";
     width: 0;
     height: 0;
     border-style: solid;
@@ -4254,7 +4253,7 @@ body.single ul li {
     display: block;
     align-self: center;
     text-align: center;
-    font-family: 'Cabin', sans-serif;
+    font-family: "Cabin", sans-serif;
     font-size: 1.55rem;
     text-transform: uppercase;
     margin-top: 25px;
@@ -4283,7 +4282,7 @@ body.single ul li {
     margin-right: 15px;
   }
   #reals .container .resp-filters .openlist::after {
-    content: '';
+    content: "";
     width: 0;
     height: 0;
     border-style: solid;
@@ -4791,7 +4790,7 @@ body.single ul li {
 }
 
 .blog .container .content-blog article .entry-header h2 {
-  font-family: 'Exo', sans-serif !important;
+  font-family: "Exo", sans-serif !important;
   font-weight: 600 !important;
   font-size: 28px !important;
   padding: 5px 0 20px 5px !important;
@@ -4809,7 +4808,7 @@ body.single ul li {
 }
 
 #agency-banner.banner.banner-home.home-img-banner {
-  background: url('../static/icons/blogactu.jpg');
+  background: url("../static/icons/blogactu.jpg");
   background-position: center 80%;
 }
 
@@ -4819,7 +4818,7 @@ body.single ul li {
 }
 
 .v-for-container h3.articles {
-  font-family: 'Exo', sans-serif;
+  font-family: "Exo", sans-serif;
   font-weight: 600;
   font-size: 28px;
   margin-bottom: 20px;
@@ -4838,4 +4837,7 @@ h2.no-after::after {
 .nuxt-progress {
   background-color: #be68a9;
   height: 4px;
+}
+[v-cloak] {
+  display: none;
 }

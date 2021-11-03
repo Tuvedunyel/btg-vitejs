@@ -66,32 +66,13 @@
   </div>
 </template>
 <script>
-import axios from "axios";
 export default {
   name: "Menu",
-  props: ["data"],
+  props: ["data", "menu", "subMenu"],
   data() {
     return {
-      menu: null,
       subMenuBoolean: false,
-      subMenu: [],
     };
-  },
-  mounted() {
-    axios
-      .get(
-        "https://btg-communication.local/wp-json/better-rest-endpoints/v1/menus/principal"
-      )
-      .then((response) => {
-        this.menu = response.data;
-        response.data.map((res) => {
-          if (res.menu_item_parent !== "0") {
-            return this.subMenu.push(res);
-          }
-          this.subMenu.sort();
-          this.subMenu = [...new Set(this.subMenu)];
-        });
-      });
   },
   methods: {
     toggleSubMenu() {

@@ -1,5 +1,5 @@
 <template>
-  <header v-if="!loading" class="menu-font">
+  <header v-if="!loading" id="acc-header" class="menu-font">
     <div v-if="!loading" class="top">
       <router-link to="/" class="logo" title="BTG Communication"
         ><img
@@ -42,24 +42,30 @@
         </div>
       </div>
     </div>
-    <MenuVue :data="data" />
+    <MenuVue :data="data" :menu="menu" :subMenu="subMenu" />
     <ContactVue :data="data" />
+    <BannerVue :title="$props.title" :mainMenu="subMenu" />
   </header>
 </template>
 <script>
 import axios from "axios";
 import MenuVue from "./Menu.vue";
 import ContactVue from "./Contact.vue";
+import BannerVue from "./Banner.vue";
 export default {
   name: "Headers",
+  props: ["title"],
   components: {
     MenuVue,
     ContactVue,
+    BannerVue,
   },
   data() {
     return {
       data: null,
       loading: true,
+      menu: null,
+      subMenu: [],
     };
   },
   async mounted() {
@@ -68,6 +74,21 @@ export default {
         "http://btg-communication.local/wp-json/better-rest-endpoints/v1/options/acf"
       )
       .then((response) => (this.data = response.data));
+
+    axios
+      .get(
+        "https://btg-communication.local/wp-json/better-rest-endpoints/v1/menus/principal"
+      )
+      .then((response) => {
+        this.menu = response.data;
+        response.data.map((res) => {
+          if (res.menu_item_parent !== "0") {
+            return this.subMenu.push(res);
+          }
+          this.subMenu.sort();
+          this.subMenu = [...new Set(this.subMenu)];
+        });
+      });
     this.loading = false;
   },
   methods: {
