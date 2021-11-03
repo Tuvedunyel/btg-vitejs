@@ -2520,8 +2520,6 @@ html #page h4 {
   display: none;
 }
 #overlay-menu .content .list-nav nav ul li .sub-menu {
-  overflow: hidden;
-  max-height: 0;
   margin-left: 55px;
   margin-top: -5px;
   -webkit-transition: all 0.5s ease-out;
@@ -2542,7 +2540,6 @@ html #page h4 {
   background-image: url('../static/icons/close.svg');
 }
 #overlay-menu .content .list-nav nav ul li.visible .sub-menu {
-  display: block;
   max-height: 240px;
 }
 

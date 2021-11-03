@@ -1,93 +1,102 @@
 <template>
-    <header v-if="!loading" class="menu-font">
-      <div v-if="!loading" class="top">
-        <router-link to="/" class="logo" title="BTG Communication"
-          ><img
-            src="./../static/icons/logo-btg.svg"
-            alt="BTG Communication, agence de communication "
-        /></router-link>
-        <div v-if="data" class="accroche">
-          {{ data.baseline_identite }}
-        </div>
-        <div
-          id="contact-icon-flippable"
-          class="contact flip-container"
-          @click="toggleContact()"
-        >
-          <div class="flip-card">
-            <div class="front face">
-              <img src="./../static/icons/contact.svg" alt="Contactez nous" />
-            </div>
-            <div class="back face">
-              <img src="./../static/icons/close-contact.svg" alt="Fermer la fenêtre de contact" />
-            </div>
+  <header v-if="!loading" class="menu-font">
+    <div v-if="!loading" class="top">
+      <router-link to="/" class="logo" title="BTG Communication"
+        ><img
+          src="./../static/icons/logo-btg.svg"
+          alt="BTG Communication, agence de communication "
+      /></router-link>
+      <div v-if="data" class="accroche">
+        {{ data.baseline_identite }}
+      </div>
+      <div
+        id="contact-icon-flippable"
+        class="contact flip-container"
+        @click="toggleContact()"
+      >
+        <div class="flip-card">
+          <div class="front face">
+            <img src="./../static/icons/contact.svg" alt="Contactez nous" />
           </div>
-        </div>
-        <div
-          id="menu-icon-flippable"
-          class="menu flip-container"
-          @click="toggleMenu()"
-        >
-          <p>menu</p>
-          <div class="flip-card">
-            <div class="front face">
-              <img src="./../static/icons/menu.svg" alt="Menu" />
-            </div>
-            <div class="back face">
-              <img src="./../static/icons/close-menu.svg" alt="" />
-            </div>
+          <div class="back face">
+            <img
+              src="./../static/icons/close-contact.svg"
+              alt="Fermer la fenêtre de contact"
+            />
           </div>
         </div>
       </div>
-    </header>
-    <overlaysVue :data="data" />
+      <div
+        id="menu-icon-flippable"
+        class="menu flip-container"
+        @click="toggleMenu()"
+      >
+        <p>menu</p>
+        <div class="flip-card">
+          <div class="front face">
+            <img src="./../static/icons/menu.svg" alt="Menu" />
+          </div>
+          <div class="back face">
+            <img src="./../static/icons/close-menu.svg" alt="" />
+          </div>
+        </div>
+      </div>
+    </div>
+    <MenuVue :data="data" />
+    <ContactVue :data="data" />
+  </header>
 </template>
 <script>
 import axios from "axios";
-import overlaysVue from "./overlays.vue";
+import MenuVue from "./Menu.vue";
+import ContactVue from "./Contact.vue";
 export default {
-    name: 'Headers',
-    components: {
-        overlaysVue
-    },
-    data () {
-        return {
-            data: null,
-            loading: true,
-        }
-    },
-    async mounted() {
-        await axios.get('http://btg-communication.local/wp-json/better-rest-endpoints/v1/options/acf')
-        .then((response) => this.data = response.data);
-        this.loading = false
-    },
-    methods: {
-        toggleContact() {
-            const contactOverlay = document.getElementById('overlay-contact')
-            const contactButton = document.getElementById('contact-icon-flippable')
-            const menuOverlay = document.getElementById('overlay-menu')
-            const menuButton = document.getElementById('menu-icon-flippable')
-            const monbody = document.body
+  name: "Headers",
+  components: {
+    MenuVue,
+    ContactVue,
+  },
+  data() {
+    return {
+      data: null,
+      loading: true,
+    };
+  },
+  async mounted() {
+    await axios
+      .get(
+        "http://btg-communication.local/wp-json/better-rest-endpoints/v1/options/acf"
+      )
+      .then((response) => (this.data = response.data));
+    this.loading = false;
+  },
+  methods: {
+    toggleContact() {
+      const contactOverlay = document.getElementById("overlay-contact");
+      const contactButton = document.getElementById("contact-icon-flippable");
+      const menuOverlay = document.getElementById("overlay-menu");
+      const menuButton = document.getElementById("menu-icon-flippable");
+      const monbody = document.body;
 
-            contactButton.classList.toggle('active')
-            contactOverlay.classList.toggle('active')
-            monbody.classList.toggle('noscroll')
-            menuOverlay.classList.remove('active')
-            menuButton.classList.remove('active')
-        },
-        toggleMenu() {
-            const contactOverlay = document.getElementById('overlay-contact')
-            const contactButton = document.getElementById('contact-icon-flippable')
-            const menuOverlay = document.getElementById('overlay-menu')
-            const menuButton = document.getElementById('menu-icon-flippable')
-            const monbody = document.body
+      contactButton.classList.toggle("active");
+      contactOverlay.classList.toggle("active");
+      monbody.classList.toggle("noscroll");
+      menuOverlay.classList.remove("active");
+      menuButton.classList.remove("active");
+    },
+    toggleMenu() {
+      const contactOverlay = document.getElementById("overlay-contact");
+      const contactButton = document.getElementById("contact-icon-flippable");
+      const menuOverlay = document.getElementById("overlay-menu");
+      const menuButton = document.getElementById("menu-icon-flippable");
+      const monbody = document.body;
 
-            menuButton.classList.toggle('active')
-            menuOverlay.classList.toggle('active')
-            monbody.classList.toggle('noscroll')
-            contactOverlay.classList.remove('active')
-            contactButton.classList.remove('active')
-        },
-    }
-}
+      menuButton.classList.toggle("active");
+      menuOverlay.classList.toggle("active");
+      monbody.classList.toggle("noscroll");
+      contactOverlay.classList.remove("active");
+      contactButton.classList.remove("active");
+    },
+  },
+};
 </script>
