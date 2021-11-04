@@ -52,9 +52,9 @@
 </template>
 <script>
 import axios from "axios";
-import MenuVue from "./Menu.vue";
-import ContactVue from "./Contact.vue";
-import BannerVue from "./Banner.vue";
+import MenuVue from "./../components/Menu.vue";
+import ContactVue from "./../components/Contact.vue";
+import BannerVue from "./../components/Banner.vue";
 export default {
   name: "Headers",
   props: ["title", "propsData"],
