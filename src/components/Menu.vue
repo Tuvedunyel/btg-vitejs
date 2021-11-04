@@ -9,8 +9,8 @@
           <div class="menu-principal-container">
             <ul v-if="menu" id="menu-principal" class="menu-font">
               <li
-                v-for="(link, index) in menu"
-                :key="index"
+                v-for="link in menu"
+                :key="link.url"
                 :class="link.slug === '#' && 'accordeon'"
                 class="menu-item"
               >
@@ -21,11 +21,11 @@
                   v-html="link.title"
                 >
                 </a>
-                <a
+                <router-link
                   v-else-if="link.menu_item_parent === '0'"
-                  href="#"
+                  :to="{ name: 'Page', params: { link } }"
                   v-html="link.title"
-                ></a>
+                ></router-link>
                 <span v-if="link.slug === '#'">
                   <ul v-if="subMenuBoolean" class="sub-menu">
                     <li
