@@ -45,6 +45,9 @@
     <MenuVue :data="data" :menu="menu" :subMenu="subMenu" />
     <ContactVue :data="data" />
     <BannerVue :title="$props.title" :mainMenu="subMenu" />
+    <div class="bot">
+      <h1>{{ propsData.title }}</h1>
+    </div>
   </header>
 </template>
 <script>
@@ -54,7 +57,7 @@ import ContactVue from "./Contact.vue";
 import BannerVue from "./Banner.vue";
 export default {
   name: "Headers",
-  props: ["title"],
+  props: ["title", "propsData"],
   components: {
     MenuVue,
     ContactVue,

@@ -1,5 +1,5 @@
 <template>
-  <HeaderVue v-if="!loading" :title="data.title" />
+  <HeaderVue v-if="!loading" :title="data.title" :propsData="data" />
 </template>
 <script>
 import HeaderVue from "../components/Header.vue";
