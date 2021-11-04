@@ -1,5 +1,9 @@
 <template>
-  <header v-if="!loading" id="acc-header" class="menu-font">
+  <header
+    v-if="!loading"
+    :id="propsData.slug === 'agence-de-communication-a-tours' && 'acc-header'"
+    class="menu-font"
+  >
     <div v-if="!loading" class="top">
       <router-link to="/" class="logo" title="BTG Communication"
         ><img
@@ -44,8 +48,16 @@
     </div>
     <MenuVue :data="data" :menu="menu" :subMenu="subMenu" />
     <ContactVue :data="data" />
-    <BannerVue :title="$props.title" :mainMenu="subMenu" />
-    <div class="bot">
+    <BannerFrontVue
+      v-if="propsData.slug === 'agence-de-communication-a-tours'"
+      :title="$props.title"
+      :mainMenu="subMenu"
+    />
+    <BannerVue v-else :data="propsData" :id="id" />
+    <div
+      v-if="propsData.slug === 'agence-de-communication-a-tours'"
+      class="bot"
+    >
       <h1>{{ propsData.title }}</h1>
     </div>
   </header>
@@ -54,13 +66,15 @@
 import axios from "axios";
 import MenuVue from "./../components/Menu.vue";
 import ContactVue from "./../components/Contact.vue";
-import BannerVue from "./../components/Banner.vue";
+import BannerFrontVue from "./../components/BannerFront.vue";
+import BannerVue from "../components/Banner.vue";
 export default {
   name: "Headers",
   props: ["title", "propsData"],
   components: {
     MenuVue,
     ContactVue,
+    BannerFrontVue,
     BannerVue,
   },
   data() {
@@ -69,6 +83,7 @@ export default {
       loading: true,
       menu: null,
       subMenu: [],
+      id: null,
     };
   },
   async mounted() {
@@ -78,7 +93,7 @@ export default {
       )
       .then((response) => (this.data = response.data));
 
-    axios
+    await axios
       .get(
         "https://btg-communication.local/wp-json/better-rest-endpoints/v1/menus/principal"
       )
@@ -93,6 +108,12 @@ export default {
         });
       });
     this.loading = false;
+
+    const body = document.body;
+
+    if (body.classList.contains("noscroll")) {
+      body.classList.remove("noscroll");
+    }
   },
   methods: {
     toggleContact() {

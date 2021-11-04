@@ -23,7 +23,7 @@
                 </a>
                 <router-link
                   v-else-if="link.menu_item_parent === '0'"
-                  :to="{ name: 'Page', params: { link } }"
+                  :to="{ name: 'Page', params: { link: link.slug } }"
                   v-html="link.title"
                 ></router-link>
                 <span v-if="link.slug === '#'">
