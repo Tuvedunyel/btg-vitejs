@@ -2,10 +2,7 @@
   <section id="acc-newsletter">
     <h2 v-html="data.acf.titre_newsletter"></h2>
     <div class="flipped vague no-transition">
-      <!-- <img
-        src="<?php echo bloginfo('template_url'); ?>/img/icons/wave-yellow.gif"
-        alt=""
-      /> -->
+      <img src="../static/icons/wave-yellow.gif" alt="Vague jaune" />
     </div>
     <h3 v-html="data.acf.texte_newsletter"></h3>
 
@@ -14,67 +11,6 @@
       style="text-align: center; background-color: transparent"
     >
       <div id="sib-form-container" class="sib-form-container">
-        <div
-          id="error-message"
-          class="sib-form-message-panel"
-          style="
-            font-size: 16px;
-            text-align: left;
-            font-family: 'Helvetica', sans-serif;
-            color: #661d1d;
-            background-color: #ffeded;
-            border-radius: 3px;
-            border-color: #ff4949;
-            max-width: 540px;
-          "
-        >
-          <div
-            class="
-              sib-form-message-panel__text sib-form-message-panel__text--center
-            "
-          >
-            <svg viewBox="0 0 512 512" class="sib-icon sib-notification__icon">
-              <path
-                d="M256 40c118.621 0 216 96.075 216 216 0 119.291-96.61 216-216 216-119.244 0-216-96.562-216-216 0-119.203 96.602-216 216-216m0-32C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm-11.49 120h22.979c6.823 0 12.274 5.682 11.99 12.5l-7 168c-.268 6.428-5.556 11.5-11.99 11.5h-8.979c-6.433 0-11.722-5.073-11.99-11.5l-7-168c-.283-6.818 5.167-12.5 11.99-12.5zM256 340c-15.464 0-28 12.536-28 28s12.536 28 28 28 28-12.536 28-28-12.536-28-28-28z"
-              />
-            </svg>
-            <span class="sib-form-message-panel__inner-text">
-              Nous n&#039;avons pas pu confirmer votre inscription.
-            </span>
-          </div>
-        </div>
-        <div></div>
-        <div
-          id="success-message"
-          class="sib-form-message-panel"
-          style="
-            font-size: 16px;
-            text-align: left;
-            font-family: 'Helvetica', sans-serif;
-            color: #085229;
-            background-color: #e7faf0;
-            border-radius: 3px;
-            border-color: #13ce66;
-            max-width: 540px;
-          "
-        >
-          <div
-            class="
-              sib-form-message-panel__text sib-form-message-panel__text--center
-            "
-          >
-            <svg viewBox="0 0 512 512" class="sib-icon sib-notification__icon">
-              <path
-                d="M256 8C119.033 8 8 119.033 8 256s111.033 248 248 248 248-111.033 248-248S392.967 8 256 8zm0 464c-118.664 0-216-96.055-216-216 0-118.663 96.055-216 216-216 118.664 0 216 96.055 216 216 0 118.663-96.055 216-216 216zm141.63-274.961L217.15 376.071c-4.705 4.667-12.303 4.637-16.97-.068l-85.878-86.572c-4.667-4.705-4.637-12.303.068-16.97l8.52-8.451c4.705-4.667 12.303-4.637 16.97.068l68.976 69.533 163.441-162.13c4.705-4.667 12.303-4.637 16.97.068l8.451 8.52c4.668 4.705 4.637 12.303-.068 16.97z"
-              />
-            </svg>
-            <span class="sib-form-message-panel__inner-text">
-              Merci, un message de confirmation vous a été envoyé dans votre
-              boîte mail.
-            </span>
-          </div>
-        </div>
-        <div></div>
         <div
           id="sib-container"
           class="sib-container--large sib-container--vertical"
@@ -149,41 +85,118 @@
                   type="submit"
                   disabled
                 >
-                  <svg
-                    class="
-                      icon
-                      clickable__icon
-                      progress-indicator__icon
-                      sib-hide-loader-icon
-                    "
-                    viewBox="0 0 512 512"
-                  >
-                    <path
-                      d="M460.116 373.846l-20.823-12.022c-5.541-3.199-7.54-10.159-4.663-15.874 30.137-59.886 28.343-131.652-5.386-189.946-33.641-58.394-94.896-95.833-161.827-99.676C261.028 55.961 256 50.751 256 44.352V20.309c0-6.904 5.808-12.337 12.703-11.982 83.556 4.306 160.163 50.864 202.11 123.677 42.063 72.696 44.079 162.316 6.031 236.832-3.14 6.148-10.75 8.461-16.728 5.01z"
-                    />
-                  </svg>
                   ENVOYER
                 </button>
               </div>
             </div>
-
-            <input
-              type="text"
-              name="email_address_check"
-              value=""
-              class="input--hidden"
-            />
-            <input type="hidden" name="locale" value="fr" />
           </form>
         </div>
       </div>
     </div>
   </section>
+  <section v-if="!loading" class="map">
+    <img class="hexatop" src="../static/icons/hexa-white.svg" alt="" />
+    <div class="coordonnees">
+      <img src="../static/icons/hexa-white.svg" alt="" />
+      <div class="adresses">
+        <p class="exo-bold-21">Btg Communication</p>
+        <img src="../static/icons/vague(1).svg" alt="" />
+        <ul class="exo-light-21">
+          <li>{{ optionsData.adresse_coordonnees }}</li>
+          <li>
+            {{ optionsData.code_postal_coordonnees }}
+            {{ optionsData.ville_coordonnees }}
+          </li>
+          <li>{{ optionsData.numero_telephone_coordonnes }}</li>
+          <li>contact@btg-communication.fr</li>
+        </ul>
+      </div>
+    </div>
+    <div id="map-fixe">
+      <img
+        src="../static/adresse-btg-communication.jpg"
+        alt="Adresse BTG Communication"
+      />
+    </div>
+  </section>
+  <footer v-if="!loading">
+    <div class="desc">
+      <strong>
+        <span class="btg">© BTG communication</span>
+        <span class="dash">-</span>
+        <span class="agence"
+          >agence de communication visuelle à Tours (37)</span
+        >
+      </strong>
+      <span class="dash">-</span>
+      <a href="#" class="mentions">Mentions légales</a>
+    </div>
+    <div class="socials">
+      <a href="#">
+        <span class="screen-reader-text">Contact</span>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 519.6 600">
+          <path
+            d="M259.8 600L0 450V150L259.8 0l259.8 150v300L259.8 600zM13.3 442.3l246.5 142.3 246.5-142.3V157.7L259.8 15.4 13.3 157.7v284.6z"
+          />
+          <path
+            d="M259.8 337.9l-195-112.6c-4.8-2.8-6.4-8.9-3.6-13.6 2.8-4.8 8.9-6.4 13.6-3.6l185 106.8 185-106.8c4.8-2.8 10.9-1.1 13.6 3.6 2.8 4.8 1.1 10.9-3.6 13.6l-195 112.6z"
+          />
+          <g>
+            <path
+              d="M460 420.2H59.6V179.8H460v240.4zM80.1 399.6h359.4V200.4H80.1v199.2z"
+            />
+          </g>
+        </svg>
+        <img src="./../static/icons/contact-degrade.svg" alt="Contact" />
+      </a>
+      <a :href="optionsData.url_twitter_rs">
+        <span class="screen-reader-text">Facebook</span>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 519.6 600">
+          <path
+            d="M259.8 600L0 450V150L259.8 0l259.8 150v300L259.8 600zM15.4 441.1l244.4 141.1 244.4-141.1V158.9L259.8 17.7 15.4 158.9v282.2z"
+          />
+          <path
+            d="M284.3 458.3V313.9h48.5l7.3-56.3h-55.7v-35.9c0-16.3 4.5-27.4 27.9-27.4h29.8V144c-5.2-.7-22.8-2.2-43.4-2.2-43 0-72.4 26.2-72.4 74.4v41.5h-48.6V314h48.6v144.4h58z"
+          />
+        </svg>
+        <img src="./../static/icons/facebook-degrade.svg" alt="Logo Facebook" />
+      </a>
+      <a :href="optionsData.url_twitter_rs">
+        <span class="screen-reader-text">Twitter</span>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 519.6 600">
+          <path
+            d="M259.8 600L0 450V150L259.8 0l259.8 150v300L259.8 600zM15.4 441.1l244.4 141.1 244.4-141.1V158.9L259.8 17.7 15.4 158.9v282.2z"
+          />
+          <g>
+            <path
+              d="M194.9 441.9c131.7 0 203.8-109.3 203.8-203.8 0-3.1 0-6.1-.1-9.2 14-10.1 26.1-22.8 35.8-37.2-12.9 5.7-26.7 9.5-41.2 11.3 14.8-8.8 26.1-22.9 31.6-39.7-13.8 8.2-29.2 14.1-45.5 17.3-13.1-14-31.7-22.6-52.3-22.6-39.5 0-71.7 32.1-71.7 71.7 0 5.6.7 11 1.8 16.3-59.5-2.9-112.3-31.6-147.7-74.9-6.1 10.6-9.6 22.9-9.6 36 0 24.9 12.7 46.8 31.9 59.7-11.7-.4-22.8-3.6-32.4-8.9v1c0 34.6 24.7 63.7 57.4 70.3-6 1.7-12.3 2.5-18.9 2.5-4.6 0-9.1-.4-13.4-1.3 9.1 28.5 35.6 49.2 66.9 49.7-24.6 19.3-55.5 30.7-89 30.7-5.7 0-11.5-.3-17-1 31.5 20.3 69.2 32.1 109.6 32.1"
+            />
+          </g>
+        </svg>
+        <img src="./../static/icons/twitter-degrade.svg" alt="Logo twitter" />
+      </a>
+    </div>
+  </footer>
 </template>
 
 <script>
+import axios from "axios";
 export default {
   name: "Footer",
   props: ["data"],
+  data() {
+    return {
+      optionsData: null,
+      loading: true,
+    };
+  },
+  async mounted() {
+    await axios
+      .get(
+        "http://btg-communication.local/wp-json/better-rest-endpoints/v1/options/acf"
+      )
+      .then((response) => (this.optionsData = response.data));
+    this.loading = false;
+  },
 };
 </script>
