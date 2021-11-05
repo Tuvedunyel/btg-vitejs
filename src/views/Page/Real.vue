@@ -19,7 +19,6 @@
           <img src="./../../static/icons/vague(1).svg" alt="" class="vague" />
         </div>
 
-        <input type="text" v-model="searchTerm" />
         <div
           v-for="(name, index) in sortedTerm"
           :key="index"
@@ -119,7 +118,7 @@
     },
     data() {
       return {
-        data: {},
+        data: null,
         sortedTerm: [],
         fetchData: false,
         searchTerm: "",
@@ -128,11 +127,11 @@
     computed: {
       filteredRealTerm() {
         return this.data.filter(real => {
-          return real.terms.filter(realTerm => {
-            return realTerm.name
+          for (let value of real.terms) {
+            return value.name
               .toLowerCase()
               .includes(this.searchTerm.toLowerCase());
-          });
+          }
         });
       },
     },

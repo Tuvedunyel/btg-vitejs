@@ -97,6 +97,19 @@
 <script>
   export default {
     name: "Agence",
-    props: ["data", "loading"],
+    props: {
+      data: {
+        type: Object,
+        required: true,
+      },
+      loading: {
+        type: Boolean,
+        required: true,
+      },
+      apiUrl: {
+        type: String,
+        default: "https://btg-communication.local",
+      },
+    },
   };
 </script>

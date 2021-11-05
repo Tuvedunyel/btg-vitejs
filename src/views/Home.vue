@@ -252,6 +252,12 @@
       HeaderVue,
       FooterVue,
     },
+    props: {
+      apiUrl: {
+        type: String,
+        default: "https://www.btg-communication.local",
+      },
+    },
     data() {
       return {
         data: null,

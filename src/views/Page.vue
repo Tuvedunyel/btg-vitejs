@@ -5,16 +5,25 @@
       v-if="data.template === 'page-equipe'"
       :data="data"
       :loading="loading"
+      :apiUrl="apiUrl"
     />
     <AgenceVue
       v-else-if="data.template === 'page-agence'"
       :data="data"
       :loading="loading"
+      :apiUrl="apiUrl"
     />
     <RealVue
       v-else-if="data.template === 'page-real'"
       :propsData="data"
       :loading="loading"
+      :apiUrl="apiUrl"
+    />
+    <ClientVue
+      v-else-if="data.template === 'page-client'"
+      :loading="loading"
+      :clients="data"
+      :apiUrl="apiUrl"
     />
     <FooterVue v-if="!loading" />
   </div>
@@ -25,10 +34,20 @@
   import EquipeVue from "./Page/Equipe.vue";
   import AgenceVue from "./Page/Agence.vue";
   import RealVue from "./Page/Real.vue";
+  import ClientVue from "./Page/Client.vue";
   import FooterVue from "../layouts/Footer.vue";
   export default {
     name: "Page",
-    props: ["link"],
+    props: {
+      link: {
+        type: String,
+        default: "",
+      },
+      apiUrl: {
+        type: String,
+        default: "https://www.btg-communication.local",
+      },
+    },
     data() {
       return {
         data: null,
@@ -40,6 +59,7 @@
       EquipeVue,
       AgenceVue,
       RealVue,
+      ClientVue,
       FooterVue,
     },
     async mounted() {

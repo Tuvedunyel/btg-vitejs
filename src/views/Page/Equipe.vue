@@ -78,6 +78,19 @@
 <script>
   export default {
     name: "Equipe",
-    props: ["data", "loading"],
+    props: {
+      data: {
+        type: Object,
+        default: () => ({}),
+      },
+      loading: {
+        type: Boolean,
+        default: false,
+      },
+      apiUrl: {
+        type: String,
+        default: "https://btg-communication.com",
+      },
+    },
   };
 </script>
