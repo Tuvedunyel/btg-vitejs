@@ -1,9 +1,9 @@
 <template>
-  <section v-if="!loading" id="reals">
+  <section v-if="!loading && fetchData" id="reals">
     <div class="container">
       <p class="exo-light-18 intro"></p>
       <div class="filters">
-        <div class="filter-item active">
+        <div class="filter-item active" @click="searchTerm = ''">
           <div class="icon">
             <img
               src="./../../static/icons/filter-tous.svg"
@@ -19,10 +19,12 @@
           <img src="./../../static/icons/vague(1).svg" alt="" class="vague" />
         </div>
 
+        <input type="text" v-model="searchTerm" />
         <div
           v-for="(name, index) in sortedTerm"
           :key="index"
           class="filter-item"
+          @click="searchTerm = name"
         >
           <div class="icon">
             <img
@@ -42,7 +44,7 @@
       </div>
       <div id="real-list">
         <a
-          v-for="(real, index) in data"
+          v-for="(real, index) in filteredRealTerm"
           :key="index"
           herf="#"
           class="real-item no-transition"
@@ -119,7 +121,20 @@
       return {
         data: {},
         sortedTerm: [],
+        fetchData: false,
+        searchTerm: "",
       };
+    },
+    computed: {
+      filteredRealTerm() {
+        return this.data.filter(real => {
+          return real.terms.filter(realTerm => {
+            return realTerm.name
+              .toLowerCase()
+              .includes(this.searchTerm.toLowerCase());
+          });
+        });
+      },
     },
     async mounted() {
       await axios
@@ -135,6 +150,7 @@
           });
         });
       this.sortedTerm = [...new Set(this.sortedTerm)];
+      this.fetchData = true;
     },
     methods: {
       renderLogo(name) {
