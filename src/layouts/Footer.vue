@@ -156,7 +156,7 @@
         </svg>
         <img src="./../static/icons/contact-degrade.svg" alt="Contact" />
       </a>
-      <a :href="optionsData.url_twitter_rs">
+      <a :href="optionsData.url_facebook_rs">
         <span class="screen-reader-text">Facebook</span>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 519.6 600">
           <path
@@ -168,19 +168,41 @@
         </svg>
         <img src="./../static/icons/facebook-degrade.svg" alt="Logo Facebook" />
       </a>
-      <a :href="optionsData.url_twitter_rs">
-        <span class="screen-reader-text">Twitter</span>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 519.6 600">
-          <path
-            d="M259.8 600L0 450V150L259.8 0l259.8 150v300L259.8 600zM15.4 441.1l244.4 141.1 244.4-141.1V158.9L259.8 17.7 15.4 158.9v282.2z"
-          />
+      <a :href="optionsData.url_linkedin_rs">
+        <span class="screen-reader-text">Linkedin</span>
+        <svg
+          version="1.1"
+          id="Calque_1"
+          xmlns="http://www.w3.org/2000/svg"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          x="0px"
+          y="0px"
+          viewBox="0 0 519.6 600"
+          style="enable-background: new 0 0 519.6 600"
+          xml:space="preserve"
+        >
           <g>
             <path
-              d="M194.9 441.9c131.7 0 203.8-109.3 203.8-203.8 0-3.1 0-6.1-.1-9.2 14-10.1 26.1-22.8 35.8-37.2-12.9 5.7-26.7 9.5-41.2 11.3 14.8-8.8 26.1-22.9 31.6-39.7-13.8 8.2-29.2 14.1-45.5 17.3-13.1-14-31.7-22.6-52.3-22.6-39.5 0-71.7 32.1-71.7 71.7 0 5.6.7 11 1.8 16.3-59.5-2.9-112.3-31.6-147.7-74.9-6.1 10.6-9.6 22.9-9.6 36 0 24.9 12.7 46.8 31.9 59.7-11.7-.4-22.8-3.6-32.4-8.9v1c0 34.6 24.7 63.7 57.4 70.3-6 1.7-12.3 2.5-18.9 2.5-4.6 0-9.1-.4-13.4-1.3 9.1 28.5 35.6 49.2 66.9 49.7-24.6 19.3-55.5 30.7-89 30.7-5.7 0-11.5-.3-17-1 31.5 20.3 69.2 32.1 109.6 32.1"
-            />
+              class="st0"
+              d="M259.2,600.4l-259.8-150v-300l259.8-150l259.8,150v300L259.2,600.4z M14.8,441.5l244.4,141.1l244.4-141.1
+ V159.3L259.2,18.1L14.8,159.3V441.5z"
+            ></path>
+            <g>
+              <path
+                class="st1"
+                d="M177,444.2V250.1h-64.5v194.1H177L177,444.2z M144.8,223.6c22.5,0,36.5-14.9,36.5-33.5
+ c-0.4-19-14-33.5-36.1-33.5c-22.1,0-36.5,14.5-36.5,33.5c0,18.6,14,33.5,35.6,33.5H144.8L144.8,223.6z"
+              ></path>
+              <path
+                class="st1"
+                d="M212.7,444.2h64.5V335.8c0-5.8,0.4-11.6,2.1-15.7c4.7-11.6,15.3-23.6,33.1-23.6c23.3,0,32.7,17.8,32.7,43.9
+ v103.8h64.5V332.9c0-59.6-31.8-87.3-74.3-87.3c-34.8,0-50.1,19.5-58.6,32.7h0.4v-28.2h-64.5C213.6,268.3,212.7,444.2,212.7,444.2
+ L212.7,444.2z"
+              ></path>
+            </g>
           </g>
         </svg>
-        <img src="./../static/icons/twitter-degrade.svg" alt="Logo twitter" />
+        <img src="./../static/icons/linkedin-degrade.svg" alt="Logo Linkedin" />
       </a>
     </div>
   </footer>

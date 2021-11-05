@@ -11,6 +11,11 @@
       :data="data"
       :loading="loading"
     />
+    <RealVue
+      v-else-if="data.template === 'page-real'"
+      :propsData="data"
+      :loading="loading"
+    />
     <FooterVue v-if="!loading" />
   </div>
 </template>
@@ -19,6 +24,7 @@
   import HeaderVue from "../layouts/Header.vue";
   import EquipeVue from "./Page/Equipe.vue";
   import AgenceVue from "./Page/Agence.vue";
+  import RealVue from "./Page/Real.vue";
   import FooterVue from "../layouts/Footer.vue";
   export default {
     name: "Page",
@@ -33,6 +39,7 @@
       HeaderVue,
       EquipeVue,
       AgenceVue,
+      RealVue,
       FooterVue,
     },
     async mounted() {

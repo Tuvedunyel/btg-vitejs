@@ -1,0 +1,171 @@
+<template>
+  <section v-if="!loading" id="reals">
+    <div class="container">
+      <p class="exo-light-18 intro"></p>
+      <div class="filters">
+        <div class="filter-item active">
+          <div class="icon">
+            <img
+              src="./../../static/icons/filter-tous.svg"
+              alt="icone tous"
+              class="black"
+            />
+            <img
+              src="./../../static/icons/filter-tous-degrade.svg"
+              alt="icone tous dégradé"
+              class="gradient"
+            />
+          </div>
+          <img src="./../../static/icons/vague(1).svg" alt="" class="vague" />
+        </div>
+
+        <div
+          v-for="(name, index) in sortedTerm"
+          :key="index"
+          class="filter-item"
+        >
+          <div class="icon">
+            <img
+              :src="renderLogo(name).src"
+              :alt="renderLogo(name).alt"
+              class="black"
+            />
+
+            <img
+              :src="renderDegrade(name).src"
+              :alt="renderDegrade(name).alt"
+              class="gradient"
+            />
+          </div>
+          <p>{{ name }}</p>
+        </div>
+      </div>
+      <div id="real-list">
+        <a
+          v-for="(real, index) in data"
+          :key="index"
+          herf="#"
+          class="real-item no-transition"
+        >
+          <img :src="real.media.medium_large" :alt="real.title" />
+          <div class="desc">
+            <div class="overlay"></div>
+            <h2 class="no-point" v-html="real.title"></h2>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 371.9 429.5">
+              <path
+                d="M186 0L0 107.4v214.7l186 107.4 186-107.4V107.4L186 0zm174.9 315.7l-175 101-175-101v-202l175-101 175 101v202z"
+              />
+              <path
+                d="M169.3 134.7v63.6h-61.2v32.3h61.2v64.2h23.3v-64.2h61.2v-32.3h-61.2v-63.6z"
+              />
+            </svg>
+            <p v-html="real.excerpt"></p>
+          </div>
+        </a>
+      </div>
+
+      <div
+        v-for="(real, index) in data"
+        :key="index"
+        class="intro exo-light-18"
+      >
+        {{ real.acf.txt_realisation }}
+      </div>
+
+      <a class="classic-button menu-related">
+        <p>Nous contacter</p>
+        <svg
+          class="arrow"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 100 100"
+          x="0px"
+          y="0px"
+        >
+          <title>Arrows</title>
+          <g data-name="Layer 2">
+            <polygon
+              points="44.13 72.13 58 86 94.25 50 57.87 13.13 44 27 57.51 41 6 41 6 59 57.51 59 44.13 72.13"
+            ></polygon>
+          </g>
+        </svg>
+      </a>
+    </div>
+  </section>
+</template>
+<script>
+  import axios from "axios";
+  import identite from "../../static/icons/filter-identite.svg";
+  import graphisme from "../../static/icons/filter-graphisme.svg";
+  import web from "../../static/icons/filter-web.svg";
+  import edition from "../../static/icons/filter-edition.svg";
+  import video from "../../static/icons/filter-motion.svg";
+  import identiteDegrade from "../../static/icons/filter-identite-degrade.svg";
+  import graphismeDegrade from "../../static/icons/filter-graphisme-degrade.svg";
+  import webDegrade from "../../static/icons/filter-web-degrade.svg";
+  import editionDegrade from "../../static/icons/filter-edition-degrade.svg";
+  import videoDegrade from "../../static/icons/filter-motion-degrade.svg";
+  export default {
+    name: "Real",
+    props: {
+      propsData: {
+        type: Object,
+        default: () => ({}),
+      },
+      loading: {
+        type: Boolean,
+      },
+    },
+    data() {
+      return {
+        data: {},
+        sortedTerm: [],
+      };
+    },
+    async mounted() {
+      await axios
+        .get(
+          "https://btg-communication.local/wp-json/better-rest-endpoints/v1/realisations?per_page=100"
+        )
+        .then(response => {
+          this.data = response.data;
+          response.data.map(res => {
+            res.terms.map(term => {
+              this.sortedTerm.push(term.name);
+            });
+          });
+        });
+      this.sortedTerm = [...new Set(this.sortedTerm)];
+    },
+    methods: {
+      renderLogo(name) {
+        switch (name) {
+          case "Identité":
+            return { src: identite, alt: "Identité" };
+          case "Graphisme":
+            return { src: graphisme, alt: "Graphisme" };
+          case "Web":
+            return { src: web, alt: "Web" };
+          case "Édition":
+            return { src: edition, alt: "Édition" };
+          case "Vidéo":
+            return { src: video, alt: "Motion" };
+        }
+      },
+
+      renderDegrade(name) {
+        switch (name) {
+          case "Identité":
+            return { src: identiteDegrade, alt: "Identité" };
+          case "Graphisme":
+            return { src: graphismeDegrade, alt: "Graphisme" };
+          case "Web":
+            return { src: webDegrade, alt: "Web" };
+          case "Édition":
+            return { src: editionDegrade, alt: "Édition" };
+          case "Vidéo":
+            return { src: videoDegrade, alt: "Motion" };
+        }
+      },
+    },
+  };
+</script>

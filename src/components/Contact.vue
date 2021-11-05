@@ -8,9 +8,11 @@
             src="./../static/icons/facebook-degrade.svg"
             alt="Logo Facebook"
         /></a>
-        <a :href="data.url_twitter_rs"
-          ><span class="screen-reader-text">Twitter</span
-          ><img src="./../static/icons/twitter-degrade.svg" alt="Logo Twitter"
+        <a :href="data.url_linkedin_rs"
+          ><span class="screen-reader-text">linkedin</span
+          ><img
+            src="./../static/icons/linkedin-degrade.svg"
+            alt="Logo linkedin"
         /></a>
       </div>
       <div class="formulaire">
@@ -163,66 +165,66 @@
 </template>
 
 <script>
-import axios from "axios";
-export default {
-  name: "Contact",
-  props: ["data"],
-  data() {
-    return {
-      errors: [],
-      nameForm: null,
-      mailForm: null,
-      tel: null,
-      compagny: null,
-      message: null,
-      sent: false,
-    };
-  },
-  methods: {
-    validEmail(email) {
-      const re =
-        /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-      return re.test(email);
+  import axios from "axios";
+  export default {
+    name: "Contact",
+    props: ["data"],
+    data() {
+      return {
+        errors: [],
+        nameForm: null,
+        mailForm: null,
+        tel: null,
+        compagny: null,
+        message: null,
+        sent: false,
+      };
     },
+    methods: {
+      validEmail(email) {
+        const re =
+          /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        return re.test(email);
+      },
 
-    checkForm(e) {
-      e.preventDefault();
-      this.errors = [];
+      checkForm(e) {
+        e.preventDefault();
+        this.errors = [];
 
-      if (!this.nameForm) {
-        this.errors.push("Nom et prénom requis.");
-      }
-      if (!this.mailForm) {
-        this.errors.push("Email requis.");
-      } else if (!this.validEmail(this.mailForm)) {
-        this.errors.push("Un email valide est requis.");
-      }
-      if (!this.tel) {
-        this.errors.push("Un numéro de téléphone est requis.");
-      }
+        if (!this.nameForm) {
+          this.errors.push("Nom et prénom requis.");
+        }
+        if (!this.mailForm) {
+          this.errors.push("Email requis.");
+        } else if (!this.validEmail(this.mailForm)) {
+          this.errors.push("Un email valide est requis.");
+        }
+        if (!this.tel) {
+          this.errors.push("Un numéro de téléphone est requis.");
+        }
 
-      if (!this.errors.length) {
-        const bodyFormData = new FormData();
-        bodyFormData.set("name-form", this.nameForm);
-        bodyFormData.set("compagny", this.compagny);
-        bodyFormData.set("mail-form", this.mailForm);
-        bodyFormData.set("tel", this.tel);
-        bodyFormData.set("message", this.message);
+        if (!this.errors.length) {
+          const bodyFormData = new FormData();
+          bodyFormData.set("name-form", this.nameForm);
+          bodyFormData.set("compagny", this.compagny);
+          bodyFormData.set("mail-form", this.mailForm);
+          bodyFormData.set("tel", this.tel);
+          bodyFormData.set("message", this.message);
 
-        axios({
-          method: "post",
-          url: "https://www.btg-communication.fr/wp-json/contact-form-7/v1/contact-forms/270/feedback",
-          data: bodyFormData,
-          config: { headers: { "Content-Type": "multipart/form-data" } },
-        })
-          .then((response) => {
-            console.log(response);
-            this.sent = true;
-            return true;
+          axios({
+            method: "post",
+            url: "https://www.btg-communication.fr/wp-json/contact-form-7/v1/contact-forms/270/feedback",
+            data: bodyFormData,
+            config: { headers: { "Content-Type": "multipart/form-data" } },
           })
-          .catch((error) => console.log(error));
-      }
+            .then(response => {
+              console.log(response);
+              this.sent = true;
+              return true;
+            })
+            .catch(error => console.log(error));
+        }
+      },
     },
-  },
-};
+  };
 </script>

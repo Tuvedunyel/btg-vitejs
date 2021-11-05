@@ -57,27 +57,29 @@
             src="./../static/icons/facebook-degrade.svg"
             alt="Logo Facebook"
         /></a>
-        <a :href="data.url_twitter_rs" target="_blank"
-          ><span class="screen-reader-text">Twitter</span
-          ><img src="./../static/icons/twitter-degrade.svg" alt="Logo Twitter"
+        <a :href="data.url_linkedin_rs" target="_blank"
+          ><span class="screen-reader-text">linkedin</span
+          ><img
+            src="./../static/icons/linkedin-degrade.svg"
+            alt="Logo linkedin"
         /></a>
       </div>
     </div>
   </div>
 </template>
 <script>
-export default {
-  name: "Menu",
-  props: ["data", "menu", "subMenu"],
-  data() {
-    return {
-      subMenuBoolean: false,
-    };
-  },
-  methods: {
-    toggleSubMenu() {
-      this.subMenuBoolean = !this.subMenuBoolean;
+  export default {
+    name: "Menu",
+    props: ["data", "menu", "subMenu"],
+    data() {
+      return {
+        subMenuBoolean: false,
+      };
     },
-  },
-};
+    methods: {
+      toggleSubMenu() {
+        this.subMenuBoolean = !this.subMenuBoolean;
+      },
+    },
+  };
 </script>
