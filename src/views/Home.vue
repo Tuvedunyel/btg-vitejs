@@ -1,5 +1,5 @@
 <template>
-  <HeaderVue v-if="!loading" :title="data.title" :propsData="data" />
+  <HeaderVue v-if="!loading" :propsData="data" />
   <section v-if="!loading" id="acc-projet">
     <div class="container">
       <h2 class="reversed flipped no-transition">Projets</h2>
@@ -240,90 +240,93 @@
       </a>
     </div>
   </section>
-  <FooterVue v-if="!loading" :data="data" />
+  <FooterVue v-if="!loading" />
 </template>
 <script>
-import HeaderVue from "../layouts/Header.vue";
-import FooterVue from "../layouts/Footer.vue";
-import axios from "axios";
-export default {
-  name: "Home",
-  components: {
-    HeaderVue,
-    FooterVue,
-  },
-  data() {
-    return {
-      data: null,
-      loading: true,
-      sliceA: 0,
-      sliceB: 1,
-      bulletSlider: [],
-      client: [],
-      currentSlide: 0,
-    };
-  },
-  computed: {
-    clientShow() {
-      if (this.client) {
-        return this.client
-          .slice(0, 12)
-          .sort((a, b) => Date.parse(b.date_gmt) - Date.parse(a.date_gmt));
-      }
-      return this.client;
+  import HeaderVue from "../layouts/Header.vue";
+  import FooterVue from "../layouts/Footer.vue";
+  import axios from "axios";
+  export default {
+    name: "Home",
+    components: {
+      HeaderVue,
+      FooterVue,
     },
-  },
-  async mounted() {
-    await axios
-      .get(
-        "https://btg-communication.local/wp-json/better-rest-endpoints/v1/pages?per_page=50"
-      )
-      .then((response) => {
-        response.data.map((res) => {
-          if (res.slug === "agence-de-communication-a-tours") {
-            this.data = res;
-          }
+    data() {
+      return {
+        data: null,
+        loading: true,
+        sliceA: 0,
+        sliceB: 1,
+        bulletSlider: [],
+        client: [],
+        currentSlide: 0,
+      };
+    },
+    computed: {
+      clientShow() {
+        if (this.client) {
+          return this.client
+            .slice(0, 12)
+            .sort((a, b) => Date.parse(b.date_gmt) - Date.parse(a.date_gmt));
+        }
+        return this.client;
+      },
+    },
+    async mounted() {
+      await axios
+        .get(
+          "https://btg-communication.local/wp-json/better-rest-endpoints/v1/pages?per_page=50"
+        )
+        .then(response => {
+          response.data.map(res => {
+            if (res.slug === "agence-de-communication-a-tours") {
+              this.data = res;
+            }
+          });
         });
-      });
-    for (let i = 0; i < this.data.acf.slide.length; i++) {
-      this.bulletSlider.push(i);
-    }
-    await axios
-      .get(
-        "https://btg-communication.local/wp-json/better-rest-endpoints/v1/client?per_page=50"
-      )
-      .then((response) => {
-        this.client = response.data;
-      });
-    this.loading = false;
-  },
-  methods: {
-    handleSlider() {
-      return this.data.acf.slide.slice(this.sliceA, this.sliceB);
-    },
-    handleSlideClick(slide) {
-      if (this.currentSlide < slide && this.sliceB < this.bulletSlider.length) {
-        this.sliceA = this.sliceA + 1 * (slide - this.currentSlide);
-        this.sliceB = this.sliceB + 1 * (slide - this.currentSlide);
-        this.currentSlide = slide;
-      } else {
-        this.sliceA = this.sliceA - 1 * (this.currentSlide - slide);
-        this.sliceB = this.sliceB - 1 * (this.currentSlide - slide);
-        this.currentSlide = slide;
+      for (let i = 0; i < this.data.acf.slide.length; i++) {
+        this.bulletSlider.push(i);
       }
+      await axios
+        .get(
+          "https://btg-communication.local/wp-json/better-rest-endpoints/v1/client?per_page=50"
+        )
+        .then(response => {
+          this.client = response.data;
+        });
+      this.loading = false;
     },
-    handleSlideArrow(directives) {
-      if (directives === "previous" && this.sliceA > 0) {
-        this.sliceA = this.sliceA - 1;
-        this.sliceB = this.sliceB - 1;
-        this.currentSlide = this.currentSlide - 1;
-      }
-      if (directives === "next" && this.sliceB < this.bulletSlider.length) {
-        this.sliceA = this.sliceA + 1;
-        this.sliceB = this.sliceB + 1;
-        this.currentSlide = this.currentSlide + 1;
-      }
+    methods: {
+      handleSlider() {
+        return this.data.acf.slide.slice(this.sliceA, this.sliceB);
+      },
+      handleSlideClick(slide) {
+        if (
+          this.currentSlide < slide &&
+          this.sliceB < this.bulletSlider.length
+        ) {
+          this.sliceA = this.sliceA + 1 * (slide - this.currentSlide);
+          this.sliceB = this.sliceB + 1 * (slide - this.currentSlide);
+          this.currentSlide = slide;
+        } else {
+          this.sliceA = this.sliceA - 1 * (this.currentSlide - slide);
+          this.sliceB = this.sliceB - 1 * (this.currentSlide - slide);
+          this.currentSlide = slide;
+        }
+      },
+      handleSlideArrow(directives) {
+        if (directives === "previous" && this.sliceA > 0) {
+          this.sliceA = this.sliceA - 1;
+          this.sliceB = this.sliceB - 1;
+          this.currentSlide = this.currentSlide - 1;
+        }
+        if (directives === "next" && this.sliceB < this.bulletSlider.length) {
+          this.sliceA = this.sliceA + 1;
+          this.sliceB = this.sliceB + 1;
+          this.currentSlide = this.currentSlide + 1;
+        }
+      },
     },
-  },
-};
+  };
 </script>

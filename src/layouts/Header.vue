@@ -50,10 +50,10 @@
     <ContactVue :data="data" />
     <BannerFrontVue
       v-if="propsData.slug === 'agence-de-communication-a-tours'"
-      :title="$props.title"
+      :title="$props.propsData.title"
       :mainMenu="subMenu"
     />
-    <BannerVue v-else :data="propsData" :id="id" />
+    <BannerVue v-else :data="propsData" :template="template" />
     <div
       v-if="propsData.slug === 'agence-de-communication-a-tours'"
       class="bot"
@@ -63,85 +63,85 @@
   </header>
 </template>
 <script>
-import axios from "axios";
-import MenuVue from "./../components/Menu.vue";
-import ContactVue from "./../components/Contact.vue";
-import BannerFrontVue from "./../components/BannerFront.vue";
-import BannerVue from "../components/Banner.vue";
-export default {
-  name: "Headers",
-  props: ["title", "propsData"],
-  components: {
-    MenuVue,
-    ContactVue,
-    BannerFrontVue,
-    BannerVue,
-  },
-  data() {
-    return {
-      data: null,
-      loading: true,
-      menu: null,
-      subMenu: [],
-      id: null,
-    };
-  },
-  async mounted() {
-    await axios
-      .get(
-        "http://btg-communication.local/wp-json/better-rest-endpoints/v1/options/acf"
-      )
-      .then((response) => (this.data = response.data));
+  import axios from "axios";
+  import MenuVue from "./../components/Menu.vue";
+  import ContactVue from "./../components/Contact.vue";
+  import BannerFrontVue from "./../components/BannerFront.vue";
+  import BannerVue from "../components/Banner.vue";
+  export default {
+    name: "Headers",
+    props: ["propsData"],
+    components: {
+      MenuVue,
+      ContactVue,
+      BannerFrontVue,
+      BannerVue,
+    },
+    data() {
+      return {
+        data: null,
+        loading: true,
+        menu: null,
+        subMenu: [],
+        template: null,
+      };
+    },
+    async mounted() {
+      await axios
+        .get(
+          "http://btg-communication.local/wp-json/better-rest-endpoints/v1/options/acf"
+        )
+        .then(response => (this.data = response.data));
 
-    await axios
-      .get(
-        "https://btg-communication.local/wp-json/better-rest-endpoints/v1/menus/principal"
-      )
-      .then((response) => {
-        this.menu = response.data;
-        response.data.map((res) => {
-          if (res.menu_item_parent !== "0") {
-            return this.subMenu.push(res);
-          }
-          this.subMenu.sort();
-          this.subMenu = [...new Set(this.subMenu)];
+      await axios
+        .get(
+          "https://btg-communication.local/wp-json/better-rest-endpoints/v1/menus/principal"
+        )
+        .then(response => {
+          this.menu = response.data;
+          response.data.map(res => {
+            if (res.menu_item_parent !== "0") {
+              return this.subMenu.push(res);
+            }
+            this.subMenu.sort();
+            this.subMenu = [...new Set(this.subMenu)];
+          });
         });
-      });
-    this.loading = false;
+      this.loading = false;
+      this.template = this.propsData.template;
+      const body = document.body;
 
-    const body = document.body;
-
-    if (body.classList.contains("noscroll")) {
-      body.classList.remove("noscroll");
-    }
-  },
-  methods: {
-    toggleContact() {
-      const contactOverlay = document.getElementById("overlay-contact");
-      const contactButton = document.getElementById("contact-icon-flippable");
-      const menuOverlay = document.getElementById("overlay-menu");
-      const menuButton = document.getElementById("menu-icon-flippable");
-      const monbody = document.body;
-
-      contactButton.classList.toggle("active");
-      contactOverlay.classList.toggle("active");
-      monbody.classList.toggle("noscroll");
-      menuOverlay.classList.remove("active");
-      menuButton.classList.remove("active");
+      if (body.classList.contains("noscroll")) {
+        body.classList.remove("noscroll");
+      }
     },
-    toggleMenu() {
-      const contactOverlay = document.getElementById("overlay-contact");
-      const contactButton = document.getElementById("contact-icon-flippable");
-      const menuOverlay = document.getElementById("overlay-menu");
-      const menuButton = document.getElementById("menu-icon-flippable");
-      const monbody = document.body;
+    methods: {
+      toggleContact() {
+        const contactOverlay = document.getElementById("overlay-contact");
+        const contactButton = document.getElementById("contact-icon-flippable");
+        const menuOverlay = document.getElementById("overlay-menu");
+        const menuButton = document.getElementById("menu-icon-flippable");
+        const monbody = document.body;
 
-      menuButton.classList.toggle("active");
-      menuOverlay.classList.toggle("active");
-      monbody.classList.toggle("noscroll");
-      contactOverlay.classList.remove("active");
-      contactButton.classList.remove("active");
+        contactButton.classList.toggle("active");
+        contactOverlay.classList.toggle("active");
+        monbody.classList.toggle("noscroll");
+        menuOverlay.classList.remove("active");
+        menuButton.classList.remove("active");
+      },
+      toggleMenu() {
+        const contactOverlay = document.getElementById("overlay-contact");
+        const contactButton = document.getElementById("contact-icon-flippable");
+        const menuOverlay = document.getElementById("overlay-menu");
+        const menuButton = document.getElementById("menu-icon-flippable");
+        const monbody = document.body;
+
+        menuButton.classList.toggle("active");
+        menuOverlay.classList.toggle("active");
+        monbody.classList.toggle("noscroll");
+        contactOverlay.classList.remove("active");
+        contactButton.classList.remove("active");
+      },
     },
-  },
-};
+  };
 </script>

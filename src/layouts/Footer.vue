@@ -1,10 +1,17 @@
 <template>
   <section id="acc-newsletter">
-    <h2 v-html="data.acf.titre_newsletter"></h2>
+    <h2>Inscription à la newsletter</h2>
     <div class="flipped vague no-transition">
       <img src="../static/icons/wave-yellow.gif" alt="Vague jaune" />
     </div>
-    <h3 v-html="data.acf.texte_newsletter"></h3>
+    <h3>
+      Recevez tous les mois les actualités de notre agence de communication, des
+      articles sur
+      <strong
+        >le marketing, la création de site internet, les bonnes pratiques, des
+        guides etc.</strong
+      >
+    </h3>
 
     <div
       class="sib-form"
@@ -180,23 +187,22 @@
 </template>
 
 <script>
-import axios from "axios";
-export default {
-  name: "Footer",
-  props: ["data"],
-  data() {
-    return {
-      optionsData: null,
-      loading: true,
-    };
-  },
-  async mounted() {
-    await axios
-      .get(
-        "http://btg-communication.local/wp-json/better-rest-endpoints/v1/options/acf"
-      )
-      .then((response) => (this.optionsData = response.data));
-    this.loading = false;
-  },
-};
+  import axios from "axios";
+  export default {
+    name: "Footer",
+    data() {
+      return {
+        optionsData: null,
+        loading: true,
+      };
+    },
+    async mounted() {
+      await axios
+        .get(
+          "http://btg-communication.local/wp-json/better-rest-endpoints/v1/options/acf"
+        )
+        .then(response => (this.optionsData = response.data));
+      this.loading = false;
+    },
+  };
 </script>
