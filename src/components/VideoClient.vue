@@ -6,10 +6,6 @@
         type: Object,
         required: true,
       },
-      showClient: {
-        type: Boolean,
-        required: true,
-      },
     },
     data() {
       return {
@@ -21,17 +17,21 @@
         return this.video.id_video;
       },
       videoLink() {
-        console.log(this.video.id_video);
         return this.youtubeLink + this.videoId;
+      },
+    },
+    methods: {
+      disableShowClient() {
+        this.$parent.showClient = false;
       },
     },
   };
 </script>
 
 <template>
-  <section v-if="showClient" id="lightbox-client" class="active">
+  <section id="lightbox-client" class="active">
     <div class="lightbox">
-      <div @click="showClient = !showClient" class="retour">
+      <div @click="disableShowClient" class="retour">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1276.9 768">
           <path
             id="hexa"

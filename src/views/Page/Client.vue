@@ -43,11 +43,7 @@
           <strong v-if="client.id_video !== ''">En vidéo</strong>
         </div>
       </div>
-      <VideoClientVue
-        v-if="showClient"
-        :video="video"
-        :showClient="showClient"
-      />
+      <VideoClientVue v-if="showClient" :video="video" />
     </div>
     <a href="#" class="classic-button">
       <p>Les réalisations de l'agence</p>
