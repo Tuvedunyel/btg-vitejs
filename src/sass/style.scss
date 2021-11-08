@@ -4841,3 +4841,6 @@ h2.no-after::after {
 [v-cloak] {
   display: none;
 }
+.active-sub-menu::before {
+  background-image: url("../static/icons/close.svg") !important;
+}

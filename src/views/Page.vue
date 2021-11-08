@@ -25,6 +25,12 @@
       :clients="data"
       :apiUrl="apiUrl"
     />
+    <BlogVue
+      v-else-if="data.template === 'page'"
+      :loading="loading"
+      :data="data"
+      :apiUrl="apiUrl"
+    />
     <FooterVue v-if="!loading" />
   </div>
 </template>
@@ -36,6 +42,7 @@
   import RealVue from "./Page/Real.vue";
   import ClientVue from "./Page/Client.vue";
   import FooterVue from "../layouts/Footer.vue";
+  import BlogVue from "./Page/Blog.vue";
   export default {
     name: "Page",
     props: {
@@ -58,6 +65,7 @@
       HeaderVue,
       EquipeVue,
       AgenceVue,
+      BlogVue,
       RealVue,
       ClientVue,
       FooterVue,

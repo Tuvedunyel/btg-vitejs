@@ -19,6 +19,7 @@
                   @click="toggleSubMenu"
                   href="#"
                   v-html="link.title"
+                  :class="subMenuBoolean && 'active-sub-menu'"
                 >
                 </a>
                 <router-link
