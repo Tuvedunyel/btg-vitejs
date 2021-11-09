@@ -1,6 +1,12 @@
 <template>
-  <div :id="bannerClass" class="banner">
+  <div
+    :id="bannerClass"
+    class="banner"
+    :class="template === 'page' && 'banner-home'"
+    :style="templateEqualPage"
+  >
     <img
+      v-if="template !== 'page'"
       class="logo"
       src="./../static/icons/logo-btg-white.svg"
       alt="Logo agence BTG"
@@ -39,8 +45,18 @@
           this.bannerClass = "clients-banner";
           break;
         default:
-          this.bannerClass = "default-banner";
+          this.bannerClass = "agency-banner";
       }
+    },
+    methods: {
+      templateEqualPage() {
+        if (this.template === "page") {
+          return {
+            backgroundImage: `url(${this.data.media.imgBlog})`,
+            backgroundPosition: "center 80%",
+          };
+        }
+      },
     },
   };
 </script>
