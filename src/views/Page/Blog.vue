@@ -136,7 +136,13 @@
             "
           >
             <section class="entry-header">
-              <a href="#"><h2 class="no-point" v-html="post.title"></h2></a>
+              <router-link
+                :to="{
+                  name: 'Article',
+                  params: { posts: posts, title: post.title },
+                }"
+                ><h2 class="no-point" v-html="post.title"></h2
+              ></router-link>
               <h3 v-html="post.content"></h3>
               <div class="entry-categories">
                 <ul class="post-categories">
@@ -156,7 +162,7 @@
               <div class="exho-light-18" v-html="post.acf.accroche"></div>
             </section>
             <section class="entry-footer">
-              <router-link :to="{ name: 'Article', params: { post } }"
+              <router-link :to="{ name: 'Article', params: { post: post } }"
                 >Lire la suite</router-link
               >
             </section>
