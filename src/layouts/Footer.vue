@@ -227,9 +227,7 @@
     },
     async mounted() {
       await axios
-        .get(
-          "http://btg-communication.local/wp-json/better-rest-endpoints/v1/options/acf"
-        )
+        .get(`${this.apiUrl}/wp-json/better-rest-endpoints/v1/options/acf`)
         .then(response => (this.optionsData = response.data));
       this.loading = false;
     },

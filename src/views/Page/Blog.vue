@@ -24,6 +24,20 @@
         searchCategory: "Tous les articles",
       };
     },
+    computed: {
+      filteredPosts() {
+        if (this.searchCategory === "Tous les articles") {
+          return this.posts;
+        } else {
+          return this.posts.filter(post => {
+            return post.category_names
+              .toLowerCase()
+              .includes(this.searchCategory.toLowerCase());
+            // return post.category_names.toLowerCase() === this.searchCategory.toLowerCase();
+          });
+        }
+      },
+    },
     methods: {
       currentPosts(category) {
         if (category === this.searchCategory) {
@@ -81,38 +95,39 @@
 
 				<?php dynamic_sidebar( 'searchbar' ); ?> -->
       </header>
-
-      <!-- <div class="container">
-				<div class="content-blog">
-					<?php
-					/* Start the Loop */
-					while ( have_posts() ) : the_post(); ?>
-						
-						<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-							<section class="entry-header">
-								<a href="<?php the_permalink(); ?>"><h2 class="no-point"><?php the_title(); ?></h2></a>
-								<h3><?php the_content(); ?></h3>
-								<div class="entry-categories">
-									<?php the_category(); ?>
-								</div>
-						
-							<section class="entry-content">
-								<?php if (has_post_thumbnail()) { ?>
-									<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('imgBlog'); ?> </a>
-								<?php } ?>
-								<div class="exo-light-18"><?php the_field( 'accroche' ); ?></div>
-							</section>
-						
-							<section class="entry-footer">
-								<a href="<?php the_permalink(); ?>">Lire la suite</a>
-							</section>
-						</article>
-				</div>
-			</div> -->
+      <div class="container">
+        <div class="content-blog">
+          <article
+            v-for="(post, index) in filteredPosts"
+            :key="index"
+            :id="'post-' + post.id"
+          >
+            <section class="entry-header">
+              <a href="#"><h2 class="no-point" v-html="post.title"></h2></a>
+              <h3 v-html="post.content"></h3>
+              <div class="entry-categories">
+                <ul class="post-catego">
+                  <li
+                    v-for="(postCategory, index) in posts.categories_name"
+                    :key="index"
+                  >
+                    <a href="#">{{ postCategory }}</a>
+                  </li>
+                </ul>
+              </div>
+            </section>
+            <section class="entry-content">
+              <a v-if="post.media.thumbnail" href="#"
+                ><img :src="post.media.thumbnail" :alt="post.title"
+              /></a>
+              <div class="exho-light-18" v-html="post.acf.accroche"></div>
+            </section>
+            <section class="entr-">
+              <a href="#">Lire la suite</a>
+            </section>
+          </article>
+        </div>
+      </div>
     </main>
-    <!-- <a onclick="toggleContact()" class="classic-button menu-related">
-		<p>Nous contacter</p>
-		<svg class="arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" x="0px" y="0px"><title>Arrows</title><g data-name="Layer 2"><polygon points="44.13 72.13 58 86 94.25 50 57.87 13.13 44 27 57.51 41 6 41 6 59 57.51 59 44.13 72.13"></polygon></g></svg>
-	</a>-->
   </div>
 </template>
