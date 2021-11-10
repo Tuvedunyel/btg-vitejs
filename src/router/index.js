@@ -13,6 +13,12 @@ const routes = [
     component: Page,
     props: true,
   },
+  {
+    path: "/Article",
+    name: "Article",
+    component: Article,
+    props: true,
+  },
 ];
 
 const router = createRouter({

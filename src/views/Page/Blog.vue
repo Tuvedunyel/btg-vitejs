@@ -156,7 +156,9 @@
               <div class="exho-light-18" v-html="post.acf.accroche"></div>
             </section>
             <section class="entry-footer">
-              <a href="#">Lire la suite</a>
+              <router-link :to="{ name: 'Article', params: { post } }"
+                >Lire la suite</router-link
+              >
             </section>
           </article>
         </div>
