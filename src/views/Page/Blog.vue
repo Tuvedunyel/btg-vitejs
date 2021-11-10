@@ -30,10 +30,7 @@
           return this.posts;
         } else {
           return this.posts.filter(post => {
-            return post.category_names
-              .toLowerCase()
-              .includes(this.searchCategory.toLowerCase());
-            // return post.category_names.toLowerCase() === this.searchCategory.toLowerCase();
+            return post.category_names.includes(this.searchCategory);
           });
         }
       },
@@ -117,9 +114,7 @@
               <div class="entry-categories">
                 <ul class="post-categories">
                   <li
-                    v-for="(
-                      postCategory, index
-                    ) in filteredPosts.category_names"
+                    v-for="(postCategory, index) in post.category_names"
                     :key="index"
                   >
                     <a href="#">{{ postCategory }}</a>
@@ -129,11 +124,11 @@
             </section>
             <section class="entry-content">
               <a v-if="post.media.thumbnail" href="#"
-                ><img :src="post.media.thumbnail" :alt="post.title"
+                ><img :src="post.media.imgBlog" :alt="post.title"
               /></a>
               <div class="exho-light-18" v-html="post.acf.accroche"></div>
             </section>
-            <section class="entr-">
+            <section class="entry-footer">
               <a href="#">Lire la suite</a>
             </section>
           </article>
