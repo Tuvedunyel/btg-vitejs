@@ -1,6 +1,6 @@
 <template>
   <div v-if="!loading">
-    <HeaderVue v-if="!loading" :propsData="data" />
+    <HeaderVue v-if="!loading" :propsData="data" :apiUrl="apiUrl" />
     <EquipeVue
       v-if="data.template === 'page-equipe'"
       :data="data"
@@ -31,7 +31,7 @@
       :data="data"
       :apiUrl="apiUrl"
     />
-    <FooterVue v-if="!loading" />
+    <FooterVue v-if="!loading" :apiUrl="apiUrl" />
   </div>
 </template>
 <script>
@@ -52,7 +52,7 @@
       },
       apiUrl: {
         type: String,
-        default: "https://www.btg-communication.local",
+        default: "https://www.btg-communication.test",
       },
     },
     data() {
@@ -73,7 +73,7 @@
     async mounted() {
       await axios
         .get(
-          "https://btg-communication.local/wp-json/better-rest-endpoints/v1/pages?per_page=50"
+          `${this.apiUrl}/wp-json/better-rest-endpoints/v1/pages?per_page=50`
         )
         .then(response => {
           response.data.map(res => {

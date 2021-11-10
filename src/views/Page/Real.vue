@@ -115,6 +115,11 @@
       loading: {
         type: Boolean,
       },
+      apiUrl: {
+        type: String,
+        default: "https://btg-communication.test",
+        required: true,
+      },
     },
     data() {
       return {
@@ -138,7 +143,7 @@
     async mounted() {
       await axios
         .get(
-          "https://btg-communication.local/wp-json/better-rest-endpoints/v1/realisations?per_page=100"
+          `${this.apiUrl}/wp-json/better-rest-endpoints/v1/realisations?per_page=100`
         )
         .then(response => {
           this.data = response.data;

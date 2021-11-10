@@ -1,5 +1,5 @@
 <template>
-  <HeaderVue v-if="!loading" :propsData="data" />
+  <HeaderVue v-if="!loading" :propsData="data" :apiUrl="apiUrl" />
   <section v-if="!loading" id="acc-projet">
     <div class="container">
       <h2 class="reversed flipped no-transition">Projets</h2>
@@ -240,7 +240,7 @@
       </a>
     </div>
   </section>
-  <FooterVue v-if="!loading" />
+  <FooterVue v-if="!loading" :apiUrl="apiUrl" />
 </template>
 <script>
   import HeaderVue from "../layouts/Header.vue";
@@ -255,7 +255,7 @@
     props: {
       apiUrl: {
         type: String,
-        default: "https://www.btg-communication.local",
+        default: "https://www.btg-communication.test",
       },
     },
     data() {
@@ -282,7 +282,7 @@
     async mounted() {
       await axios
         .get(
-          "https://btg-communication.local/wp-json/better-rest-endpoints/v1/pages?per_page=50"
+          `${this.apiUrl}/wp-json/better-rest-endpoints/v1/pages?per_page=50`
         )
         .then(response => {
           response.data.map(res => {
@@ -296,7 +296,7 @@
       }
       await axios
         .get(
-          "https://btg-communication.local/wp-json/better-rest-endpoints/v1/client?per_page=50"
+          `${this.apiUrl}/wp-json/better-rest-endpoints/v1/client?per_page=50`
         )
         .then(response => {
           this.client = response.data;

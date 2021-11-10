@@ -108,7 +108,7 @@
       },
       apiUrl: {
         type: String,
-        default: "https://btg-communication.local",
+        default: "https://btg-communication.test",
       },
     },
   };

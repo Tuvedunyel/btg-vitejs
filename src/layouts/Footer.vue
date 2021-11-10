@@ -212,6 +212,13 @@
   import axios from "axios";
   export default {
     name: "Footer",
+    props: {
+      apiUrl: {
+        type: String,
+        default: "https://btg-communication.test",
+        required: true,
+      },
+    },
     data() {
       return {
         optionsData: null,

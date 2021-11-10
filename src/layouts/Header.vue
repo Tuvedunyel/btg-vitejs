@@ -70,7 +70,17 @@
   import BannerVue from "../components/Banner.vue";
   export default {
     name: "Headers",
-    props: ["propsData"],
+    props: {
+      propsData: {
+        type: Object,
+        required: true,
+      },
+      apiUrl: {
+        type: String,
+        required: true,
+        default: "https://btg-communication.test",
+      },
+    },
     components: {
       MenuVue,
       ContactVue,
@@ -88,15 +98,11 @@
     },
     async mounted() {
       await axios
-        .get(
-          "http://btg-communication.local/wp-json/better-rest-endpoints/v1/options/acf"
-        )
+        .get(`${this.apiUrl}/wp-json/better-rest-endpoints/v1/options/acf`)
         .then(response => (this.data = response.data));
 
       await axios
-        .get(
-          "https://btg-communication.local/wp-json/better-rest-endpoints/v1/menus/principal"
-        )
+        .get(`${this.apiUrl}/wp-json/better-rest-endpoints/v1/menus/principal`)
         .then(response => {
           this.menu = response.data;
           response.data.map(res => {
