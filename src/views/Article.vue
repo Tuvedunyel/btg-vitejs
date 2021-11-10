@@ -11,5 +11,5 @@
 </script>
 
 <template>
-  <h1 v-html="article.title"></h1>
+  <h1>Blog</h1>
 </template>
