@@ -2,41 +2,14 @@
   export default {
     name: "Article",
     props: {
-      posts: {
-        type: Array,
+      article: {
+        type: Object,
         required: true,
-      },
-      title: {
-        type: String,
-        required: true,
-      },
-      apiUrl: {
-        type: String,
-        required: true,
-      },
-    },
-    data() {
-      return {
-        Article: {},
-        loading: true,
-      };
-    },
-    mounted() {
-      this.getArticle();
-    },
-    methods: {
-      getArticle() {
-        this.posts.forEach(post => {
-          if (post.title === this.title) {
-            this.Article = post;
-          }
-        });
-        this.loading = false;
       },
     },
   };
 </script>
 
 <template>
-  <h1>Blog</h1>
+  <h1 v-html="article.title"></h1>
 </template>

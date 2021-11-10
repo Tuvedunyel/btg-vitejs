@@ -139,7 +139,7 @@
               <router-link
                 :to="{
                   name: 'Article',
-                  params: { posts: posts, title: post.title },
+                  params: { article: post },
                 }"
                 ><h2 class="no-point" v-html="post.title"></h2
               ></router-link>
@@ -162,7 +162,7 @@
               <div class="exho-light-18" v-html="post.acf.accroche"></div>
             </section>
             <section class="entry-footer">
-              <router-link :to="{ name: 'Article', params: { post: post } }"
+              <router-link :to="{ name: 'Article', params: { article: post } }"
                 >Lire la suite</router-link
               >
             </section>
