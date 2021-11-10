@@ -66,7 +66,7 @@
 
 <template>
   <div v-if="!loading" id="primary" class="content-area">
-    <main id="main" class="site-main">
+    <main id="main" class="site-main blog">
       <header class="page-header">
         <div class="container">
           <ul id="menu-blog-actualites" class="menu">
@@ -101,14 +101,25 @@
             v-for="(post, index) in filteredPosts"
             :key="index"
             :id="'post-' + post.id"
+            class="
+              post-1458 post
+              type-post
+              status-publish
+              format-standard
+              has-post-thumbnail
+              hentry
+              category-communication category-agence
+            "
           >
             <section class="entry-header">
               <a href="#"><h2 class="no-point" v-html="post.title"></h2></a>
               <h3 v-html="post.content"></h3>
               <div class="entry-categories">
-                <ul class="post-catego">
+                <ul class="post-categories">
                   <li
-                    v-for="(postCategory, index) in posts.categories_name"
+                    v-for="(
+                      postCategory, index
+                    ) in filteredPosts.category_names"
                     :key="index"
                   >
                     <a href="#">{{ postCategory }}</a>
