@@ -22,16 +22,27 @@
         categories: ["Tous les articles"],
         loadingPosts: true,
         searchCategory: "Tous les articles",
+        searchBar: "",
       };
     },
     computed: {
       filteredPosts() {
-        if (this.searchCategory === "Tous les articles") {
-          return this.posts;
-        } else {
+        // if searchBar not empty filter posts by searchBar else filter posts by searchCategory
+        if (this.searchBar) {
           return this.posts.filter(post => {
-            return post.category_names.includes(this.searchCategory);
+            return (
+              post.title.toLowerCase().includes(this.searchBar.toLowerCase()) ||
+              post.content.toLowerCase().includes(this.searchBar.toLowerCase())
+            );
           });
+        } else {
+          if (this.searchCategory === "Tous les articles") {
+            return this.posts;
+          } else {
+            return this.posts.filter(post => {
+              return post.category_names.includes(this.searchCategory);
+            });
+          }
         }
       },
     },
@@ -76,6 +87,22 @@
               <a @click="searchCategory = category" href="#">{{ category }}</a>
             </li>
           </ul>
+        </div>
+        <div class="search-bar widget_search">
+          <form role="search" method="get" class="search-form" action="">
+            <label>
+              <span class="screen-reader-text">Rechercher un article</span>
+              <input
+                type="search"
+                class="search-field"
+                placeholder="Rechercher ..."
+                name="searchBar"
+                v-model="searchBar"
+                title="Rechercher"
+                autocomplete="off"
+              />
+            </label>
+          </form>
         </div>
         <!-- <div class="resp-nav">
 					<div class="openlist">Type d'article</div>
