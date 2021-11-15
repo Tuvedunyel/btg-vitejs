@@ -60,7 +60,6 @@
         )
         .then(response => {
           this.posts = response.data;
-          console.log(JSON.stringify(this.posts));
           response.data.map(post => {
             post.category_names.map(category => {
               this.categories.push(category);
@@ -166,7 +165,10 @@
               <router-link
                 :to="{
                   name: 'Article',
-                  params: { propsArticle: JSON.stringify(post) },
+                  params: {
+                    propsArticle: JSON.stringify(post),
+                    apiUrl: apiUrl,
+                  },
                 }"
                 >Lire la suite</router-link
               >

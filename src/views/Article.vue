@@ -1,4 +1,6 @@
 <script>
+  import HeaderVue from "../layouts/Header.vue";
+  import FooterVue from "../layouts/Footer.vue";
   export default {
     name: "Article",
     props: {
@@ -6,20 +8,31 @@
         type: String,
         required: true,
       },
+      apiUrl: {
+        type: String,
+        default: "https://btg-communication.test",
+      },
+    },
+    components: {
+      HeaderVue,
+      FooterVue,
     },
     data() {
       return {
         article: {},
+        loading: true,
       };
     },
     mounted() {
       this.article = JSON.parse(this.propsArticle);
+      this.loading = false;
     },
   };
 </script>
 
 <template>
   <div
+    v-if="!loading"
     class="
       post-template-default
       single single-post
@@ -28,7 +41,7 @@
       cookies-set cookies-accepted
     "
   >
-    <!-- <HeaderSingle /> -->
+    <HeaderVue :apiUrl="apiUrl" :propsData="article" type="blog" />
     <div id="primary" class="content-area">
       <main id="main" class="site-main">
         <div class="container">
@@ -162,5 +175,6 @@
         </svg>
       </a>
     </div>
+    <FooterVue :apiUrl="apiUrl" />
   </div>
 </template>
