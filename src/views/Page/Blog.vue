@@ -60,6 +60,7 @@
         )
         .then(response => {
           this.posts = response.data;
+          console.log(JSON.stringify(this.posts));
           response.data.map(post => {
             post.category_names.map(category => {
               this.categories.push(category);
@@ -139,7 +140,7 @@
               <router-link
                 :to="{
                   name: 'Article',
-                  params: { article: post },
+                  params: { article: JSON.stringify(post) },
                 }"
                 ><h2 class="no-point" v-html="post.title"></h2
               ></router-link>
