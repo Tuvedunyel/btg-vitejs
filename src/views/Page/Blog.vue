@@ -140,7 +140,7 @@
               <router-link
                 :to="{
                   name: 'Article',
-                  params: { article: JSON.stringify(post) },
+                  params: { propsArticle: JSON.stringify(post) },
                 }"
                 ><h2 class="no-point" v-html="post.title"></h2
               ></router-link>
@@ -166,7 +166,7 @@
               <router-link
                 :to="{
                   name: 'Article',
-                  params: { article: JSON.stringify(post) },
+                  params: { propsArticle: JSON.stringify(post) },
                 }"
                 >Lire la suite</router-link
               >
