@@ -4812,35 +4812,10 @@ body.single ul li {
   background-position: center 80%;
 }
 
-.v-for-container {
-  width: 75%;
-  margin: auto;
-}
-
-.v-for-container h3.articles {
-  font-family: "Exo", sans-serif;
-  font-weight: 600;
-  font-size: 28px;
-  margin-bottom: 20px;
-  margin-top: 30px;
-  text-transform: uppercase;
-}
-
-.v-for-container ul {
-  margin-left: 3rem;
-}
-
 h2.no-after::after {
   display: none;
 }
 
-.nuxt-progress {
-  background-color: #be68a9;
-  height: 4px;
-}
-[v-cloak] {
-  display: none;
-}
 .active-sub-menu::before {
   background-image: url("../static/icons/close.svg") !important;
 }

@@ -162,7 +162,11 @@
               <div class="exho-light-18" v-html="post.acf.accroche"></div>
             </section>
             <section class="entry-footer">
-              <router-link :to="{ name: 'Article', params: { article: post } }"
+              <router-link
+                :to="{
+                  name: 'Article',
+                  params: { article: JSON.stringify(post) },
+                }"
                 >Lire la suite</router-link
               >
             </section>
