@@ -58,6 +58,7 @@
       :data="propsData"
       :template="template"
     />
+    <BannerRealisation v-if="type === 'realisation'" :data="propsData" />
     <div v-if="type === 'blog'" id="single-banner" class="banner">
       <router-link
         :to="{
@@ -94,6 +95,7 @@
   import ContactVue from "./../components/Contact.vue";
   import BannerFrontVue from "./../components/BannerFront.vue";
   import BannerVue from "../components/Banner.vue";
+  import BannerRealisation from "../components/BannerRealisation.vue";
   export default {
     name: "Headers",
     props: {
@@ -116,6 +118,7 @@
       ContactVue,
       BannerFrontVue,
       BannerVue,
+      BannerRealisation,
     },
     data() {
       return {

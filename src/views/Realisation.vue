@@ -1,4 +1,5 @@
 <script>
+  import HeaderVue from "../layouts/Header.vue";
   export default {
     name: "Realisation",
     props: {
@@ -16,6 +17,9 @@
         required: true,
       },
     },
+    components: {
+      HeaderVue,
+    },
     data() {
       return {
         realisation: null,
@@ -32,5 +36,6 @@
 </script>
 
 <template>
+  <HeaderVue :apiUrl="apiUrl" :propsData="realisation" type="realisation" />
   <h1 v-if="!loading">Réalisation</h1>
 </template>
