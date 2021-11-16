@@ -42,10 +42,17 @@
         </div>
       </div>
       <div id="real-list">
-        <a
+        <router-link
           v-for="(real, index) in filteredRealTerm"
           :key="index"
-          herf="#"
+          :to="{
+            name: 'Realisation',
+            params: {
+              real: JSON.stringify(real),
+              realisations: JSON.stringify(data),
+              apiUrl,
+            },
+          }"
           class="real-item no-transition"
         >
           <img :src="real.media.medium_large" :alt="real.title" />
@@ -62,7 +69,7 @@
             </svg>
             <p v-html="real.excerpt"></p>
           </div>
-        </a>
+        </router-link>
       </div>
 
       <div
@@ -142,9 +149,7 @@
     },
     async mounted() {
       await axios
-        .get(
-          `${this.apiUrl}/wp-json/better-rest-endpoints/v1/realisations?per_page=100`
-        )
+        .get(`${this.apiUrl}/wp-json/better-rest-endpoints/v1/realisations`)
         .then(response => {
           this.data = response.data;
           response.data.map(res => {
