@@ -37,5 +37,11 @@
 
 <template>
   <HeaderVue :apiUrl="apiUrl" :propsData="realisation" type="realisation" />
-  <h1 v-if="!loading">Réalisation</h1>
+
+  <section v-if="!loading" id="single-main">
+    <div class="container">
+      <h1>{{ realisation.title }}</h1>
+      <h2 class="no-point"><span v-html="realisation.content"></span></h2>
+    </div>
+  </section>
 </template>
