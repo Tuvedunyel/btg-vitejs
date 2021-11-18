@@ -278,6 +278,12 @@
     },
     async mounted() {
       if (localStorage.getItem("data")) {
+        let pages = JSON.parse(localStorage.getItem("data"));
+        pages.map(page => {
+          if (page.slug === "agence-de-communication-a-tours") {
+            this.data = page;
+          }
+        });
         this.data = JSON.parse(localStorage.getItem("data"));
         this.loading = false;
       } else {
@@ -286,10 +292,10 @@
             `${this.apiUrl}/wp-json/better-rest-endpoints/v1/pages?per_page=50`
           )
           .then(response => {
+            localStorage.setItem("data", JSON.stringify(response.data));
             response.data.map(res => {
               if (res.slug === "agence-de-communication-a-tours") {
                 this.data = res;
-                localStorage.setItem("data", JSON.stringify(res));
               }
             });
           });
@@ -299,10 +305,10 @@
           `${this.apiUrl}/wp-json/better-rest-endpoints/v1/pages?per_page=50`
         )
         .then(response => {
+          localStorage.setItem("data", JSON.stringify(response.data));
           response.data.map(res => {
             if (res.slug === "agence-de-communication-a-tours") {
               if (localStorage.getItem("data") !== JSON.stringify(res)) {
-                localStorage.setItem("data", JSON.stringify(res));
                 this.data = res;
               }
             }

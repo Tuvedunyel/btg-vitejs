@@ -105,11 +105,16 @@
       };
     },
     async mounted() {
-      axios
-        .get(`${this.apiUrl}/wp-json/better-rest-endpoints/v1/client`)
-        .then(response => {
-          this.trustClient = response.data;
-        });
+      if (localStorage.getItem("client")) {
+        this.trustClient = JSON.parse(localStorage.getItem("client"));
+      } else {
+        axios
+          .get(`${this.apiUrl}/wp-json/better-rest-endpoints/v1/client`)
+          .then(response => {
+            localStorage.setItem("client", JSON.stringify(response.data));
+            this.trustClient = response.data;
+          });
+      }
     },
     methods: {
       toggleClient(video) {

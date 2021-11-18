@@ -71,17 +71,27 @@
       FooterVue,
     },
     async mounted() {
-      await axios
-        .get(
-          `${this.apiUrl}/wp-json/better-rest-endpoints/v1/pages?per_page=50`
-        )
-        .then(response => {
-          response.data.map(res => {
-            if (res.slug === this.link) {
-              this.data = res;
-            }
-          });
+      if (localStorage.getItem("data")) {
+        let pages = JSON.parse(localStorage.getItem("data"));
+        pages.map(page => {
+          if (page.slug === this.link) {
+            this.data = page;
+          }
         });
+      } else {
+        await axios
+          .get(
+            `${this.apiUrl}/wp-json/better-rest-endpoints/v1/pages?per_page=50`
+          )
+          .then(response => {
+            localStorage.setItem("data", JSON.stringify(response.data));
+            response.data.map(res => {
+              if (res.slug === this.link) {
+                this.data = res;
+              }
+            });
+          });
+      }
       this.loading = false;
     },
   };

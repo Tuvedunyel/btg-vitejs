@@ -148,20 +148,50 @@
       },
     },
     async mounted() {
-      await axios
-        .get(`${this.apiUrl}/wp-json/better-rest-endpoints/v1/realisations`)
-        .then(response => {
-          this.data = response.data;
-          response.data.map(res => {
-            res.terms.map(term => {
-              this.sortedTerm.push(term.name);
-            });
+      if (localStorage.getIem("realisations")) {
+        this.data = JSON.parse(localStorage.getItem("realisations"));
+        this.data.map(res => {
+          res.terms.map(term => {
+            this.sortedTerm.push(term.name);
           });
         });
+      } else {
+        await axios
+          .get(`${this.apiUrl}/wp-json/better-rest-endpoints/v1/realisations`)
+          .then(response => {
+            this.data = response.data;
+            localStorage.setItem("realisations", JSON.stringify(response.data));
+            response.data.map(res => {
+              res.terms.map(term => {
+                this.sortedTerm.push(term.name);
+              });
+            });
+          });
+      }
       this.sortedTerm = [...new Set(this.sortedTerm)];
       this.fetchData = true;
+      getUpdatedRealisations();
     },
     methods: {
+      async getUpdatedData() {
+        await axios
+          .get(`${this.apiUrl}/wp-json/better-rest-endpoints/v1/realisations`)
+          .then(response => {
+            if (localStorage.getItem("realisations") !== response.data) {
+              this.data = response.data;
+              localStorage.setItem(
+                "realisations",
+                JSON.stringify(response.data)
+              );
+              response.data.map(res => {
+                res.terms.map(term => {
+                  this.sortedTerm.push(term.name);
+                });
+              });
+            }
+          });
+        this.sortedTerm = [...new Set(this.sortedTerm)];
+      },
       renderLogo(name) {
         switch (name) {
           case "Identité":

@@ -54,20 +54,48 @@
       },
     },
     async mounted() {
-      await axios
+      if (localStorage.getItem("posts")) {
+        this.posts = JSON.parse(localStorage.getItem("posts"));
+        this.posts.map(post => {
+          post.category_names.map(category => {
+            this.categories.push(category);
+          });
+        });
+        this.categories = [...new Set(this.categories)];
+        this.loadingPosts = false;
+      } else {
+        await axios
+          .get(
+            `${this.apiUrl}/wp-json/better-rest-endpoints/v1/posts?per_page=50`
+          )
+          .then(response => {
+            localStorage.setItem("posts", JSON.stringify(response.data));
+            this.posts = response.data;
+            response.data.map(post => {
+              post.category_names.map(category => {
+                this.categories.push(category);
+              });
+            });
+            this.categories = [...new Set(this.categories)];
+          });
+        this.loadingPosts = false;
+      }
+      axios
         .get(
-          this.apiUrl + "/wp-json/better-rest-endpoints/v1/posts?per_page=50"
+          `${this.apiUrl}/wp-json/better-rest-endpoints/v1/posts?per_page=50`
         )
         .then(response => {
-          this.posts = response.data;
-          response.data.map(post => {
-            post.category_names.map(category => {
-              this.categories.push(category);
+          if (localStorage.getItem("posts") !== JSON.stringify(response.data)) {
+            localStorage.setItem("posts", JSON.stringify(response.data));
+            this.posts = response.data;
+            response.data.map(post => {
+              post.category_names.map(category => {
+                this.categories.push(category);
+              });
             });
-          });
-          this.categories = [...new Set(this.categories)];
+            this.categories = [...new Set(this.categories)];
+          }
         });
-      this.loadingPosts = false;
     },
   };
 </script>
