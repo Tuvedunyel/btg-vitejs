@@ -58,7 +58,11 @@
       :data="propsData"
       :template="template"
     />
-    <BannerRealisation v-if="type === 'realisation'" :data="propsData" />
+    <BannerRealisation
+      v-if="type === 'realisation'"
+      :data="propsData"
+      :apiUrl="apiUrl"
+    />
     <div v-if="type === 'blog'" id="single-banner" class="banner">
       <router-link
         :to="{

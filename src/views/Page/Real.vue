@@ -117,7 +117,7 @@
     props: {
       propsData: {
         type: Object,
-        default: () => ({}),
+        default: JSON.parse(localStorage.getItem("data")),
       },
       loading: {
         type: Boolean,
@@ -148,7 +148,7 @@
       },
     },
     async mounted() {
-      if (localStorage.getIem("realisations")) {
+      if (localStorage.getItem("realisations")) {
         this.data = JSON.parse(localStorage.getItem("realisations"));
         this.data.map(res => {
           res.terms.map(term => {
@@ -170,10 +170,10 @@
       }
       this.sortedTerm = [...new Set(this.sortedTerm)];
       this.fetchData = true;
-      getUpdatedRealisations();
+      this.getUpdatedRealisations();
     },
     methods: {
-      async getUpdatedData() {
+      async getUpdatedRealisations() {
         await axios
           .get(`${this.apiUrl}/wp-json/better-rest-endpoints/v1/realisations`)
           .then(response => {

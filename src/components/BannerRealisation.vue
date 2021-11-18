@@ -6,6 +6,10 @@
         type: Object,
         default: {},
       },
+      apiUrl: {
+        type: String,
+        default: "https://btg-communication.test",
+      },
     },
   };
 </script>
