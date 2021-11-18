@@ -97,7 +97,7 @@
                 width="560"
                 height="315"
                 :src="contenu.video"
-                frameborder="0"
+                :title="contenu.title"
                 allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                 allowfullscreen
               ></iframe>
