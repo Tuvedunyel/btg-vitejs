@@ -7,7 +7,10 @@
         <div class="glide__track" data-glide-el="track">
           <ul class="glide__slides">
             <li
-              v-for="(slide, index) in handleSlider()"
+              v-for="(slide, index) in data.acf.slide.slice(
+                this.sliceA,
+                this.sliceB
+              )"
               :key="index"
               class="glide__slide"
             >
@@ -257,7 +260,7 @@
     },
     data() {
       return {
-        data: null,
+        data: {},
         loading: true,
         sliceA: 0,
         sliceB: 1,
@@ -279,13 +282,11 @@
     async mounted() {
       if (localStorage.getItem("data")) {
         let pages = JSON.parse(localStorage.getItem("data"));
-        pages.map(page => {
+        await pages.map(page => {
           if (page.slug === "agence-de-communication-a-tours") {
             this.data = page;
           }
         });
-        this.data = JSON.parse(localStorage.getItem("data"));
-        this.loading = false;
       } else {
         await axios
           .get(
@@ -344,9 +345,6 @@
       this.loading = false;
     },
     methods: {
-      handleSlider() {
-        return this.data.acf.slide.slice(this.sliceA, this.sliceB);
-      },
       handleSlideClick(slide) {
         if (
           this.currentSlide < slide &&

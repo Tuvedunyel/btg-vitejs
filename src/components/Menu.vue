@@ -38,7 +38,17 @@
                         menu-item-object-page
                       "
                     >
-                      <a href="#">{{ item.title }}</a>
+                      <router-link
+                        :to="{
+                          name: 'Competence',
+                          params: {
+                            link: item.slug,
+                            apiUrl: 'https://btg-communication.tes',
+                          },
+                        }"
+                      >
+                        {{ item.title }}
+                      </router-link>
                     </li>
                   </ul>
                 </span>

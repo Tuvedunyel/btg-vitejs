@@ -137,6 +137,15 @@ html {
   -webkit-overflow-scrolling: touch;
 }
 
+::selection {
+  background-color: hsl(14, 81%, 55%);
+  color: white;
+}
+::-moz-selection {
+  background-color: hsl(14, 81%, 55%);
+  color: white;
+}
+
 .exo-light-21 {
   font-size: 2.1rem;
   font-family: "Exo", sans-serif;
@@ -764,6 +773,7 @@ footer a:not(.mentions):hover img {
   text-align: center;
   flex-direction: column;
 }
+
 #overlay-contact .content .formulaire .validation .vague {
   transform: rotate(180deg);
   width: 70px;
