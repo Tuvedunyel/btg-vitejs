@@ -115,12 +115,12 @@
         <p class="plus menu-font">Nos autres domaines d'expertise</p>
         <hr />
         <!-- <ul class="other-kills">
-                <li><a href="<?php echo get_permalink(937); ?>"><img src="~/static/icons/strategie-kills.svg" alt=""></a><p><?php echo get_the_title(937);?></p></li>
-                <li><a href="<?php echo get_permalink(932); ?>"><img src="~/static/icons/filter-identite.svg" alt=""></a><p><?php echo get_the_title(932);?></p></li>
-                <li><a href="<?php echo get_permalink(930); ?>"><img src="~/static/icons/filter-graphisme.svg" alt=""></a><p><?php echo get_the_title(930);?></p></li>
-                <li><a href="<?php echo get_permalink(928); ?>"><img src="~/static/icons/filter-edition.svg" alt=""></a><p><?php echo get_the_title(928);?></p></li>
-                <li><a href="<?php echo get_permalink(934); ?>"><img src="~/static/icons/filter-web.svg" alt=""></a><p><?php echo get_the_title(934);?></p></li>
-                <li><a href="<?php echo get_permalink(939); ?>"><img src="~/static/icons/filter-motion.svg" alt=""></a><p><?php echo get_the_title(939);?></p></li>
+                <li><a href="<?php echo get_permalink(937); ?>"><img src="../static/icons/strategie-kills.svg" alt=""></a><p><?php echo get_the_title(937);?></p></li>
+                <li><a href="<?php echo get_permalink(932); ?>"><img src="../static/icons/filter-identite.svg" alt=""></a><p><?php echo get_the_title(932);?></p></li>
+                <li><a href="<?php echo get_permalink(930); ?>"><img src="../static/icons/filter-graphisme.svg" alt=""></a><p><?php echo get_the_title(930);?></p></li>
+                <li><a href="<?php echo get_permalink(928); ?>"><img src="../static/icons/filter-edition.svg" alt=""></a><p><?php echo get_the_title(928);?></p></li>
+                <li><a href="<?php echo get_permalink(934); ?>"><img src="../static/icons/filter-web.svg" alt=""></a><p><?php echo get_the_title(934);?></p></li>
+                <li><a href="<?php echo get_permalink(939); ?>"><img src="../static/icons/filter-motion.svg" alt=""></a><p><?php echo get_the_title(939);?></p></li>
             </ul> -->
       </div>
     </section>
