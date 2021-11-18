@@ -208,10 +208,7 @@
       </div>
     </div>
     <div class="cards-container">
-      <img
-        :src="data.acf.image_philosophie.url"
-        :alt="data.acf.image_philosophie.alt"
-      />
+      <img :src="data.acf.image_philosophie" alt="Notre philosophie" />
     </div>
   </section>
   <section v-if="!loading" id="acc-methodologie">
@@ -280,14 +277,34 @@
       },
     },
     async mounted() {
-      await axios
+      if (localStorage.getItem("data")) {
+        this.data = JSON.parse(localStorage.getItem("data"));
+        this.loading = false;
+      } else {
+        await axios
+          .get(
+            `${this.apiUrl}/wp-json/better-rest-endpoints/v1/pages?per_page=50`
+          )
+          .then(response => {
+            response.data.map(res => {
+              if (res.slug === "agence-de-communication-a-tours") {
+                this.data = res;
+                localStorage.setItem("data", JSON.stringify(res));
+              }
+            });
+          });
+      }
+      axios
         .get(
           `${this.apiUrl}/wp-json/better-rest-endpoints/v1/pages?per_page=50`
         )
         .then(response => {
           response.data.map(res => {
             if (res.slug === "agence-de-communication-a-tours") {
-              this.data = res;
+              if (localStorage.getItem("data") !== JSON.stringify(res)) {
+                localStorage.setItem("data", JSON.stringify(res));
+                this.data = res;
+              }
             }
           });
         });
