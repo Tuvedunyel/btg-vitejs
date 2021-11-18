@@ -1,19 +1,19 @@
-<script setup>
-// This starter template is using Vue 3 <script setup> SFCs
-// Check out https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup
+<script>
+  export default {
+    name: "BTG Communication",
+    data() {
+      return {
+        apiUrl: "https://btg-communication.test",
+      };
+    },
+  };
 </script>
 
 <template>
-  <h1>Hello</h1>
+  <div v-cloak>
+    <div id="nav">
+      <router-link to="/">Home</router-link>
+    </div>
+    <router-view :apiUrl="apiUrl"></router-view>
+  </div>
 </template>
-
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>

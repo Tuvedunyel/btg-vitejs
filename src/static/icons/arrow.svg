@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 22.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Calque_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 600 600" style="enable-background:new 0 0 600 600;" xml:space="preserve">
+<g>
+	<path id="arrow-svg-top" d="M291.5,158c-2.8,0-5-2.2-5-5V4c0-2.8,2.2-5,5-5s5,2.2,5,5v149C296.5,155.8,294.2,158,291.5,158z"/>
+</g>
+<g>
+	<path id="arrow-svg-bot" d="M291.5,572c-2.8,0-5-2.2-5-5V418c0-2.8,2.2-5,5-5s5,2.2,5,5v149C296.5,569.8,294.2,572,291.5,572z"/>
+</g>
+<g>
+	<path id="arrow-svg-left" d="M175.7,327.8c-0.8,0-1.7-0.2-2.5-0.7l-129-74.5c-2.4-1.4-3.2-4.4-1.8-6.8c1.4-2.4,4.4-3.2,6.8-1.8l129,74.5
+		c2.4,1.4,3.2,4.4,1.8,6.8C179.1,326.9,177.4,327.8,175.7,327.8z"/>
+</g>
+<g>
+	<path id="arrow-svg-right" d="M407.3,327.8c-1.7,0-3.4-0.9-4.3-2.5c-1.4-2.4-0.6-5.4,1.8-6.8l129-74.5c2.4-1.4,5.5-0.6,6.8,1.8c1.4,2.4,0.6,5.4-1.8,6.8
+		l-129,74.5C409,327.5,408.1,327.8,407.3,327.8z"/>
+</g>
+</svg>
