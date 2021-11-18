@@ -311,12 +311,29 @@
       for (let i = 0; i < this.data.acf.slide.length; i++) {
         this.bulletSlider.push(i);
       }
-      await axios
+      if (localStorage.getItem("client")) {
+        this.client = JSON.parse(localStorage.getItem("client"));
+      } else {
+        axios
+          .get(
+            `${this.apiUrl}/wp-json/better-rest-endpoints/v1/clients?per_page=50`
+          )
+          .then(response => {
+            this.client = response.data;
+            localStorage.setItem("client", JSON.stringify(response.data));
+          });
+      }
+      axios
         .get(
           `${this.apiUrl}/wp-json/better-rest-endpoints/v1/client?per_page=50`
         )
         .then(response => {
-          this.client = response.data;
+          if (
+            localStorage.getItem("client") !== JSON.stringify(response.data)
+          ) {
+            localStorage.setItem("client", JSON.stringify(response.data));
+            this.client = response.data;
+          }
         });
       this.loading = false;
     },

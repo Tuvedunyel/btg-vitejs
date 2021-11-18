@@ -226,9 +226,13 @@
       };
     },
     async mounted() {
-      await axios
-        .get(`${this.apiUrl}/wp-json/better-rest-endpoints/v1/options/acf`)
-        .then(response => (this.optionsData = response.data));
+      if (localStorage.getItem("otpions")) {
+        this.optionsData = JSON.parse(localStorage.getItem("otpions"));
+      } else {
+        await axios
+          .get(`${this.apiUrl}/wp-json/better-rest-endpoints/v1/options/acf`)
+          .then(response => (this.optionsData = response.data));
+      }
       this.loading = false;
     },
   };
