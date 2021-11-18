@@ -29,16 +29,25 @@
     },
     computed: {
       filteredObjectRealisations() {
-        return (
-          this.objectRealisations.filter(real => {
+        return this.objectRealisations.filter(real => {
+          if (real.terms.length > 1 && real.title !== this.realisation.title) {
+            return (
+              real.terms[0].slug.includes(
+                this.realisation.terms[0].slug || this.realisation.terms[1].slug
+              ) &&
+              real.terms[1].slug.includes(
+                this.realisation.terms[0].slug || this.realisation.terms[1].slug
+              )
+            );
+          } else if (
+            real.terms.length === 1 &&
+            real.title !== this.realisation.title
+          ) {
             return real.terms[0].slug.includes(
               this.realisation.terms[0].slug || this.realisation.terms[1].slug
             );
-          }) ||
-          real.terms[1].slug.includes(
-            this.realisation.terms[1].slug || this.realisation.terms[0].slug
-          )
-        );
+          }
+        });
       },
     },
     mounted() {
@@ -131,7 +140,7 @@
       <hr />
       <div class="other-projects">
         <div
-          v-for="(project, index) in filteredObjectRealisations"
+          v-for="(project, index) in filteredObjectRealisations.slice(0, 4)"
           :key="index"
         >
           <router-link
