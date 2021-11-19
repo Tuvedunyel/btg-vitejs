@@ -1584,7 +1584,7 @@ footer a:not(.mentions):hover img {
 }
 #skills .skills-list .skill .desc a::before {
   content: "";
-  background-image: url(https://www.btg-communication.fr/wp-content/themes/btg/img/icons/show-more.svg);
+  background-image: url("../static/icons/show-more.svg");
   -webkit-transition: all 0.2s linear;
   transition: all 0.2s linear;
   background-repeat: no-repeat;

@@ -17,12 +17,23 @@
       },
       link: {
         type: String,
-        required: true,
+        default: "",
+      },
+    },
+    watch: {
+      $route(to, from) {
+        console.log(to);
+        console.log(to.params.link);
+        if (to.params.link !== undefined) {
+          this.slug = to.params.link;
+          this.fetchData();
+        }
       },
     },
     data() {
       return {
         data: {},
+        slug: "",
         otherDomain: [],
         loading: true,
       };
@@ -31,36 +42,11 @@
       HeaderVue,
       FooterVue,
     },
-    async mounted() {
-      if (localStorage.getItem("data")) {
-        let pages = JSON.parse(localStorage.getItem("data"));
-        pages.map(page => {
-          if (page.slug === this.link) {
-            this.data = page;
-          }
-          if (page.template === "page-competence") {
-            this.otherDomain.push(page);
-          }
-        });
-        this.otherDomain = [...new Set(this.otherDomain)];
-      } else {
-        await axios
-          .get(
-            `${this.apiUrl}/wp-json/better-rest-endpoints/v1/pages?per_page=50`
-          )
-          .then(response => {
-            response.data.map(res => {
-              if (res.slug === this.link) {
-                this.data = res;
-              }
-              if (page.template === "page-competence") {
-                this.otherDomain.push(page);
-              }
-            });
-          });
-        this.otherDomain = [...new Set(this.otherDomain)];
+    mounted() {
+      if (this.link !== "") {
+        this.slug = this.link;
       }
-      this.loading = false;
+      this.fetchData();
     },
     methods: {
       getDomainImage(data) {
@@ -79,6 +65,38 @@
             return Motion;
           default:
             return "";
+        }
+      },
+      async fetchData() {
+        if (localStorage.getItem("data")) {
+          let pages = JSON.parse(localStorage.getItem("data"));
+          pages.map(page => {
+            if (page.slug === this.slug) {
+              this.data = page;
+            }
+            if (page.template === "page-competence") {
+              this.otherDomain.push(page);
+            }
+          });
+          this.otherDomain = [...new Set(this.otherDomain)];
+          this.loading = false;
+        } else {
+          await axios
+            .get(
+              `${this.apiUrl}/wp-json/better-rest-endpoints/v1/pages?per_page=50`
+            )
+            .then(response => {
+              response.data.map(res => {
+                if (res.slug === this.slug) {
+                  this.data = res;
+                }
+                if (page.template === "page-competence") {
+                  this.otherDomain.push(page);
+                }
+              });
+            });
+          this.otherDomain = [...new Set(this.otherDomain)];
+          this.loading = false;
         }
       },
     },
