@@ -71,7 +71,7 @@
       async fetchData() {
         if (localStorage.getItem("data")) {
           let pages = JSON.parse(localStorage.getItem("data"));
-          pages.map(page => {
+          await pages.map(page => {
             if (page.slug === this.slug) {
               this.data = page;
             }

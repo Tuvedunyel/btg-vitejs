@@ -55,10 +55,20 @@
         default: "https://www.btg-communication.test",
       },
     },
+    watch: {
+      $route(to, from) {
+        if (to.params.link !== undefined) {
+          this.loading = true;
+          this.slug = to.params.link;
+          this.fetchData();
+        }
+      },
+    },
     data() {
       return {
         data: null,
         loading: true,
+        slug: "",
       };
     },
     components: {
@@ -70,29 +80,37 @@
       ClientVue,
       FooterVue,
     },
-    async mounted() {
-      if (localStorage.getItem("data")) {
-        let pages = JSON.parse(localStorage.getItem("data"));
-        pages.map(page => {
-          if (page.slug === this.link) {
-            this.data = page;
-          }
-        });
-      } else {
-        await axios
-          .get(
-            `${this.apiUrl}/wp-json/better-rest-endpoints/v1/pages?per_page=50`
-          )
-          .then(response => {
-            localStorage.setItem("data", JSON.stringify(response.data));
-            response.data.map(res => {
-              if (res.slug === this.link) {
-                this.data = res;
-              }
-            });
-          });
+    mounted() {
+      if (this.link !== "") {
+        this.slug = this.link;
       }
-      this.loading = false;
+      this.fetchData();
+    },
+    methods: {
+      async fetchData() {
+        if (localStorage.getItem("data")) {
+          let pages = JSON.parse(localStorage.getItem("data"));
+          await pages.map(page => {
+            if (page.slug === this.slug) {
+              this.data = page;
+            }
+          });
+        } else {
+          await axios
+            .get(
+              `${this.apiUrl}/wp-json/better-rest-endpoints/v1/pages?per_page=50`
+            )
+            .then(response => {
+              localStorage.setItem("data", JSON.stringify(response.data));
+              response.data.map(res => {
+                if (res.slug === this.slug) {
+                  this.data = res;
+                }
+              });
+            });
+        }
+        this.loading = false;
+      },
     },
   };
 </script>
