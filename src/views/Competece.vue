@@ -26,6 +26,7 @@
         console.log(to.params.link);
         if (to.params.link !== undefined) {
           this.slug = to.params.link;
+          this.otherDomain = [];
           this.fetchData();
         }
       },
@@ -159,9 +160,17 @@
         <hr />
         <ul class="other-kills">
           <li v-for="(domain, index) in otherDomain" :key="index">
-            <a href="#">
+            <router-link
+              :to="{
+                name: 'Competence',
+                params: {
+                  link: domain.slug,
+                  apiUrl,
+                },
+              }"
+            >
               <img :src="getDomainImage(domain)" :alt="domain.title" />
-            </a>
+            </router-link>
             <p v-html="domain.title"></p>
           </li>
         </ul>
