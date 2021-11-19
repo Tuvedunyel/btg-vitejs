@@ -2478,24 +2478,25 @@ html #page h4 {
   opacity: 1;
 }
 #single-main .other-kills li:first-child a::before {
+  background-image: url("../static/icons/filter-motion-degrade.svg");
+}
+#single-main .other-kills li:nth-child(2) a::before {
   background-image: linear-gradient(-45.9deg, #8670cc, 50%, #ff5e81);
   -webkit-mask-image: url("../static/icons/strategie-kills.svg");
   mask-image: url("../static/icons/strategie-kills.svg");
 }
-#single-main .other-kills li:nth-child(2) a::before {
-  background-image: url("../static/icons/filter-identite-degrade.svg");
-}
+
 #single-main .other-kills li:nth-child(3) a::before {
-  background-image: url("../static/icons/filter-graphisme-degrade.svg");
-}
-#single-main .other-kills li:nth-child(4) a::before {
-  background-image: url("../static/icons/filter-edition-degrade.svg");
-}
-#single-main .other-kills li:nth-child(5) a::before {
   background-image: url("../static/icons/filter-web-degrade.svg");
 }
+#single-main .other-kills li:nth-child(4) a::before {
+  background-image: url("../static/icons/filter-identite-degrade.svg");
+}
+#single-main .other-kills li:nth-child(5) a::before {
+  background-image: url("../static/icons/filter-graphisme-degrade.svg");
+}
 #single-main .other-kills li:nth-child(6) a::before {
-  background-image: url("../static/icons/filter-motion-degrade.svg");
+  background-image: url("../static/icons/filter-edition-degrade.svg");
 }
 #single-main .other-kills li p {
   font-family: "Cabin", sans-serif;

@@ -2,6 +2,12 @@
   import axios from "axios";
   import HeaderVue from "../layouts/Header.vue";
   import FooterVue from "../layouts/Footer.vue";
+  import Strategie from "../static/icons/strategie-kills.svg";
+  import Identite from "../static/icons/filter-identite.svg";
+  import Graphisme from "../static/icons/filter-graphisme.svg";
+  import Edition from "../static/icons/filter-edition.svg";
+  import Web from "../static/icons/filter-web.svg";
+  import Motion from "../static/icons/filter-motion.svg";
   export default {
     name: "Competence",
     props: {
@@ -17,6 +23,7 @@
     data() {
       return {
         data: {},
+        otherDomain: [],
         loading: true,
       };
     },
@@ -24,16 +31,20 @@
       HeaderVue,
       FooterVue,
     },
-    mounted() {
+    async mounted() {
       if (localStorage.getItem("data")) {
         let pages = JSON.parse(localStorage.getItem("data"));
         pages.map(page => {
           if (page.slug === this.link) {
             this.data = page;
           }
+          if (page.template === "page-competence") {
+            this.otherDomain.push(page);
+          }
         });
+        this.otherDomain = [...new Set(this.otherDomain)];
       } else {
-        axios
+        await axios
           .get(
             `${this.apiUrl}/wp-json/better-rest-endpoints/v1/pages?per_page=50`
           )
@@ -42,10 +53,34 @@
               if (res.slug === this.link) {
                 this.data = res;
               }
+              if (page.template === "page-competence") {
+                this.otherDomain.push(page);
+              }
             });
           });
+        this.otherDomain = [...new Set(this.otherDomain)];
       }
       this.loading = false;
+    },
+    methods: {
+      getDomainImage(data) {
+        switch (data.slug) {
+          case "strategie-definir-un-plan-de-communication-et-preparer-ses-actions":
+            return Strategie;
+          case "identite-visuelle-logotype-univers-de-marque-et-charte-graphique":
+            return Identite;
+          case "graphisme-des-visuels-sur-mesure":
+            return Graphisme;
+          case "edition-design-de-documents-longs":
+            return Edition;
+          case "creation-de-site-internet-vitrine-marchand":
+            return Web;
+          case "motion-design-video":
+            return Motion;
+          default:
+            return "";
+        }
+      },
     },
   };
 </script>
@@ -102,26 +137,16 @@
             ><img src="../static/icons/twitter-degrade.svg" alt="logo twitter"
           /></a>
         </div>
-        <!-- <?php // 2- Appel de la fonction paginate_links
-                        global $wp_query;
-
-                        $big = 999999999; 
-
-                        echo paginate_links( array( // Plus d'info sur les arguments possibles  : https://codex.wordpress.org/Function_Reference/paginate_links
-                            'base' =>
-        str_replace( $big, '%#%', esc_url( get_pagenum_link( $big ) ) ),
-        'format' => '?paged=%#%', 'current' => max( 1, get_query_var('paged') ),
-        'total' => $wp_query->max_num_pages ) ); ?> -->
         <p class="plus menu-font">Nos autres domaines d'expertise</p>
         <hr />
-        <!-- <ul class="other-kills">
-                <li><a href="<?php echo get_permalink(937); ?>"><img src="../static/icons/strategie-kills.svg" alt=""></a><p><?php echo get_the_title(937);?></p></li>
-                <li><a href="<?php echo get_permalink(932); ?>"><img src="../static/icons/filter-identite.svg" alt=""></a><p><?php echo get_the_title(932);?></p></li>
-                <li><a href="<?php echo get_permalink(930); ?>"><img src="../static/icons/filter-graphisme.svg" alt=""></a><p><?php echo get_the_title(930);?></p></li>
-                <li><a href="<?php echo get_permalink(928); ?>"><img src="../static/icons/filter-edition.svg" alt=""></a><p><?php echo get_the_title(928);?></p></li>
-                <li><a href="<?php echo get_permalink(934); ?>"><img src="../static/icons/filter-web.svg" alt=""></a><p><?php echo get_the_title(934);?></p></li>
-                <li><a href="<?php echo get_permalink(939); ?>"><img src="../static/icons/filter-motion.svg" alt=""></a><p><?php echo get_the_title(939);?></p></li>
-            </ul> -->
+        <ul class="other-kills">
+          <li v-for="(domain, index) in otherDomain" :key="index">
+            <a href="#">
+              <img :src="getDomainImage(domain)" :alt="domain.title" />
+            </a>
+            <p v-html="domain.title"></p>
+          </li>
+        </ul>
       </div>
     </section>
   </div>
