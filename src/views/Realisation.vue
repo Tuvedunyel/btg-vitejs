@@ -5,16 +5,22 @@
     props: {
       real: {
         type: String,
-        required: true,
+        default: "",
       },
       realisations: {
         type: String,
-        required: true,
+        default: "",
       },
       apiUrl: {
         type: String,
         default: "https://btg-communication.test",
-        required: true,
+      },
+    },
+    watch: {
+      $route(to, from) {
+        this.loading = true;
+        this.realisation = JSON.parse(to.params.real);
+        this.loading = false;
       },
     },
     components: {
