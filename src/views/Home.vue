@@ -75,7 +75,13 @@
       </div>
       <div class="desc">
         <p class="exo-light-21" v-html="data.acf.texte_photo"></p>
-        <a href="#" class="classic-button">
+        <router-link
+          :to="{
+            name: 'Page',
+            params: { link: 'les-projets-de-l-agence', apiUrl },
+          }"
+          class="resp classic-button"
+        >
           <p>Les réalisations de l'agence</p>
           <svg
             class="arrow"
@@ -91,10 +97,16 @@
               ></polygon>
             </g>
           </svg>
-        </a>
+        </router-link>
       </div>
       <div class="button">
-        <a href="#" class="resp classic-button">
+        <router-link
+          :to="{
+            name: 'Page',
+            params: { link: 'les-projets-de-l-agence', apiUrl },
+          }"
+          class="resp classic-button"
+        >
           <p>Les réalisations de l'agence</p>
           <svg
             class="arrow"
@@ -110,7 +122,7 @@
               ></polygon>
             </g>
           </svg>
-        </a>
+        </router-link>
       </div>
     </div>
   </section>
@@ -120,7 +132,13 @@
       <div class="desc">
         <h2>Ce que l'on fait</h2>
         <p class="exo-light-21" v-html="data.acf.texte_competences"></p>
-        <a href="#" class="classic-button">
+        <router-link
+          :to="{
+            name: 'Page',
+            params: { link: 'agence-de-communication-et-savoir-faire', apiUrl },
+          }"
+          class="classic-button"
+        >
           <p>L'agence et savoir-faire</p>
           <svg
             class="arrow"
@@ -136,7 +154,7 @@
               ></polygon>
             </g>
           </svg>
-        </a>
+        </router-link>
       </div>
     </div>
     <div class="cards-container">
@@ -181,7 +199,10 @@
           <img :src="client.media.thumbnail" :alt="client.title" />
         </a>
       </div>
-      <a href="#" class="classic-button">
+      <router-link
+        :to="{ name: 'Page', params: { link: 'experience-clients', apiUrl } }"
+        class="classic-button"
+      >
         <p>Références</p>
         <svg
           class="arrow"
@@ -197,7 +218,7 @@
             ></polygon>
           </g>
         </svg>
-      </a>
+      </router-link>
     </div>
   </section>
   <section v-if="!loading" id="acc-philosophie">

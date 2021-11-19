@@ -131,7 +131,6 @@
                         height="315"
                         :src="contenu.video.url"
                         :title="contenu.title"
-                        frameborder="0"
                         allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                         allowfullscreen
                       ></iframe>
