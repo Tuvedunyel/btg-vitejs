@@ -18,9 +18,11 @@
     },
     watch: {
       $route(to, from) {
-        this.loading = true;
-        this.realisation = JSON.parse(to.params.real);
-        this.loading = false;
+        if (to.params.real) {
+          this.loading = true;
+          this.realisation = JSON.parse(to.params.real);
+          this.loading = false;
+        }
       },
     },
     components: {

@@ -45,7 +45,13 @@
       </div>
       <VideoClientVue v-if="showClient" :video="video" />
     </div>
-    <a href="#" class="classic-button">
+    <router-link
+      :to="{
+        name: 'Page',
+        params: { link: 'les-projets-de-l-agence', apiUrl },
+      }"
+      class="classic-button"
+    >
       <p>Les réalisations de l'agence</p>
       <svg
         class="arrow"
@@ -61,7 +67,7 @@
           ></polygon>
         </g>
       </svg>
-    </a>
+    </router-link>
   </section>
   <section v-if="!loading" id="partners">
     <h2 class="no-point">Ils nous font confiance :</h2>

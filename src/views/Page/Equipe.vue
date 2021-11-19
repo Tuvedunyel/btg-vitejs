@@ -56,13 +56,13 @@
   </section>
 
   <section id="lien">
-    <a href="#" class="classic-button">
-      <router-link
-        :to="{
-          name: 'Page',
-          params: { link: 'les-projets-de-l-agence', apiUrl },
-        }"
-      ></router-link>
+    <router-link
+      :to="{
+        name: 'Page',
+        params: { link: 'les-projets-de-l-agence', apiUrl },
+      }"
+      class="classic-button"
+    >
       <p>Nos réalisations</p>
       <svg
         class="arrow"
@@ -78,7 +78,7 @@
           ></polygon>
         </g>
       </svg>
-    </a>
+    </router-link>
   </section>
 </template>
 <script>
