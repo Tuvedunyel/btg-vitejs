@@ -10,9 +10,11 @@
       <div class="list">
         <ul v-if="mainMenu">
           <li v-for="(item, index) in mainMenu" :key="index">
-            <a href="#">
+            <router-link
+              :to="{ name: 'Competence', params: { link: item.slug } }"
+            >
               {{ item.title }}
-            </a>
+            </router-link>
           </li>
         </ul>
       </div>
@@ -61,18 +63,18 @@
 </template>
 
 <script>
-export default {
-  name: "BannerFront",
-  props: ["title", "mainMenu"],
-  data() {
-    return {
-      active: false,
-    };
-  },
-  mounted() {
-    setTimeout(() => {
-      this.active = true;
-    }, 800);
-  },
-};
+  export default {
+    name: "BannerFront",
+    props: ["title", "mainMenu"],
+    data() {
+      return {
+        active: false,
+      };
+    },
+    mounted() {
+      setTimeout(() => {
+        this.active = true;
+      }, 800);
+    },
+  };
 </script>

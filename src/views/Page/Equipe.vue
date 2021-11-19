@@ -57,6 +57,12 @@
 
   <section id="lien">
     <a href="#" class="classic-button">
+      <router-link
+        :to="{
+          name: 'Page',
+          params: { link: 'les-projets-de-l-agence', apiUrl },
+        }"
+      ></router-link>
       <p>Nos réalisations</p>
       <svg
         class="arrow"

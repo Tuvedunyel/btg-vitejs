@@ -26,7 +26,13 @@
             />
           </div>
         </div>
-        <a href="#" class="classic-button">
+        <router-link
+          :to="{
+            name: 'Page',
+            params: { link: 'l-equipe-de-communication', apiUrl },
+          }"
+          class="classic-button"
+        >
           <p>L’équipe à votre écoute</p>
           <svg
             class="arrow"
@@ -42,7 +48,7 @@
               ></polygon>
             </g>
           </svg>
-        </a>
+        </router-link>
       </div>
     </section>
     <section id="skills">
@@ -73,7 +79,13 @@
           </div>
         </div>
       </div>
-      <a href="#" class="classic-button">
+      <router-link
+        :to="{
+          name: 'Page',
+          params: { link: 'les-projets-de-l-agence', apiUrl },
+        }"
+        class="classic-button"
+      >
         <p>Nos réalisations</p>
         <svg
           class="arrow"
@@ -89,7 +101,7 @@
             ></polygon>
           </g>
         </svg>
-      </a>
+      </router-link>
     </section>
   </div>
 </template>

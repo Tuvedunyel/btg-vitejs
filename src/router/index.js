@@ -3,7 +3,7 @@ import Home from "./../views/Home.vue";
 import Page from "./../views/Page.vue";
 import Article from "./../views/Article.vue";
 import Realisation from "./../views/Realisation.vue";
-import Competence from "./../views/Competece.vue";
+import Competence from "./../views/Competence.vue";
 const routes = [
   {
     path: "/",

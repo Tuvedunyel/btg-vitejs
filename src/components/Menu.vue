@@ -23,6 +23,11 @@
                 >
                 </a>
                 <router-link
+                  v-else-if="link.title === 'Accueil'"
+                  to="/"
+                  v-html="link.title"
+                ></router-link>
+                <router-link
                   v-else-if="link.menu_item_parent === '0'"
                   :to="{ name: 'Page', params: { link: link.slug } }"
                   v-html="link.title"
