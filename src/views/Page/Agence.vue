@@ -75,7 +75,14 @@
               <span class="red">Exemple : </span>
               <strong>{{ competence.exemple }}</strong>
             </div>
-            <a href="#">En savoir plus</a>
+            <router-link
+              :to="{
+                name: 'Competence',
+                params: { link: subMenu[index].slug, apiUrl },
+              }"
+            >
+              En savoir plus
+            </router-link>
           </div>
         </div>
       </div>
@@ -122,6 +129,31 @@
         type: String,
         default: "https://btg-communication.test",
       },
+    },
+    data() {
+      return {
+        subMenu: null,
+      };
+    },
+    created() {
+      if (localStorage.getItem("subMenu")) {
+        this.subMenu = JSON.parse(localStorage.getItem("subMenu"));
+      } else {
+        axios
+          .get(
+            `${this.apiUrl}/wp-json/better-rest-endpoints/v1/menus/principal`
+          )
+          .then(response => {
+            localStorage.setItem("menu", JSON.stringify(this.menu));
+            response.data.map(res => {
+              if (res.menu_item_parent !== "0") {
+                return this.subMenu.push(res);
+              }
+              this.subMenu.sort();
+              this.subMenu = [...new Set(this.subMenu)];
+            });
+          });
+      }
     },
   };
 </script>
