@@ -77,7 +77,7 @@
       </div>
     </div>
     <h2 class="no-point">Et vous ?</h2>
-    <button class="menu-related" onclick="toggleContact();">
+    <button class="menu-related" @click="toggleContact()">
       <img src="./../../static/icons/contact-degrade.svg" alt="envellope" />
     </button>
   </section>
@@ -126,6 +126,9 @@
       toggleClient(video) {
         this.video = video;
         this.showClient = !this.showClient;
+      },
+      toggleContact() {
+        this.$parent.$refs.Header.toggleContact();
       },
     },
   };

@@ -1,6 +1,11 @@
 <template>
   <div v-if="!loading">
-    <HeaderVue v-if="!loading" :propsData="data" :apiUrl="apiUrl" />
+    <HeaderVue
+      v-if="!loading"
+      ref="Header"
+      :propsData="data"
+      :apiUrl="apiUrl"
+    />
     <EquipeVue
       v-if="data.template === 'page-equipe'"
       :data="data"

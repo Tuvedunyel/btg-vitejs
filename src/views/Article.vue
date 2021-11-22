@@ -27,6 +27,11 @@
       this.article = JSON.parse(this.propsArticle);
       this.loading = false;
     },
+    methods: {
+      toggleContact() {
+        this.$refs.Header.toggleContact();
+      },
+    },
   };
 </script>
 
@@ -41,7 +46,7 @@
       cookies-set cookies-accepted
     "
   >
-    <HeaderVue :apiUrl="apiUrl" :propsData="article" type="blog" />
+    <HeaderVue :apiUrl="apiUrl" ref="Header" :propsData="article" type="blog" />
     <div id="primary" class="content-area">
       <main id="main" class="site-main">
         <div class="container">
@@ -156,7 +161,7 @@
           </div>
         </div>
       </main>
-      <a onclick="toggleContact()" class="classic-button menu-related">
+      <a @click="toggleContact()" class="classic-button menu-related">
         <p>Nous contacter</p>
         <svg
           class="arrow"

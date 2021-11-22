@@ -1,5 +1,5 @@
 <template>
-  <HeaderVue v-if="!loading" :propsData="data" :apiUrl="apiUrl" />
+  <HeaderVue v-if="!loading" ref="Header" :propsData="data" :apiUrl="apiUrl" />
   <section v-if="!loading" id="acc-projet">
     <div class="container">
       <h2 class="reversed flipped no-transition">Projets</h2>
@@ -166,9 +166,19 @@
         :key="index"
         class="card"
       >
-        <img :src="poleCompetence.icone.url" :alt="poleCompetence.icone.alt" />
-        <h3>{{ poleCompetence.titre }}</h3>
-        <p class="exo-light-16" v-html="poleCompetence.descriptif"></p>
+        <router-link
+          :to="{
+            name: 'Competence',
+            params: { link: subMenu[index].slug, apiUrl },
+          }"
+        >
+          <img
+            :src="poleCompetence.icone.url"
+            :alt="poleCompetence.icone.alt"
+          />
+          <h3>{{ poleCompetence.titre }}</h3>
+          <p class="exo-light-16" v-html="poleCompetence.descriptif"></p>
+        </router-link>
       </div>
     </div>
   </section>
@@ -242,7 +252,7 @@
       <div class="desc">
         <div class="exo-light-21" v-html="data.acf.texte_methodologie"></div>
       </div>
-      <a onclick="toggleContact()" class="classic-button menu-related">
+      <a @click="toggleContact()" class="classic-button menu-related">
         <p>Contactez-nous</p>
         <svg
           class="arrow"
@@ -288,6 +298,7 @@
         bulletSlider: [],
         client: [],
         currentSlide: 0,
+        subMenu: null,
       };
     },
     computed: {
@@ -363,6 +374,7 @@
             this.client = response.data;
           }
         });
+      this.getSubMenu();
       this.loading = false;
     },
     methods: {
@@ -391,6 +403,29 @@
           this.sliceB = this.sliceB + 1;
           this.currentSlide = this.currentSlide + 1;
         }
+      },
+      getSubMenu() {
+        if (localStorage.getItem("subMenu")) {
+          this.subMenu = JSON.parse(localStorage.getItem("subMenu"));
+        } else {
+          axios
+            .get(
+              `${this.apiUrl}/wp-json/better-rest-endpoints/v1/menus/principal`
+            )
+            .then(response => {
+              localStorage.setItem("menu", JSON.stringify(this.menu));
+              response.data.map(res => {
+                if (res.menu_item_parent !== "0") {
+                  return this.subMenu.push(res);
+                }
+                this.subMenu.sort();
+                this.subMenu = [...new Set(this.subMenu)];
+              });
+            });
+        }
+      },
+      toggleContact() {
+        this.$refs.Header.toggleContact();
       },
     },
   };

@@ -80,7 +80,7 @@
         {{ real.acf.txt_realisation }}
       </div>
 
-      <a class="classic-button menu-related">
+      <a class="classic-button menu-related" @click="toggleContact()">
         <p>Nous contacter</p>
         <svg
           class="arrow"
@@ -220,6 +220,9 @@
           case "Vidéo":
             return { src: videoDegrade, alt: "Motion" };
         }
+      },
+      toggleContact() {
+        this.$parent.$refs.Header.toggleContact();
       },
     },
   };

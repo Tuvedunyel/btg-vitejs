@@ -63,6 +63,11 @@
       this.objectRealisations = JSON.parse(this.realisations);
       this.loading = false;
     },
+    methods: {
+      toggleContact() {
+        this.$refs.Header.toggleContact();
+      },
+    },
   };
 </script>
 
@@ -70,6 +75,7 @@
   <HeaderVue
     v-if="!loading"
     :apiUrl="apiUrl"
+    ref="Header"
     :propsData="realisation"
     type="realisation"
   />
@@ -127,7 +133,7 @@
         /></a>
       </div>
 
-      <a class="classic-button menu-related">
+      <a class="classic-button menu-related" @click="toggleContact()">
         <p>Nous contacter</p>
         <svg
           class="arrow"
