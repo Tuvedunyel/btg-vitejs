@@ -374,6 +374,7 @@
             this.client = response.data;
           }
         });
+      document.head.innerHTML += `<meta name='description' content='${this.data.title}' />`;
       this.getSubMenu();
       this.loading = false;
     },
