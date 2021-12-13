@@ -132,20 +132,6 @@
             </label>
           </form>
         </div>
-        <!-- <div class="resp-nav">
-					<div class="openlist">Type d'article</div>
-					<?php 
-						wp_nav_menu(
-							array(
-								'theme_location' => 'menu-categories',
-								'container' => 'div',
-								'container_class' => 'container resp-nav-menu'
-							)
-						)
-					?>
-				</div>
-
-				<?php dynamic_sidebar( 'searchbar' ); ?> -->
       </header>
       <div class="container">
         <div class="content-blog">

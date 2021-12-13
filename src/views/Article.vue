@@ -64,15 +64,15 @@
               :class="'post-' + article.id"
             >
               <section class="entry-header">
-                <h1 class="no-point">{{ article.title }}</h1>
+                <h1 class="no-point" v-html="article.title"></h1>
                 <h2 class="no-after" v-html="article.content"></h2>
                 <div class="entry-categories">
                   <ul>
                     <li
-                      v-for="(category, index) in article.category_name"
+                      v-for="(category, index) in article.category_names"
                       :key="index"
                     >
-                      {{ category }}
+                      <a href="#">{{ category }}</a>
                     </li>
                   </ul>
                 </div>
