@@ -129,7 +129,7 @@
       <div class="container">
         <h2 class="big-title">{{ data.acf.title_h2 }}</h2>
         <h3><span v-html="data.content"></span></h3>
-        <div class="exerpt exo-light-18">{{ data.acf.accroche }}</div>
+        <div class="exerpt exo-light-18" v-html="data.acf.accroche"></div>
         <img src="../static/icons/vague-degrade.svg" alt="" class="vague" />
 
         <div class="elems-container">
