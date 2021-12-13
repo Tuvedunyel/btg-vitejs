@@ -1,4 +1,5 @@
 <script>
+  import axios from "axios";
   import HeaderVue from "../layouts/Header.vue";
   export default {
     name: "Realisation",
@@ -33,6 +34,7 @@
         realisation: null,
         objectRealisations: null,
         loading: true,
+        metaDescritpiton: "",
       };
     },
     computed: {

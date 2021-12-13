@@ -27,6 +27,7 @@
         if (to.params.link !== undefined) {
           this.slug = to.params.link;
           this.otherDomain = [];
+          this.getMetaDescription();
           this.fetchData();
         }
       },
@@ -37,6 +38,7 @@
         slug: "",
         otherDomain: [],
         loading: true,
+        metaDescription: "",
       };
     },
     components: {
@@ -47,6 +49,7 @@
       if (this.link !== "") {
         this.slug = this.link;
       }
+      this.getMetaDescription();
       this.fetchData();
     },
     methods: {
@@ -99,6 +102,22 @@
           this.otherDomain = [...new Set(this.otherDomain)];
           this.loading = false;
         }
+      },
+      async getMetaDescription() {
+        await axios
+          .get(
+            `${this.apiUrl}/wp-json/better-rest-endpoints/v1/pages?per_page=50`
+          )
+          .then(response => {
+            response.data.map(res => {
+              if (res.slug === this.link) {
+                this.metaDescription = res.yoast.yoast_wpseo_metadesc;
+              }
+            });
+          });
+        document
+          .querySelector("meta[name=description]")
+          .setAttribute("content", this.metaDescription);
       },
     },
   };
