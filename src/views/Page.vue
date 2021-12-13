@@ -74,6 +74,7 @@
         data: null,
         loading: true,
         slug: "",
+        metaDescription: "",
       };
     },
     components: {
@@ -90,6 +91,7 @@
         this.slug = this.link;
       }
       this.fetchData();
+      this.getMetaDescription();
     },
     methods: {
       async fetchData() {
@@ -115,6 +117,20 @@
             });
         }
         this.loading = false;
+      },
+      async getMetaDescription() {
+        await axios
+          .get(`${this.apiUrl}/wp-json/wp/v2/pages?per_page=50`)
+          .then(response => {
+            response.data.map(res => {
+              if (res.slug === this.slug) {
+                this.metaDescription = res.yoast_head_json.description;
+              }
+            });
+          });
+        document
+          .querySelector("meta[name=description]")
+          .setAttribute("content", this.metaDescription);
       },
     },
   };

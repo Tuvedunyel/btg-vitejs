@@ -430,22 +430,19 @@
       toggleContact() {
         this.$refs.Header.toggleContact();
       },
-      getMetaDescription() {
-        if (localStorage.getItem("metaDescription")) {
-          this.metaDescription = localStorage.getItem("metaDescription");
-        } else {
-          axios
-            .get(`${this.apiUrl}/wp-json/wp/v2/pages?per_page=50`)
-            .then(response => {
-              localStorage.setItem("basePage", JSON.stringify(response.data));
-              response.data.map(res => {
-                if (res.title.rendered === this.data.title) {
-                  this.metaDescription = res.yoast_head_json.description;
-                  localStorage.setItem("metaDescription", this.metaDescription);
-                }
-              });
+      async getMetaDescription() {
+        await axios
+          .get(`${this.apiUrl}/wp-json/wp/v2/pages?per_page=50`)
+          .then(response => {
+            response.data.map(res => {
+              if (res.title.rendered === this.data.title) {
+                this.metaDescription = res.yoast_head_json.description;
+              }
             });
-        }
+          });
+        document
+          .querySelector("meta[name=description]")
+          .setAttribute("content", this.metaDescription);
       },
     },
   };
