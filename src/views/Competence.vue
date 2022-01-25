@@ -22,8 +22,6 @@
     },
     watch: {
       $route(to, from) {
-        console.log(to);
-        console.log(to.params.link);
         if (to.params.link !== undefined) {
           this.slug = to.params.link;
           this.otherDomain = [];
