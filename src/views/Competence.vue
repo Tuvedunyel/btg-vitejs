@@ -122,77 +122,81 @@
 </script>
 <template>
   <HeaderVue v-if="!loading" :propsData="data" :apiUrl="apiUrl" />
-  <div v-if="!loading">
-    <section id="single-main">
-      <div class="container">
-        <h2 class="big-title">{{ data.acf.title_h2 }}</h2>
-        <h3><span v-html="data.content"></span></h3>
-        <div class="exerpt exo-light-18" v-html="data.acf.accroche"></div>
-        <img src="../static/icons/vague-degrade.svg" alt="" class="vague" />
+  <transition name="router" mode="out-in">
+    <div v-if="!loading">
+      <section id="single-main">
+        <div class="container">
+          <h2 class="big-title">{{ data.acf.title_h2 }}</h2>
+          <h3><span v-html="data.content"></span></h3>
+          <div class="exerpt exo-light-18" v-html="data.acf.accroche"></div>
+          <img src="../static/icons/vague-degrade.svg" alt="" class="vague" />
 
-        <div class="elems-container">
-          <div
-            v-for="(content, index) in data.acf.content"
-            :key="index"
-            class="container-loop"
-          >
+          <div class="elems-container">
             <div
-              v-if="content.texte"
-              class="exo-light-21"
-              v-html="content.texte"
-            ></div>
-            <img
-              v-if="content.image"
-              :src="content.image.url"
-              :alt="content.image.alt"
-              :title="content.image.title"
-              class="elem"
-            />
-            <div v-if="content.video" class="elem videoContainer">
-              <div class="videoWrapper">
-                <iframe
-                  width="560"
-                  height="315"
-                  :src="content.video"
-                  :title="data.title"
-                  allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                  allowfullscreen
-                ></iframe>
+              v-for="(content, index) in data.acf.content"
+              :key="index"
+              class="container-loop"
+            >
+              <div
+                v-if="content.texte"
+                class="exo-light-21"
+                v-html="content.texte"
+              ></div>
+              <img
+                v-if="content.image"
+                :src="content.image.url"
+                :alt="content.image.alt"
+                :title="content.image.title"
+                class="elem"
+              />
+              <div v-if="content.video" class="elem videoContainer">
+                <div class="videoWrapper">
+                  <iframe
+                    width="560"
+                    height="315"
+                    :src="content.video"
+                    :title="data.title"
+                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen
+                  ></iframe>
+                </div>
               </div>
             </div>
           </div>
-        </div>
 
-        <div class="socials">
-          <a href="https://www.facebook.com" target="_blank"
-            ><img
-              src="../static/icons/facebook-degrade.svg"
-              alt="logo facebook"
-          /></a>
-          <a href="https://www.twitter.com" target="_blank"
-            ><img src="../static/icons/twitter-degrade.svg" alt="logo twitter"
-          /></a>
+          <div class="socials">
+            <a href="https://www.facebook.com" target="_blank"
+              ><img
+                src="../static/icons/facebook-degrade.svg"
+                alt="logo facebook"
+            /></a>
+            <a href="https://www.twitter.com" target="_blank"
+              ><img
+                src="../static/icons/twitter-degrade.svg"
+                alt="logo twitter"
+            /></a>
+          </div>
+          <p class="plus menu-font">Nos autres domaines d'expertise</p>
+          <hr />
+          <ul class="other-kills">
+            <li v-for="(domain, index) in otherDomain" :key="index">
+              <router-link
+                :to="{
+                  name: 'Competence',
+                  params: {
+                    link: domain.slug,
+                    apiUrl,
+                  },
+                }"
+              >
+                <img :src="getDomainImage(domain)" :alt="domain.title" />
+              </router-link>
+              <p v-html="domain.title"></p>
+            </li>
+          </ul>
         </div>
-        <p class="plus menu-font">Nos autres domaines d'expertise</p>
-        <hr />
-        <ul class="other-kills">
-          <li v-for="(domain, index) in otherDomain" :key="index">
-            <router-link
-              :to="{
-                name: 'Competence',
-                params: {
-                  link: domain.slug,
-                  apiUrl,
-                },
-              }"
-            >
-              <img :src="getDomainImage(domain)" :alt="domain.title" />
-            </router-link>
-            <p v-html="domain.title"></p>
-          </li>
-        </ul>
-      </div>
-    </section>
-  </div>
+      </section>
+    </div>
+  </transition>
   <FooterVue v-if="!loading" :apiUrl="apiUrl" />
 </template>
