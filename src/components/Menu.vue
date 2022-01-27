@@ -37,11 +37,7 @@
                     <li
                       v-for="(item, key) in subMenu"
                       :key="key"
-                      class="
-                        menu-item
-                        menu-item-type-post_type
-                        menu-item-object-page
-                      "
+                      class="menu-item menu-item-type-post_type menu-item-object-page"
                     >
                       <router-link
                         :to="{
