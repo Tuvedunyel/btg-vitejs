@@ -14,6 +14,8 @@
     <div id="nav">
       <router-link to="/">Home</router-link>
     </div>
-    <router-view :apiUrl="apiUrl"></router-view>
+    <transition name="route" mode="out-in">
+      <router-view :apiUrl="apiUrl"></router-view>
+    </transition>
   </div>
 </template>
