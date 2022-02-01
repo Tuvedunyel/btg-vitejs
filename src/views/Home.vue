@@ -298,7 +298,7 @@
         bulletSlider: [],
         client: [],
         currentSlide: 0,
-        subMenu: null,
+        subMenu: [],
         metaDescription: "",
       };
     },
@@ -407,24 +407,25 @@
           this.currentSlide = this.currentSlide + 1;
         }
       },
-      getSubMenu() {
+      async getSubMenu() {
         if (localStorage.getItem("subMenu")) {
           this.subMenu = JSON.parse(localStorage.getItem("subMenu"));
         } else {
-          axios
+          await axios
             .get(
               `${this.apiUrl}/wp-json/better-rest-endpoints/v1/menus/principal`
             )
             .then(response => {
               localStorage.setItem("menu", JSON.stringify(this.menu));
               response.data.map(res => {
+                console.log(res);
                 if (res.menu_item_parent !== "0") {
                   return this.subMenu.push(res);
                 }
-                this.subMenu.sort();
-                this.subMenu = [...new Set(this.subMenu)];
               });
             });
+          this.subMenu.sort();
+          this.subMenu = [...new Set(this.subMenu)];
         }
       },
       toggleContact() {

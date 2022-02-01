@@ -176,7 +176,7 @@
             });
           });
       }
-      axios
+      await axios
         .get(`${this.apiUrl}/wp-json/better-rest-endpoints/v1/menus/principal`)
         .then(response => {
           if (localStorage.getItem("menu") !== JSON.stringify(response.data)) {
