@@ -75,9 +75,7 @@
               <div class="sib-form-block" style="text-align: left">
                 <button
                   id="sendinblue"
-                  class="
-                    sib-form-block__button sib-form-block__button-with-loader
-                  "
+                  class="sib-form-block__button sib-form-block__button-with-loader"
                   style="
                     font-size: 16px;
                     text-align: left;
@@ -215,7 +213,7 @@
     props: {
       apiUrl: {
         type: String,
-        default: "https://btg-communication.test",
+        default: "https://btg-dev.com/btg-test",
         required: true,
       },
     },

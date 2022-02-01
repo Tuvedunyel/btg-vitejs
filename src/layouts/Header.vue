@@ -110,7 +110,7 @@
       apiUrl: {
         type: String,
         required: true,
-        default: "https://btg-communication.test",
+        default: "https://btg-dev.com/btg-test",
       },
       type: {
         type: String,

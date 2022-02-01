@@ -97,7 +97,7 @@
       },
       apiUrl: {
         type: String,
-        default: "https://btg-communication.test",
+        default: "https://btg-dev.com/btg-test",
       },
     },
     components: {

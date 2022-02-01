@@ -10,7 +10,7 @@
       },
       apiUrl: {
         type: String,
-        default: "https://btg-communication.test",
+        default: "https://btg-dev.com/btg-test",
       },
     },
     components: {
@@ -38,13 +38,7 @@
 <template>
   <div
     v-if="!loading"
-    class="
-      post-template-default
-      single single-post
-      postid-1243
-      single-format-standard
-      cookies-set cookies-accepted
-    "
+    class="post-template-default single single-post postid-1243 single-format-standard cookies-set cookies-accepted"
   >
     <HeaderVue :apiUrl="apiUrl" ref="Header" :propsData="article" type="blog" />
     <div id="primary" class="content-area">
@@ -53,14 +47,7 @@
           <div class="content-blog">
             <article
               :id="'post-' + article.id"
-              class="
-                post
-                type-post
-                status-publish
-                format-standard
-                has-post-thumbnail
-                hentry
-              "
+              class="post type-post status-publish format-standard has-post-thumbnail hentry"
               :class="'post-' + article.id"
             >
               <section class="entry-header">

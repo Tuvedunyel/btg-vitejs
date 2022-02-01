@@ -3,7 +3,7 @@
     name: "BTG Communication",
     data() {
       return {
-        apiUrl: "https://btg-communication.test",
+        apiUrl: "https://btg-dev.com/btg-test",
       };
     },
   };
