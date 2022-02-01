@@ -44,7 +44,7 @@
                           name: 'Competence',
                           params: {
                             link: item.slug,
-                            apiUrl: 'https://btg-dev.com/btg-test',
+                            apiUrl: 'https://www.btg-dev.com/btg-test',
                           },
                         }"
                       >

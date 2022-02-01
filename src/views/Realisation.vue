@@ -14,7 +14,7 @@
       },
       apiUrl: {
         type: String,
-        default: "https://btg-dev.com/btg-test",
+        default: "https://www.btg-dev.com/btg-test",
       },
     },
     watch: {
