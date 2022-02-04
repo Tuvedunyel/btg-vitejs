@@ -191,8 +191,8 @@
               localStorage.setItem("subMenu", JSON.stringify(this.subMenu));
             });
           }
+          this.loading = false;
         });
-      this.loading = false;
       this.template = this.propsData.template;
       const body = document.body;
 

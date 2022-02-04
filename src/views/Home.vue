@@ -418,7 +418,6 @@
             .then(response => {
               localStorage.setItem("menu", JSON.stringify(this.menu));
               response.data.map(res => {
-                console.log(res);
                 if (res.menu_item_parent !== "0") {
                   return this.subMenu.push(res);
                 }
