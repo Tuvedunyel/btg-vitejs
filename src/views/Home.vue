@@ -393,9 +393,21 @@
         });
 
       this.getSubMenu();
-      // this.loading = false;
+      if (this.loading) {
+        this.subLoadingMessage();
+      }
+      setTimeout(() => {
+        this.loading = false;
+      }, 1000);
     },
     methods: {
+      subLoadingMessage() {
+        setTimeout(() => {
+          this.longLoading = true;
+          this.loadingPrecision =
+            "Oh oh, il semblerait que notre serveur souffre de quelques latences...";
+        }, 8000);
+      },
       handleSlideClick(slide) {
         if (
           this.currentSlide < slide &&
