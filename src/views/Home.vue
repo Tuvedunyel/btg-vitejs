@@ -1,4 +1,16 @@
 <template>
+  <section class="loading-page" v-if="loading">
+    <div class="loader">
+      <div class="pulse">
+        <img
+          src="./../static/icons/logo-btg-encadre.svg"
+          alt="BTG Communication, agence basée à Tours"
+        />
+        <h2>{{ loadingMessage }}</h2>
+        <p v-if="longLoading">{{ loadingPrecision }}</p>
+      </div>
+    </div>
+  </section>
   <HeaderVue v-if="!loading" ref="Header" :propsData="data" :apiUrl="apiUrl" />
   <section v-if="!loading" id="acc-projet">
     <div class="container">
@@ -300,6 +312,9 @@
         currentSlide: 0,
         subMenu: [],
         metaDescription: "",
+        loadingMessage: "Chargement en cours...",
+        longLoading: false,
+        loadingPrecision: "",
       };
     },
     computed: {
@@ -378,7 +393,7 @@
         });
 
       this.getSubMenu();
-      this.loading = false;
+      // this.loading = false;
     },
     methods: {
       handleSlideClick(slide) {

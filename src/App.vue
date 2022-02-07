@@ -11,7 +11,7 @@
 
 <template>
   <div v-cloak>
-    <div id="nav">
+    <div id="nav-router">
       <router-link to="/">Home</router-link>
     </div>
     <transition name="route" mode="out-in">
