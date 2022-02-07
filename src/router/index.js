@@ -43,7 +43,7 @@ const router = createRouter({
       behavior: "smooth",
     };
   },
-  history: createWebHistory(),
+  history: createWebHashHistory(),
   routes,
 });
 
