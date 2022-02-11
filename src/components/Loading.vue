@@ -1,5 +1,12 @@
 <script>
   export default {
+    props: {
+      loading: {
+        type: Boolean,
+        required: true,
+        default: true,
+      },
+    },
     name: "Loading",
     data() {
       return {};

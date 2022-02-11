@@ -1,6 +1,13 @@
 <template>
   <LoadingVue v-if="loading" :loading="loading" />
-  <HeaderVue v-if="!loading" ref="Header" :propsData="data" :apiUrl="apiUrl" />
+  <HeaderVue
+    v-if="!loading"
+    ref="Header"
+    :propsData="data"
+    :propsMenu="menu"
+    :propsSubMenu="subMenu"
+    :apiUrl="apiUrl"
+  />
   <section v-if="!loading" id="acc-projet">
     <div class="container">
       <h2 class="reversed flipped no-transition">Projets</h2>
@@ -289,7 +296,7 @@
     props: {
       apiUrl: {
         type: String,
-        default: "https://www.btg-communication.test",
+        default: "https://www.btg-communication.fr",
       },
     },
     data() {
@@ -302,6 +309,7 @@
         client: [],
         currentSlide: 0,
         subMenu: [],
+        menu: [],
         metaDescription: "",
       };
     },
@@ -318,7 +326,7 @@
     async mounted() {
       if (localStorage.getItem("data")) {
         let pages = JSON.parse(localStorage.getItem("data"));
-        await pages.map(page => {
+        pages.map(page => {
           if (page.slug === "agence-de-communication-a-tours") {
             this.data = page;
           }
@@ -337,7 +345,7 @@
             });
           });
       }
-      axios
+      await axios
         .get(
           `${this.apiUrl}/wp-json/better-rest-endpoints/v1/pages?per_page=50`
         )
@@ -358,16 +366,16 @@
       if (localStorage.getItem("client")) {
         this.client = JSON.parse(localStorage.getItem("client"));
       } else {
-        axios
+        await axios
           .get(
-            `${this.apiUrl}/wp-json/better-rest-endpoints/v1/clients?per_page=50`
+            `${this.apiUrl}/wp-json/better-rest-endpoints/v1/client?per_page=50`
           )
           .then(response => {
             this.client = response.data;
             localStorage.setItem("client", JSON.stringify(response.data));
           });
       }
-      axios
+      await axios
         .get(
           `${this.apiUrl}/wp-json/better-rest-endpoints/v1/client?per_page=50`
         )
@@ -381,9 +389,10 @@
         });
 
       this.getSubMenu();
-      // setTimeout(() => {
-      //   this.loading = false;
-      // }, 1000);
+
+      setTimeout(() => {
+        this.loading = false;
+      }, 3000);
     },
     methods: {
       handleSlideClick(slide) {
@@ -413,23 +422,26 @@
         }
       },
       async getSubMenu() {
-        if (localStorage.getItem("subMenu")) {
+        if (localStorage.getItem("subMenu") && localStorage.getItem("menu")) {
           this.subMenu = JSON.parse(localStorage.getItem("subMenu"));
+          this.menu = JSON.parse(localStorage.getItem("menu"));
         } else {
           await axios
             .get(
               `${this.apiUrl}/wp-json/better-rest-endpoints/v1/menus/principal`
             )
             .then(response => {
-              localStorage.setItem("menu", JSON.stringify(this.menu));
+              this.menu = response.data;
               response.data.map(res => {
                 if (res.menu_item_parent !== "0") {
                   return this.subMenu.push(res);
                 }
               });
             });
+          localStorage.setItem("menu", JSON.stringify(this.menu));
           this.subMenu.sort();
           this.subMenu = [...new Set(this.subMenu)];
+          localStorage.setItem("subMenu", JSON.stringify(this.subMenu));
         }
       },
       toggleContact() {

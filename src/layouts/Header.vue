@@ -133,11 +133,11 @@
         template: null,
       };
     },
-    async mounted() {
+    mounted() {
       if (localStorage.getItem("options")) {
         this.data = JSON.parse(localStorage.getItem("options"));
       } else {
-        await axios
+        axios
           .get(`${this.apiUrl}/wp-json/better-rest-endpoints/v1/options/acf`)
           .then(response => {
             this.data = response.data;
@@ -159,48 +159,41 @@
         this.menu = JSON.parse(localStorage.getItem("menu"));
         this.subMenu = JSON.parse(localStorage.getItem("subMenu"));
       } else {
-        await axios
-          .get(
-            `${this.apiUrl}/wp-json/better-rest-endpoints/v1/menus/principal`
-          )
-          .then(response => {
-            this.menu = response.data;
-            localStorage.setItem("menu", JSON.stringify(this.menu));
-            response.data.map(res => {
-              if (res.menu_item_parent !== "0") {
-                return this.subMenu.push(res);
-              }
-              this.subMenu.sort();
-              this.subMenu = [...new Set(this.subMenu)];
-              localStorage.setItem("subMenu", JSON.stringify(this.subMenu));
-            });
-          });
+        this.getMenu();
       }
-      await axios
-        .get(`${this.apiUrl}/wp-json/better-rest-endpoints/v1/menus/principal`)
-        .then(response => {
-          if (localStorage.getItem("menu") !== JSON.stringify(response.data)) {
-            this.menu = response.data;
-            localStorage.setItem("menu", JSON.stringify(this.menu));
-            response.data.map(res => {
-              if (res.menu_item_parent !== "0") {
-                return this.subMenu.push(res);
-              }
-              this.subMenu.sort();
-              this.subMenu = [...new Set(this.subMenu)];
-              localStorage.setItem("subMenu", JSON.stringify(this.subMenu));
-            });
-          }
-          this.loading = false;
-        });
+
       this.template = this.propsData.template;
       const body = document.body;
 
       if (body.classList.contains("noscroll")) {
         body.classList.remove("noscroll");
       }
+      this.loading = false;
     },
     methods: {
+      async getMenu() {
+        if (localStorage.getItem("menu") && localStorage.getItem("subMenu")) {
+          this.menu = this.propsMenu;
+          this.subMenu = this.propsSubMenu;
+        } else {
+          await axios
+            .get(
+              `${this.apiUrl}/wp-json/better-rest-endpoints/v1/menus/principal`
+            )
+            .then(response => {
+              this.menu = response.data;
+              response.data.map(res => {
+                if (res.menu_item_parent !== "0") {
+                  return this.subMenu.push(res);
+                }
+              });
+            });
+          localStorage.setItem("menu", JSON.stringify(this.menu));
+          this.subMenu.sort();
+          this.subMenu = [...new Set(this.subMenu)];
+          localStorage.setItem("subMenu", JSON.stringify(this.subMenu));
+        }
+      },
       toggleContact() {
         const contactOverlay = document.getElementById("overlay-contact");
         const contactButton = document.getElementById("contact-icon-flippable");
