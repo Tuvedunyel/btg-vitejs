@@ -1,16 +1,5 @@
 <template>
-  <section class="loading-page" v-if="loading">
-    <div class="loader">
-      <div class="pulse">
-        <img
-          src="./../static/icons/logo-btg-encadre.svg"
-          alt="BTG Communication, agence basée à Tours"
-        />
-        <h2>{{ loadingMessage }}</h2>
-        <p v-if="longLoading">{{ loadingPrecision }}</p>
-      </div>
-    </div>
-  </section>
+  <LoadingVue v-if="loading" :loading="loading" />
   <HeaderVue v-if="!loading" ref="Header" :propsData="data" :apiUrl="apiUrl" />
   <section v-if="!loading" id="acc-projet">
     <div class="container">
@@ -288,12 +277,14 @@
 <script>
   import HeaderVue from "../layouts/Header.vue";
   import FooterVue from "../layouts/Footer.vue";
+  import LoadingVue from "../components/Loading.vue";
   import axios from "axios";
   export default {
     name: "Home",
     components: {
       HeaderVue,
       FooterVue,
+      LoadingVue,
     },
     props: {
       apiUrl: {
@@ -312,9 +303,6 @@
         currentSlide: 0,
         subMenu: [],
         metaDescription: "",
-        loadingMessage: "Chargement en cours...",
-        longLoading: false,
-        loadingPrecision: "",
       };
     },
     computed: {
@@ -393,21 +381,11 @@
         });
 
       this.getSubMenu();
-      if (this.loading) {
-        this.subLoadingMessage();
-      }
-      setTimeout(() => {
-        this.loading = false;
-      }, 1000);
+      // setTimeout(() => {
+      //   this.loading = false;
+      // }, 1000);
     },
     methods: {
-      subLoadingMessage() {
-        setTimeout(() => {
-          this.longLoading = true;
-          this.loadingPrecision =
-            "Oh oh, il semblerait que notre serveur souffre de quelques latences...";
-        }, 8000);
-      },
       handleSlideClick(slide) {
         if (
           this.currentSlide < slide &&
