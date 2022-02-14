@@ -125,7 +125,6 @@
         default: [],
       },
     },
-    emits: ["pageLoad"],
     components: {
       MenuVue,
       ContactVue,
@@ -178,7 +177,6 @@
         body.classList.remove("noscroll");
       }
       this.loading = false;
-      this.$emit("pageLoad", "true");
     },
     methods: {
       async getMenu() {

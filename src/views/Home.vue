@@ -1,15 +1,14 @@
 <template>
-  <LoadingVue v-if="loading && !pageLoad" :loading="loading" />
+  <LoadingVue v-if="loading" :loading="loading" />
   <HeaderVue
     v-if="!loading"
     ref="Header"
     :propsData="data"
     :propsMenu="menu"
     :propsSubMenu="subMenu"
-    @pageLoad="pageLoad"
     :apiUrl="apiUrl"
   />
-  <section v-if="!loading && pageLoad" id="acc-projet">
+  <section v-if="!loading" id="acc-projet">
     <div class="container">
       <h2 class="reversed flipped no-transition">Projets</h2>
       <div class="glide no-transition">
@@ -136,7 +135,7 @@
     </div>
   </section>
 
-  <section v-if="!loading && pageLoad" id="acc-activite">
+  <section v-if="!loading" id="acc-activite">
     <div class="container">
       <div class="desc">
         <h2>Ce que l'on fait</h2>
@@ -144,7 +143,10 @@
         <router-link
           :to="{
             name: 'Page',
-            params: { link: 'agence-de-communication-et-savoir-faire', apiUrl },
+            params: {
+              link: 'agence-de-communication-et-savoir-faire',
+              apiUrl,
+            },
           }"
           class="classic-button"
         >
@@ -192,7 +194,7 @@
     </div>
   </section>
 
-  <section v-if="!loading && pageLoad" id="acc-clients">
+  <section v-if="!loading" id="acc-clients">
     <div class="container fixed">
       <h2 class="reversed flipped no-transition">Clients</h2>
       <div class="pourquoi-pas">
@@ -240,7 +242,7 @@
       </router-link>
     </div>
   </section>
-  <section v-if="!loading && pageLoad" id="acc-philosophie">
+  <section v-if="!loading" id="acc-philosophie">
     <div class="container">
       <div class="desc">
         <h2>Philosophie</h2>
@@ -254,7 +256,7 @@
       <img :src="data.acf.image_philosophie" alt="Notre philosophie" />
     </div>
   </section>
-  <section v-if="!loading && pageLoad" id="acc-methodologie">
+  <section v-if="!loading" id="acc-methodologie">
     <div class="blue-background"></div>
     <div class="container">
       <h2>Méthodologie</h2>
@@ -280,7 +282,7 @@
       </a>
     </div>
   </section>
-  <FooterVue v-if="!loading && pageLoad" :apiUrl="apiUrl" />
+  <FooterVue v-if="!loading" :apiUrl="apiUrl" />
 </template>
 <script>
   import HeaderVue from "../layouts/Header.vue";
@@ -312,7 +314,6 @@
         subMenu: [],
         menu: [],
         metaDescription: "",
-        pageLoad: false,
       };
     },
     computed: {
