@@ -3,8 +3,9 @@
     v-if="template === 'page-competence'"
     id="agency-banner"
     class="banner"
-    :style="agencyBackgroundImage()"
+    :style="{ backgroundImage: `url(${bannerImg})` }"
   >
+    >
     <img
       v-if="template !== 'page'"
       class="logo"
@@ -25,7 +26,7 @@
     :id="bannerClass"
     class="banner"
     :class="template === 'page' && 'banner-home'"
-    :style="templateEqualPage"
+    :style="{ backgroundImage: `url(${bannerImg})` }"
   >
     <img
       v-if="template !== 'page'"
@@ -50,6 +51,7 @@
     data() {
       return {
         bannerClass: null,
+        bannerImg: null,
       };
     },
     mounted() {
@@ -69,24 +71,7 @@
         default:
           this.bannerClass = "agency-banner";
       }
-    },
-    methods: {
-      templateEqualPage() {
-        if (this.template === "page") {
-          return {
-            backgroundImage: `url(${this.data.media.imgBlog})`,
-            backgroundPosition: "center 80%",
-          };
-        }
-      },
-      agencyBackgroundImage() {
-        return {
-          backgroundImage: `url(${this.data.media.imgBlog})`,
-          backgroundRepeat: "no-repeat",
-          backgroundPosition: "center 80%",
-          backgroundSize: "cover",
-        };
-      },
+      this.bannerImg = this.data.media.imgBlog;
     },
   };
 </script>

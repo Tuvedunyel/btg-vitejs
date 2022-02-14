@@ -5,6 +5,7 @@
     :propsData="data"
     :apiUrl="apiUrl"
     :pageLoading="loading"
+    v-if="!propsLoading"
   />
   <div class="loading-wrapper" :class="{ loadingPage: loading }">
     <div v-if="!loading">
@@ -79,6 +80,7 @@
         loading: true,
         slug: "",
         metaDescription: "",
+        propsLoading: true,
       };
     },
     components: {
@@ -107,6 +109,7 @@
               this.data = page;
             }
           });
+          this.propsLoading = false;
         } else {
           await axios
             .get(
@@ -120,6 +123,7 @@
                 }
               });
             });
+          this.propsLoading = false;
         }
         setTimeout(() => {
           this.loading = false;
