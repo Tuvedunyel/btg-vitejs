@@ -141,18 +141,18 @@
         template: null,
       };
     },
-    mounted() {
+    async mounted() {
       if (localStorage.getItem("options")) {
         this.data = JSON.parse(localStorage.getItem("options"));
       } else {
-        axios
+        await axios
           .get(`${this.apiUrl}/wp-json/better-rest-endpoints/v1/options/acf`)
           .then(response => {
             this.data = response.data;
             localStorage.setItem("options", JSON.stringify(this.data));
           });
       }
-      axios
+      await axios
         .get(`${this.apiUrl}/wp-json/better-rest-endpoints/v1/options/acf`)
         .then(reponse => {
           if (

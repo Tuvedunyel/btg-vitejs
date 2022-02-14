@@ -1,7 +1,7 @@
 <template>
   <LoadingVue v-if="loading" :loading="loading" />
   <HeaderVue
-    v-if="!loading"
+    v-if="!menuLoad"
     ref="Header"
     :propsData="data"
     :propsMenu="menu"
@@ -314,6 +314,7 @@
         subMenu: [],
         menu: [],
         metaDescription: "",
+        menuLoad: true,
       };
     },
     computed: {
@@ -327,6 +328,7 @@
       },
     },
     async mounted() {
+      this.getSubMenu();
       if (localStorage.getItem("data")) {
         let pages = JSON.parse(localStorage.getItem("data"));
         pages.map(page => {
@@ -391,8 +393,6 @@
           }
         });
 
-      this.getSubMenu();
-
       setTimeout(() => {
         this.loading = false;
       }, 1000);
@@ -428,6 +428,7 @@
         if (localStorage.getItem("subMenu") && localStorage.getItem("menu")) {
           this.subMenu = JSON.parse(localStorage.getItem("subMenu"));
           this.menu = JSON.parse(localStorage.getItem("menu"));
+          this.menuLoad = false;
         } else {
           await axios
             .get(
@@ -445,6 +446,7 @@
           this.subMenu.sort();
           this.subMenu = [...new Set(this.subMenu)];
           localStorage.setItem("subMenu", JSON.stringify(this.subMenu));
+          this.menuLoad = false;
         }
       },
       toggleContact() {
