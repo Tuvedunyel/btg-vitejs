@@ -6,73 +6,59 @@
   padding: 0;
   transition: 0.2s ease-in-out;
 }
-
 .no-transition {
   transition: none;
 }
-@import url("https://fonts.googleapis.com/css2?family=Exo:wght@100;300;400;500;600;700;800&display=swap");
-
 html {
   font-size: 62.5%;
   white-space: normal;
 }
-
 body {
   font-size: 1.6rem;
   font-weight: 300;
   position: relative;
 }
-
 img {
   vertical-align: bottom;
   max-width: 100%;
   height: auto;
 }
-
 button:focus {
   outline: none;
 }
-
 a:focus {
   outline: none;
 }
-
 button::-moz-focus-inner {
   border: 0;
 }
-
 .container {
   width: 1155px;
   margin: auto;
 }
-
 .grecaptcha-badge {
   display: none;
 }
-
 .screen-reader-text {
   display: none;
 }
-
 h1 {
   font-weight: bold;
   font-size: 5.4rem;
   font-family: "Cabin", sans-serif;
 }
-
 h1 span {
   font-weight: 600;
   font-size: 2.4rem;
   font-style: italic;
 }
-
 h2 {
   display: inline-block;
   text-transform: uppercase;
   font-family: "Cabin", sans-serif;
   font-weight: bold;
   font-size: 5.6rem;
-  background-color: white;
+  background-color: #fff;
   padding: 5px 0 30px 5px;
   line-height: 0.8;
   white-space: nowrap;
@@ -80,42 +66,37 @@ h2 {
 h2:not(.no-point)::after {
   display: inline-block;
   content: "";
-  background-color: black;
+  background-color: #000;
   width: 12px;
   height: 12px;
   border-radius: 100%;
   margin-right: 35px;
   margin-left: 5px;
 }
-
 h2.reversed {
   display: inline-block;
-  color: white;
-  background-color: black;
+  color: #fff;
+  background-color: #000;
 }
 h2.reversed::after {
-  background-color: white;
+  background-color: #fff;
 }
-
 h3 {
   font-weight: 600;
   font-size: 2rem;
   font-family: "Cabin", sans-serif;
   flex-direction: column;
 }
-
 h4 {
   font-weight: bold;
   font-size: 1.8rem;
   font-family: "Cabin", sans-serif;
 }
-
 h5 {
   font-weight: 500;
   font-size: 1.6rem;
   font-family: "Cabin", sans-serif;
 }
-
 .menu-font {
   font-size: 2.4rem;
   font-weight: normal;
@@ -126,26 +107,14 @@ h5 {
   font-weight: 400;
   font-family: "Cabin", sans-serif;
   text-decoration: none;
-  color: black;
+  color: #000;
 }
-
 .noscroll {
   overflow: hidden;
 }
-
 html {
   -webkit-overflow-scrolling: touch;
 }
-
-::selection {
-  background-color: hsl(14, 81%, 55%);
-  color: white;
-}
-::-moz-selection {
-  background-color: hsl(14, 81%, 55%);
-  color: white;
-}
-
 .exo-light-21 {
   font-size: 2.1rem;
   font-family: "Exo", sans-serif;
@@ -154,7 +123,6 @@ html {
 .exo-light-21 strong {
   font-weight: bold;
 }
-
 .exo-light-18 {
   font-size: 1.8rem;
   font-family: "Exo", sans-serif;
@@ -166,7 +134,6 @@ html {
 .exo-light-18 strong {
   font-weight: bold;
 }
-
 .exo-light-16 {
   font-size: 1.6rem;
   font-family: "Exo", sans-serif;
@@ -175,13 +142,11 @@ html {
 .exo-light-16 strong {
   font-weight: bold;
 }
-
 .exo-bold-21 {
   font-size: 2.1rem;
   font-family: "Exo", sans-serif;
   font-weight: bold;
 }
-
 .exo-light-14 {
   font-size: 1.4rem;
   font-family: "Exo", sans-serif;
@@ -190,10 +155,25 @@ html {
 .exo-light-14 strong {
   font-weight: bold;
 }
-
+.fichier {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 4.1rem !important;
+  flex-direction: column;
+}
+.fichier h3 {
+  align-self: flex-start;
+  width: 100% !important;
+  margin-left: 0 !important;
+}
+.fichier img {
+  width: auto;
+  max-height: 630px;
+}
 .classic-button {
   display: inline-block;
-  color: black;
+  color: #000;
   text-decoration: none;
   position: relative;
   font-family: "Cabin", sans-serif;
@@ -211,7 +191,7 @@ html {
   content: "";
   width: calc(100% - 9px);
   height: calc(100% - 9px);
-  border: 5px solid black;
+  border: 5px solid #000;
 }
 .classic-button .arrow {
   width: 44px;
@@ -226,26 +206,24 @@ html {
   fill: #e3775b;
 }
 .classic-button:hover {
-  background-color: black;
-  color: white;
+  background-color: #000;
+  color: #fff;
 }
 .classic-button:hover .arrow {
   right: -39px;
 }
-
 .form-button {
   font-family: "Cabin", sans-serif;
   font-size: 2.1rem;
   text-transform: uppercase;
-  color: white;
-  border: 2px solid white;
+  color: #fff;
+  border: 2px solid #fff;
   background-color: #46ccd1;
 }
 .form-button:hover {
   color: #46ccd1;
-  background-color: white;
+  background-color: #fff;
 }
-
 .flip-container {
   user-select: none;
   position: relative;
@@ -276,7 +254,6 @@ html {
 .flip-container.active .flip-card .back {
   transform: rotateY(0);
 }
-
 .map {
   height: 500px;
   position: relative;
@@ -358,7 +335,6 @@ html {
 .map:hover::after {
   opacity: 0;
 }
-
 header {
   height: auto;
   margin-bottom: 50px;
@@ -393,15 +369,15 @@ header .banner .vague {
   text-align: center;
 }
 header .banner .vague svg path {
-  fill: white;
+  fill: #fff;
 }
 header .banner h1 {
   margin-bottom: 75px;
-  color: white;
+  color: #fff;
   line-height: 4.5rem;
 }
 header .top {
-  background-color: white;
+  background-color: #fff;
   height: 44px;
   width: calc(100% - 84px);
   position: fixed;
@@ -450,26 +426,25 @@ header .top .contact {
   left: 25px;
   top: calc(50% - 25px);
 }
-
 footer {
   padding: 0 70px 0 44px;
   height: 60px;
   background-color: #041624;
   display: flex;
   justify-content: space-between;
-  color: white;
+  color: #fff;
   align-items: center;
   font-family: "Cabin", sans-serif;
   font-size: 1.4rem;
   font-weight: bold;
 }
 footer .mentions {
-  color: white;
+  color: #fff;
   text-decoration: none;
   font-weight: normal;
 }
 footer a:not(.mentions) {
-  color: white;
+  color: #fff;
   text-decoration: none;
   font-weight: normal;
   position: relative;
@@ -485,7 +460,7 @@ footer a:not(.mentions) svg {
   opacity: 1;
 }
 footer a:not(.mentions) svg path {
-  fill: white;
+  fill: #fff;
 }
 footer a:not(.mentions) img {
   position: absolute;
@@ -501,7 +476,6 @@ footer a:not(.mentions):hover svg {
 footer a:not(.mentions):hover img {
   opacity: 1;
 }
-
 #overlay-menu {
   z-index: 100;
   width: 100%;
@@ -519,7 +493,7 @@ footer a:not(.mentions):hover img {
   height: calc(100vh - 44px);
   min-height: 675px;
   margin-left: 40%;
-  background-color: white;
+  background-color: #fff;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -535,12 +509,12 @@ footer a:not(.mentions):hover img {
   height: 0;
   border-style: solid;
   border-width: 0 300px calc(100vh - 44px) 0;
-  border-color: transparent #ffffff transparent transparent;
+  border-color: transparent #fff transparent transparent;
 }
 #overlay-menu .content .list-nav {
   width: 100%;
   display: flex;
-  align-items: flex-start;
+  align-items: start;
 }
 #overlay-menu .content .list-nav .vague {
   transform: rotate(270deg);
@@ -557,7 +531,7 @@ footer a:not(.mentions):hover img {
 }
 #overlay-menu .content .list-nav nav ul li a {
   position: relative;
-  color: black;
+  color: #000;
   text-decoration: none;
 }
 #overlay-menu .content .list-nav nav ul li a::after {
@@ -568,7 +542,7 @@ footer a:not(.mentions):hover img {
   top: 3px;
   width: 0;
   height: 100%;
-  border-bottom: 2px solid black;
+  border-bottom: 2px solid #000;
   transition: 0.2s ease-in-out;
 }
 #overlay-menu .content .list-nav nav ul li a:hover::after {
@@ -595,7 +569,6 @@ footer a:not(.mentions):hover img {
   transform: translateX(0);
   opacity: 1;
 }
-
 #overlay-contact {
   z-index: 100;
   width: 100%;
@@ -670,7 +643,7 @@ footer a:not(.mentions):hover img {
   transition-duration: 0.3s;
 }
 #overlay-contact .content .formulaire .entree p {
-  color: white;
+  color: #fff;
 }
 #overlay-contact .content .formulaire .entree .vague {
   width: 67px;
@@ -678,7 +651,7 @@ footer a:not(.mentions):hover img {
   margin-bottom: 30px;
 }
 #overlay-contact .content .formulaire .entree .vague svg path {
-  fill: white;
+  fill: #fff;
 }
 #overlay-contact .content .formulaire .entree form {
   width: 100%;
@@ -697,17 +670,17 @@ footer a:not(.mentions):hover img {
   width: calc(100% - 30px - 6px);
 }
 #overlay-contact .content .formulaire .entree form input {
-  background-color: white;
+  background-color: #fff;
   border: none;
   border-radius: 4px;
   padding: 15px;
-  color: black;
+  color: #000;
 }
 #overlay-contact .content .formulaire .entree form input::placeholder {
   font-size: 1.6rem;
   font-family: "Exo", sans-serif;
   font-weight: 300;
-  color: black;
+  color: #000;
   opacity: 1;
 }
 #overlay-contact .content .formulaire .entree form p {
@@ -715,8 +688,8 @@ footer a:not(.mentions):hover img {
   align-self: flex-start;
 }
 #overlay-contact .content .formulaire .entree form p textarea {
-  color: black;
-  background-color: white;
+  color: #000;
+  background-color: #fff;
   border: none;
   border-radius: 4px;
   width: calc(100% - 30px);
@@ -731,7 +704,7 @@ footer a:not(.mentions):hover img {
   font-size: 1.6rem;
   font-family: "Exo", sans-serif;
   font-weight: 300;
-  color: black;
+  color: #000;
   opacity: 1;
 }
 #overlay-contact .content .formulaire .entree form input[type="submit"] {
@@ -746,14 +719,14 @@ footer a:not(.mentions):hover img {
   font-family: "Cabin", sans-serif;
   text-transform: uppercase;
   padding: 12px 40px;
-  color: white;
+  color: #fff;
   background-color: #46ccd1;
-  border: 2px white solid;
+  border: 2px #fff solid;
   border-radius: 4px;
 }
 #overlay-contact .content .formulaire .entree form input[type="submit"]:hover {
-  background-color: white;
-  color: black;
+  background-color: #fff;
+  color: #000;
 }
 #overlay-contact .content .formulaire .entree form .wpcf7-response-output {
   display: none !important;
@@ -770,11 +743,10 @@ footer a:not(.mentions):hover img {
   left: 0;
   justify-content: center;
   align-items: center;
-  color: white;
+  color: #fff;
   text-align: center;
   flex-direction: column;
 }
-
 #overlay-contact .content .formulaire .validation .vague {
   transform: rotate(180deg);
   width: 70px;
@@ -782,7 +754,7 @@ footer a:not(.mentions):hover img {
   margin-bottom: 25px;
 }
 #overlay-contact .content .formulaire .validation .vague svg path {
-  fill: white;
+  fill: #fff;
 }
 #overlay-contact .content .formulaire .validation button {
   cursor: pointer;
@@ -793,7 +765,7 @@ footer a:not(.mentions):hover img {
   width: 42px;
 }
 #overlay-contact .content .formulaire .validation button svg path {
-  fill: white;
+  fill: #fff;
 }
 #overlay-contact .content .formulaire .validation button:hover {
   margin-top: -10px;
@@ -808,13 +780,12 @@ footer a:not(.mentions):hover img {
   flex-direction: column;
   text-align: center;
   bottom: 44px;
-  color: white;
+  color: #fff;
 }
 #overlay-contact.active {
   transform: translateX(0);
   opacity: 1;
 }
-
 #acc-header {
   height: calc(100vh - 44px);
   margin-bottom: 30px;
@@ -844,8 +815,8 @@ footer a:not(.mentions):hover img {
   position: absolute;
   left: calc(100% + 25px);
   width: 100%;
+  top: 28%;
   text-align: left;
-  top: 29%;
 }
 #acc-header .banner .elem-center .list ul li {
   line-height: 1.3;
@@ -883,7 +854,6 @@ footer a:not(.mentions):hover img {
   font-size: 2.4rem;
   font-family: "Cabin", sans-serif;
 }
-
 #acc-projet .container {
   position: relative;
 }
@@ -953,7 +923,7 @@ footer a:not(.mentions):hover img {
   width: 15px;
   height: 15px;
   border-radius: 100%;
-  background-color: white;
+  background-color: #fff;
   border: solid 2px #cececc;
   margin: 0 9px;
 }
@@ -973,7 +943,7 @@ footer a:not(.mentions):hover img {
   right: 280px;
   top: 130px;
   z-index: 3;
-  background-color: white;
+  background-color: #fff;
 }
 @media screen and (max-width: 1400px) {
   #acc-projet .container .desc {
@@ -989,21 +959,20 @@ footer a:not(.mentions):hover img {
 #acc-projet .container .button {
   display: none;
 }
-
 #acc-activite {
-  margin-top: 26rem;
+  margin-top: 10rem;
   display: flex;
   justify-content: flex-end;
 }
 #acc-activite .container {
   margin-top: 55px;
-  width: 419px;
+  width: 335px;
   margin-right: 125px;
 }
 #acc-activite .container .desc h2 {
   position: relative;
   z-index: 4;
-  width: 562px;
+  width: 500px;
 }
 #acc-activite .container .desc .classic-button {
   margin-left: -165px;
@@ -1020,10 +989,10 @@ footer a:not(.mentions):hover img {
   width: 56%;
   padding-top: 50px;
   padding-bottom: 100px;
-  background-image: url("../static/ce-que-lon-fait.jpg");
+  background-image: url(./../static/ce-que-lon-fait.jpg);
   background-size: cover;
   background-position: center center;
-  color: white;
+  color: #fff;
   display: flex;
   flex-wrap: wrap;
 }
@@ -1043,7 +1012,7 @@ footer a:not(.mentions):hover img {
 }
 #acc-activite .cards-container .card a {
   text-decoration: none;
-  color: white;
+  color: #fff;
 }
 #acc-activite .cards-container .card h3 {
   text-transform: uppercase;
@@ -1062,7 +1031,6 @@ footer a:not(.mentions):hover img {
 #acc-activite .cards-container .vague path {
   fill: #fcd647;
 }
-
 #acc-clients {
   background-color: #fcd647;
 }
@@ -1100,7 +1068,7 @@ footer a:not(.mentions):hover img {
   height: 32px;
 }
 #acc-clients .container .pourquoi-pas .vague svg path {
-  fill: white;
+  fill: #fff;
 }
 #acc-clients .container .pourquoi-pas p {
   margin-top: 16px;
@@ -1111,7 +1079,7 @@ footer a:not(.mentions):hover img {
 }
 #acc-clients .container .clients-list {
   position: relative;
-  background-color: white;
+  background-color: #fff;
   width: 85%;
   margin-left: 125px;
   margin-top: 50px;
@@ -1131,7 +1099,7 @@ footer a:not(.mentions):hover img {
   height: 112%;
   top: -6%;
   left: -2.5%;
-  background-image: url("../static/icons/grille.png");
+  background-image: url("./../static/icons/grille.png");
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
@@ -1158,7 +1126,6 @@ footer a:not(.mentions):hover img {
     margin-right: 0;
   }
 }
-
 #acc-philosophie {
   display: flex;
   justify-content: flex-end;
@@ -1198,18 +1165,18 @@ footer a:not(.mentions):hover img {
 #acc-philosophie .container .desc h2 {
   position: relative;
   z-index: 4;
-  color: white;
-  background-color: black;
+  color: #fff;
+  background-color: #000;
   width: fit-content;
   top: -4rem;
   left: -7rem;
 }
 #acc-philosophie .container .desc h2::after {
-  background-color: white;
+  background-color: #fff;
 }
 #acc-philosophie .container .desc .exo-light-21 {
   padding: 2rem 5rem;
-  background-color: white;
+  background-color: #fff;
 }
 @media screen and (max-width: 1605px) {
   #acc-philosophie .container .desc .exo-light-21 {
@@ -1244,7 +1211,6 @@ footer a:not(.mentions):hover img {
     width: 60%;
   }
 }
-
 #acc-methodologie {
   position: relative;
 }
@@ -1291,7 +1257,7 @@ footer a:not(.mentions):hover img {
   transform-origin: top left;
   transform: rotate(-90deg);
   position: absolute;
-  bottom: 60%;
+  bottom: 38%;
   left: 0;
   z-index: 4;
   transition: 0;
@@ -1303,9 +1269,9 @@ footer a:not(.mentions):hover img {
 }
 #acc-methodologie .container .desc {
   width: 80%;
-  padding: 182px 30px 60px 93px;
+  padding: 43px 30px 60px 93px;
   right: 280px;
-  color: white;
+  color: #fff;
   margin-left: 5rem;
   top: 130px;
   z-index: 3;
@@ -1322,23 +1288,21 @@ footer a:not(.mentions):hover img {
 }
 #acc-methodologie .container .classic-button {
   white-space: nowrap;
-  color: white;
-  border-color: white;
+  color: #fff;
+  border-color: #fff;
   margin-left: 14rem;
   margin-bottom: 7rem;
 }
 #acc-methodologie .container .classic-button:hover {
-  background-color: white;
+  background-color: #fff;
   color: #08243a;
 }
 #acc-methodologie .container .classic-button::after {
-  border: 5px solid white;
+  border: 5px solid #fff;
 }
-
 #team-banner {
-  background-image: url("../static/header-equipe.jpg");
+  background-image: url(./../static/header-equipe.jpg);
 }
-
 .membre:not(#romain) {
   margin-top: 3rem;
 }
@@ -1356,7 +1320,7 @@ footer a:not(.mentions):hover img {
   position: absolute;
   top: 12%;
   width: 54%;
-  background-color: white;
+  background-color: #fff;
   z-index: 20;
 }
 .membre .container .desc h3 {
@@ -1366,17 +1330,23 @@ footer a:not(.mentions):hover img {
   margin-top: 2rem;
 }
 .membre .container .desc p:last-child {
-  border-left: 3px solid black;
+  border-left: 3px solid #000;
   padding-left: 3rem;
   display: inline-block;
 }
-
 #romain .container h2,
-#guillaume .container h2 {
+#guillaume .container h2,
+#gregoire .container h2 {
   left: 430px;
 }
+
+#gregoire .exo-light-16 {
+  font-weight: 400;
+}
+
 #romain .container .desc,
-#guillaume .container .desc {
+#guillaume .container .desc,
+#gregoire .container .desc {
   right: -5%;
   top: 14%;
   padding: 30px 60px 30px 61px;
@@ -1401,7 +1371,6 @@ footer a:not(.mentions):hover img {
   left: 0;
   padding: 30px 44px 30px 0px;
 }
-
 #romain .container {
   z-index: 40;
 }
@@ -1411,21 +1380,19 @@ footer a:not(.mentions):hover img {
 #romain .container .desc {
   top: 8%;
 }
-
 #gael .container {
   z-index: 30;
 }
 #gael .container h2 {
   top: 300px;
 }
-
 #guillaume.membre:not(#romain) .container {
   z-index: 20;
 }
-#guillaume.membre:not(#romain) .container h2 {
+#guillaume.membre:not(#romain) .container h2,
+#gregoire.membre .container h2 {
   top: 470px;
 }
-
 #oceane .container {
   z-index: 10;
 }
@@ -1437,14 +1404,12 @@ footer a:not(.mentions):hover img {
   top: 15.5%;
   width: 53%;
 }
-
 #lien {
   margin-bottom: 70px;
   margin-top: 90px;
   display: flex;
   justify-content: center;
 }
-
 #agency {
   margin-top: -50px;
   width: calc(100% - 88px);
@@ -1464,10 +1429,10 @@ footer a:not(.mentions):hover img {
   z-index: 10;
 }
 #agency .left p {
-  width: 898px;
-  background-color: white;
+  width: 625px;
+  background-color: #fff;
   position: absolute;
-  top: 123px;
+  top: 150px;
   left: 710px;
   padding: 25px 0 40px 90px;
 }
@@ -1504,7 +1469,6 @@ footer a:not(.mentions):hover img {
   bottom: 35px;
   left: 1370px;
 }
-
 #skills {
   width: calc(100% - 88px);
   margin-right: 44px;
@@ -1546,7 +1510,7 @@ footer a:not(.mentions):hover img {
 }
 #skills .skills-list .skill svg path,
 #skills .skills-list .skill img path {
-  fill: black;
+  fill: #000;
 }
 #skills .skills-list .skill .desc {
   width: calc(100% - 110px);
@@ -1583,9 +1547,14 @@ footer a:not(.mentions):hover img {
   position: relative;
   margin-top: 3rem;
 }
+@media screen and (max-width: 395px) {
+  #skills .skills-list .skill .desc a {
+    width: 50%;
+  }
+}
 #skills .skills-list .skill .desc a::before {
   content: "";
-  background-image: url("../static/icons/show-more.svg");
+  background-image: url(./../static/show-more.svg);
   -webkit-transition: all 0.2s linear;
   transition: all 0.2s linear;
   background-repeat: no-repeat;
@@ -1597,16 +1566,14 @@ footer a:not(.mentions):hover img {
 }
 #skills .classic-button {
   transform: translateY(50px);
-  background-color: white;
+  background-color: #fff;
 }
 #skills .classic-button:hover {
-  background-color: black;
+  background-color: #000;
 }
-
 #real-banner {
-  background-image: url("../static/header-realisation.jpg");
+  background-image: url(./assets/header-realisation.jpg);
 }
-
 #reals {
   margin-top: -8px;
 }
@@ -1678,15 +1645,8 @@ footer a:not(.mentions):hover img {
 #reals .container .resp-filters {
   display: none;
 }
-
-#real-list {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  gap: 3rem;
-}
-
 #reals .container #real-list .real-item {
-  width: 100% !important;
+  width: calc(25% - 30px);
   margin: 15px;
   position: relative;
   display: flex;
@@ -1727,7 +1687,7 @@ footer a:not(.mentions):hover img {
   font-weight: bold;
   position: relative;
   z-index: 2;
-  color: white;
+  color: #fff;
   opacity: 0;
   padding: 0 8px;
 }
@@ -1741,12 +1701,12 @@ footer a:not(.mentions):hover img {
   opacity: 0;
 }
 #reals .container #real-list .real-item .desc svg path {
-  fill: white;
+  fill: #fff;
 }
 #reals .container #real-list .real-item .desc p {
   padding: 0 8px;
   opacity: 0;
-  color: white;
+  color: #fff;
   font-family: "Cabin", sans-serif;
   font-weight: 600;
   font-size: 1.8rem;
@@ -1770,11 +1730,9 @@ footer a:not(.mentions):hover img {
   margin-top: 35px;
   margin-bottom: 70px;
 }
-
 #clients-banner {
-  background-image: url("../static/header-rex.jpg");
+  background-image: url(./../static/header-rex.jpg);
 }
-
 #clients {
   width: 83.5%;
   margin: auto;
@@ -1837,7 +1795,7 @@ footer a:not(.mentions):hover img {
   width: 82px;
 }
 #clients .clients-list .client a {
-  color: black;
+  color: #000;
   text-decoration: none;
 }
 #clients .clients-list .client .desc {
@@ -1846,7 +1804,6 @@ footer a:not(.mentions):hover img {
 #clients .classic-button {
   margin-top: 40px;
 }
-
 #partners {
   display: flex;
   flex-direction: column;
@@ -1889,7 +1846,6 @@ footer a:not(.mentions):hover img {
   padding-bottom: 10px;
   margin-top: 25px;
 }
-
 #lightbox-client {
   position: fixed;
   display: flex;
@@ -1911,7 +1867,7 @@ footer a:not(.mentions):hover img {
 }
 #lightbox-client .lightbox {
   width: 1250px;
-  background-color: #000000;
+  background-color: #000;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -1928,13 +1884,13 @@ footer a:not(.mentions):hover img {
   height: 40px;
 }
 #lightbox-client .lightbox .retour svg #hexa {
-  fill: white;
+  fill: #fff;
 }
 #lightbox-client .lightbox .retour svg:hover path#arrow {
   transform: translateX(-150px);
 }
 #lightbox-client .lightbox .retour h3 {
-  color: white;
+  color: #fff;
   margin-left: 12px;
 }
 #lightbox-client .lightbox iframe {
@@ -1943,7 +1899,7 @@ footer a:not(.mentions):hover img {
 }
 #lightbox-client .lightbox > h3 {
   margin: 40px 0;
-  color: white;
+  color: #fff;
   text-align: center;
   text-transform: uppercase;
   font-size: 2.1rem;
@@ -1955,11 +1911,9 @@ footer a:not(.mentions):hover img {
   display: block;
   margin-bottom: 10px;
 }
-
 .single-header {
   margin-bottom: 0;
 }
-
 #single-banner .back {
   width: 100%;
   display: flex;
@@ -1970,7 +1924,7 @@ footer a:not(.mentions):hover img {
   background-repeat: no-repeat;
   justify-content: flex-start;
   align-items: center;
-  color: black;
+  color: #000;
   text-decoration: none;
 }
 #single-banner .back svg {
@@ -1994,14 +1948,12 @@ footer a:not(.mentions):hover img {
 #single-banner .main-img img {
   width: 100%;
 }
-
 body.single-post #single-banner {
   padding-bottom: 0;
 }
 body.single-post #single-banner .back {
   background-position: 0 100%;
 }
-
 #single-main .container {
   width: 1250px;
   display: flex;
@@ -2091,7 +2043,7 @@ body.single-post #single-banner .back {
   font-weight: 700;
   font-size: 1.8rem;
   font-family: "Cabin", sans-serif;
-  color: black;
+  color: #000;
   text-decoration: none;
 }
 #single-main .container .socials {
@@ -2125,7 +2077,7 @@ body.single-post #single-banner .back {
 #single-main .container hr {
   width: 100%;
   align-self: center;
-  border: 3px dotted black;
+  border: 3px dotted #000;
   border-bottom: none;
   margin-top: 15px;
   margin-bottom: 25px;
@@ -2192,7 +2144,7 @@ body.single-post #single-banner .back {
   font-weight: bold;
   position: relative;
   z-index: 2;
-  color: white;
+  color: #fff;
   opacity: 0;
 }
 #single-main .container .other-projects .real-item .desc svg {
@@ -2205,11 +2157,11 @@ body.single-post #single-banner .back {
   opacity: 0;
 }
 #single-main .container .other-projects .real-item .desc svg path {
-  fill: white;
+  fill: #fff;
 }
 #single-main .container .other-projects .real-item .desc p {
   opacity: 0;
-  color: white;
+  color: #fff;
   font-family: "Cabin", sans-serif;
   font-weight: 600;
   font-size: 1.8rem;
@@ -2228,7 +2180,6 @@ body.single-post #single-banner .back {
 #single-main .container .other-projects .real-item:hover .desc p {
   opacity: 1;
 }
-
 #not-found-banner {
   min-height: calc(100vh - 194px);
   background-color: #f9eee1;
@@ -2246,7 +2197,7 @@ body.single-post #single-banner .back {
   width: 150px;
 }
 #not-found-banner h1 {
-  color: black;
+  color: #000;
   font-family: "Exo", sans-serif;
   font-size: 11rem;
   line-height: 11rem;
@@ -2260,7 +2211,7 @@ body.single-post #single-banner .back {
   margin-top: 15px;
 }
 #not-found-banner .vague svg path {
-  fill: black;
+  fill: #000;
 }
 #not-found-banner .desc {
   margin-top: 7px;
@@ -2291,7 +2242,6 @@ body.single-post #single-banner .back {
   padding-bottom: 10px;
   margin-top: -10px;
 }
-
 #acc-newsletter {
   background-color: #041624;
   color: #fff;
@@ -2301,7 +2251,6 @@ body.single-post #single-banner .back {
   display: flex;
   flex-direction: column;
   align-items: center;
-  /**** Modif Iframe de la newsletter ****/
 }
 #acc-newsletter div.flipped {
   width: 190px;
@@ -2409,14 +2358,13 @@ body.single-post #single-banner .back {
     text-align: left;
   }
 }
-
 html {
   font-family: "Cabin", sans-serif;
 }
 html #single-main h1:not(.no-point)::after {
   display: inline-block;
   content: "";
-  background-color: black;
+  background-color: #000;
   width: 12px;
   height: 12px;
   border-radius: 100%;
@@ -2436,7 +2384,6 @@ html #page h3 {
 html #page h4 {
   font-size: 2.2rem;
 }
-
 #single-main .container h3 span p {
   padding-left: 0;
 }
@@ -2479,25 +2426,24 @@ html #page h4 {
   opacity: 1;
 }
 #single-main .other-kills li:first-child a::before {
-  background-image: url("../static/icons/filter-motion-degrade.svg");
+  background-image: linear-gradient(-45.9deg, #8670cc, 50%, #ff5e81);
+  -webkit-mask-image: url(./../static/icons/strategie-kills.svg);
+  mask-image: url(./../static/icons/strategie-kills.svg);
 }
 #single-main .other-kills li:nth-child(2) a::before {
-  background-image: linear-gradient(-45.9deg, #8670cc, 50%, #ff5e81);
-  -webkit-mask-image: url("../static/icons/strategie-kills.svg");
-  mask-image: url("../static/icons/strategie-kills.svg");
+  background-image: url("assets/icons/filter-identite-degrade.svg");
 }
-
 #single-main .other-kills li:nth-child(3) a::before {
-  background-image: url("../static/icons/filter-web-degrade.svg");
+  background-image: url("assets/icons/filter-graphisme-degrade.svg");
 }
 #single-main .other-kills li:nth-child(4) a::before {
-  background-image: url("../static/icons/filter-identite-degrade.svg");
+  background-image: url("assets/icons/filter-edition-degrade.svg");
 }
 #single-main .other-kills li:nth-child(5) a::before {
-  background-image: url("../static/icons/filter-graphisme-degrade.svg");
+  background-image: url("assets/icons/filter-web-degrade.svg");
 }
 #single-main .other-kills li:nth-child(6) a::before {
-  background-image: url("../static/icons/filter-edition-degrade.svg");
+  background-image: url("assets/icons/filter-motion-degrade.svg");
 }
 #single-main .other-kills li p {
   font-family: "Cabin", sans-serif;
@@ -2510,7 +2456,6 @@ html #page h4 {
 #single-main .other-kills li p span {
   display: none;
 }
-
 #overlay-menu .content .list-nav nav ul li.accordeon > a {
   display: block;
   position: relative;
@@ -2518,7 +2463,7 @@ html #page h4 {
 #overlay-menu .content .list-nav nav ul li.accordeon > a::before {
   pointer-events: all;
   content: "";
-  background-image: url("../static/icons/show-more.svg");
+  background-image: url("./../static/icons/show-more.svg");
   background-repeat: no-repeat;
   width: 40px;
   height: 40px;
@@ -2531,6 +2476,8 @@ html #page h4 {
   display: none;
 }
 #overlay-menu .content .list-nav nav ul li .sub-menu {
+  overflow: hidden;
+  max-height: 0;
   margin-left: 55px;
   margin-top: -5px;
   -webkit-transition: all 0.5s ease-out;
@@ -2548,12 +2495,12 @@ html #page h4 {
   border-bottom: 2px solid #9d9d9d;
 }
 #overlay-menu .content .list-nav nav ul li.visible > a::before {
-  background-image: url("../static/icons/close.svg");
+  background-image: url("assets/icons/close.svg");
 }
 #overlay-menu .content .list-nav nav ul li.visible .sub-menu {
+  display: block;
   max-height: 240px;
 }
-
 header .banner-home {
   background-position: center 80%;
   position: relative;
@@ -2570,12 +2517,11 @@ header .banner-home::after {
   opacity: 0.8;
   z-index: -1;
 }
-
 #primary {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: start;
 }
 #primary .site-main {
   background-color: #f3f3f3;
@@ -2585,7 +2531,7 @@ header .banner-home::after {
   padding-bottom: 50px;
 }
 #primary .site-main .page-header {
-  background-color: white;
+  background-color: #fff;
   padding-bottom: 50px;
   display: flex;
   justify-content: center;
@@ -2611,7 +2557,7 @@ header .banner-home::after {
 }
 #primary .site-main .page-header .container ul li a {
   text-decoration: none;
-  color: black;
+  color: #000;
   font-family: "Cabin", sans-serif;
   font-weight: 600;
   text-transform: uppercase;
@@ -2666,7 +2612,7 @@ header .banner-home::after {
   padding: 15px;
 }
 #primary .site-main .page-header .search-bar .search-field:placeholder {
-  color: black;
+  color: #000;
 }
 #primary .site-main .page-header .search-bar .search-submit {
   display: none;
@@ -2680,6 +2626,7 @@ header .banner-home::after {
 }
 #primary .site-main .search-title h2 {
   background-color: transparent;
+  text-align: center;
   font-size: 28px;
   font-weight: 600;
   font-family: "cabin", sans-serif;
@@ -2690,7 +2637,7 @@ header .banner-home::after {
   padding-bottom: 4rem;
   margin-top: 25px;
   margin-bottom: 25px;
-  background-color: white;
+  background-color: #fff;
 }
 #primary .site-main .container .content-blog article .entry-header {
   text-align: center;
@@ -2703,7 +2650,7 @@ header .banner-home::after {
   font-weight: 600;
   font-size: 28px;
   padding: 5px 0 20px 5px;
-  color: black;
+  color: #000;
   text-transform: uppercase;
   display: inline-block;
   line-height: 0.8;
@@ -2716,7 +2663,7 @@ header .banner-home::after {
   }
 }
 #primary .site-main .container .content-blog article .entry-header h1 a {
-  color: black;
+  color: #000;
   text-decoration: none;
 }
 #primary .site-main .container .content-blog article .entry-header h2 {
@@ -2804,7 +2751,7 @@ header .banner-home::after {
 #primary .site-main .container .content-blog article .entry-footer {
   padding-left: 30px;
   padding-right: 30px;
-  text-align: right;
+  text-align: end;
 }
 #primary .site-main .container .content-blog article .entry-footer a {
   text-decoration: none;
@@ -2826,7 +2773,7 @@ header .banner-home::after {
 }
 #primary .site-main .container .content-blog article .entry-footer a::after {
   content: "";
-  background-image: url("../static/icons/show-more.svg");
+  background-image: url("./../static/icons/show-more.svg");
   width: 35px;
   height: 35px;
   position: absolute;
@@ -2858,7 +2805,7 @@ header .banner-home::after {
   color: #e3775b;
 }
 #primary .site-main .navigation ul li a {
-  color: black;
+  color: #000;
   text-decoration: none;
   font-family: "Cabin", sans-serif;
   font-weight: 600;
@@ -2876,16 +2823,11 @@ header .banner-home::after {
   margin-top: 50px;
   margin-bottom: 65px;
 }
-
 body.single .banner:not(#single-banner) {
   margin-top: 0;
 }
-
-#agency-banner {
-  background: url("../static/icons/header-savoir-faire.jpg");
-}
 body.single .entry-header h2:not(.no-point)::after {
-  width: 0;
+  widht: 0;
   height: 0;
   background-color: transparent;
   display: none;
@@ -2926,7 +2868,7 @@ body.single p.elem a {
   font-weight: 700;
   font-size: 1.8rem;
   font-family: "Cabin", sans-serif;
-  color: black;
+  color: #000;
   text-decoration: none;
 }
 body.single ul {
@@ -2935,7 +2877,23 @@ body.single ul {
 body.single ul li {
   margin-top: 1rem;
 }
-
+.blog .container .content-blog article .entry-header h2 {
+  font-family: "Exo", sans-serif !important;
+  font-weight: 600 !important;
+  font-size: 28px !important;
+  padding: 5px 0 20px 5px !important;
+  color: #000;
+  text-transform: uppercase;
+  display: inline-block;
+  line-height: 0.8;
+  white-space: nowrap;
+}
+@media screen and (max-width: 940px) {
+  .blog .container .content-blog article .entry-header h2 {
+    white-space: normal;
+    line-height: 4rem;
+  }
+}
 .blog .container .content-blog article .entry-header h3 {
   font-size: 18px;
   font-weight: 600;
@@ -2943,13 +2901,12 @@ body.single ul li {
   background-color: #fff;
   padding-bottom: 0;
 }
-
 .search-results .container .content-blog article .entry-header h2 {
   font-family: "Exo", sans-serif !important;
   font-weight: 600 !important;
   font-size: 28px !important;
   padding: 5px 0 20px 5px !important;
-  color: black;
+  color: #000;
   text-transform: uppercase;
   display: inline-block;
   line-height: 0.8;
@@ -2968,13 +2925,12 @@ body.single ul li {
   background-color: #fff;
   padding-bottom: 0;
 }
-
 .archive .container .content-blog article .entry-header h2 {
   font-family: "Exo", sans-serif !important;
   font-weight: 600 !important;
   font-size: 28px !important;
   padding: 5px 0 20px 5px !important;
-  color: black;
+  color: #000;
   text-transform: uppercase;
   display: inline-block;
   line-height: 0.8;
@@ -2987,7 +2943,6 @@ body.single ul li {
   background-color: #fff;
   padding-bottom: 0;
 }
-
 @media screen and (max-width: 1780px) {
   #agency {
     margin: auto;
@@ -2995,7 +2950,7 @@ body.single ul li {
   }
   #agency .left h2 {
     left: auto;
-    right: 689px;
+    right: 480px;
   }
   #agency .left p {
     left: auto;
@@ -3005,7 +2960,7 @@ body.single ul li {
     max-width: 925px;
     left: auto;
     right: 0px;
-    background-color: white;
+    background-color: #fff;
     padding: 40px 0;
     bottom: 100px;
   }
@@ -3022,10 +2977,10 @@ body.single ul li {
     bottom: -10px;
     left: auto;
     right: 0;
-    background-color: white;
+    background-color: #fff;
   }
   #agency .classic-button:hover {
-    background-color: black;
+    background-color: #000;
   }
 }
 @media screen and (max-width: 1200px) {
@@ -3035,12 +2990,10 @@ body.single ul li {
   .container.fixed {
     width: 700px;
   }
-
   h2 {
     padding-bottom: 30px;
     white-space: normal;
   }
-
   header {
     margin-bottom: 20px;
   }
@@ -3086,7 +3039,6 @@ body.single ul li {
   header #single-banner {
     padding-top: 0;
   }
-
   .map .hexatop,
   .map .coordonnees {
     left: -50px;
@@ -3095,7 +3047,6 @@ body.single ul li {
   .map .coordonnees .adresses .exo-light-21 {
     font-size: 2rem;
   }
-
   footer {
     padding: 0 10px;
   }
@@ -3106,7 +3057,6 @@ body.single ul li {
   footer .socials {
     margin-right: 10px;
   }
-
   #overlay-menu .content {
     width: calc(100% - 200px);
     margin-left: 200px;
@@ -3121,7 +3071,6 @@ body.single ul li {
   #overlay-menu .content .logo-list {
     width: 562px;
   }
-
   #overlay-contact .content {
     width: calc(100% - 100px);
     margin-right: 100px;
@@ -3158,7 +3107,6 @@ body.single ul li {
     margin-top: -10px;
     padding-bottom: 10px;
   }
-
   #reals {
     margin-top: 30px;
   }
@@ -3188,15 +3136,12 @@ body.single ul li {
     margin-top: 25px;
     margin-bottom: 60px;
   }
-
   #single-banner .back {
     height: 70px;
   }
-
   #agency-banner {
     background-size: cover;
   }
-
   #single-main .container {
     width: calc(100% - 20px);
   }
@@ -3242,7 +3187,6 @@ body.single ul li {
   #single-main .container .other-projects .real-item:last-child {
     display: none;
   }
-
   #agency {
     width: calc(100% - 20px);
     margin: auto;
@@ -3298,7 +3242,6 @@ body.single ul li {
     left: unset;
     align-self: center;
   }
-
   #skills {
     width: calc(100% - 20px);
     margin-right: 10px;
@@ -3335,7 +3278,6 @@ body.single ul li {
   #skills .skills-list .skill .desc p.exo-light-14 {
     margin-top: 15px;
   }
-
   #acc-header {
     height: auto;
     margin-bottom: 15px;
@@ -3389,7 +3331,6 @@ body.single ul li {
   #acc-header .bot h1 {
     font-size: 2rem;
   }
-
   #acc-projet {
     margin-bottom: 125px;
   }
@@ -3414,7 +3355,7 @@ body.single ul li {
     right: 0;
     top: 50%;
     z-index: 3;
-    background-color: white;
+    background-color: #fff;
   }
 }
 @media screen and (max-width: 1200px) and (max-width: 953px) {
@@ -3533,7 +3474,7 @@ body.single ul li {
     padding: 0;
   }
   #acc-clients .container .clients-list .grille {
-    background-image: url("../static/icons/grille-tablet.png");
+    background-image: url(./../static/icons/grille-tablet.png);
     width: 102%;
     height: 105%;
     top: -2.5%;
@@ -3581,6 +3522,7 @@ body.single ul li {
   #romain.membre .container h2 {
     top: 375px;
     left: 565px;
+    white-space: nowrap;
   }
   #romain.membre .container .desc {
     width: 80%;
@@ -3618,11 +3560,14 @@ body.single ul li {
   #guillaume.membre {
     margin-top: 20px;
   }
-  #guillaume.membre .container h2 {
+  #guillaume.membre .container h2,
+  #gregoire.membre .container h2 {
     top: 375px;
     left: 565px;
+    white-space: nowrap;
   }
-  #guillaume.membre .container .desc {
+  #guillaume.membre .container .desc,
+  #gregoire.membre .container .desc {
     width: 80%;
     position: relative;
     top: unset;
@@ -3716,7 +3661,7 @@ body.single ul li {
     font-size: 1.55rem;
     text-transform: uppercase;
     margin-top: 25px;
-    border: solid 5px black;
+    border: solid 5px #000;
     padding: 18px 25px;
     padding-bottom: 13px;
     overflow: hidden;
@@ -3809,7 +3754,6 @@ body.single ul li {
     margin-top: -28rem;
     margin-left: 2rem;
   }
-
   #acc-methodologie {
     margin-top: 1rem;
   }
@@ -3821,7 +3765,6 @@ body.single ul li {
   .container {
     width: calc(100% - 20px);
   }
-
   header .top {
     height: 54px;
   }
@@ -3866,7 +3809,6 @@ body.single ul li {
   header .banner h2 {
     font-size: 2.7rem;
   }
-
   h2 {
     font-size: 3.3rem;
   }
@@ -3874,20 +3816,17 @@ body.single ul li {
     width: 7px;
     height: 7px;
   }
-
   .classic-button {
     font-size: 1.6rem;
     padding: 25px 20px;
     display: inline-block;
   }
-
   .menu-font {
     font-size: 1.6rem;
   }
   .menu-font li a:after {
     content: none !important;
   }
-
   .map {
     position: relative;
     display: flex;
@@ -3922,7 +3861,6 @@ body.single ul li {
     top: 0;
     left: 0;
   }
-
   footer {
     flex-direction: column-reverse;
     height: auto;
@@ -3948,7 +3886,6 @@ body.single ul li {
   footer .desc .agence {
     font-weight: normal;
   }
-
   #overlay-menu {
     width: calc(100% - 20px);
     margin: 0 10px;
@@ -3997,7 +3934,6 @@ body.single ul li {
     margin: 0;
     margin-top: 50px;
   }
-
   #overlay-contact {
     top: 0;
     width: calc(100% - 20px);
@@ -4065,7 +4001,6 @@ body.single ul li {
   #overlay-contact .content .socials a {
     margin: 0 15px;
   }
-
   #acc-header {
     margin-bottom: 13px;
     min-height: 0;
@@ -4088,7 +4023,6 @@ body.single ul li {
   #acc-header .bot {
     display: none;
   }
-
   #acc-projet {
     margin-bottom: 80px;
     position: relative;
@@ -4159,6 +4093,11 @@ body.single ul li {
     display: none;
   }
 }
+@media screen and (max-width: 581px) {
+  #guillaume.membre:not(#romain) .container h2 {
+    top: 225px !important;
+  }
+}
 @media screen and (max-width: 768px) {
   #acc-clients {
     margin-top: 80px;
@@ -4219,7 +4158,7 @@ body.single ul li {
   }
   #acc-philosophie .container .desc {
     top: 4rem;
-    background-color: white;
+    background-color: #fff;
     padding-bottom: 10rem;
     z-index: -1;
   }
@@ -4269,7 +4208,7 @@ body.single ul li {
     font-size: 1.55rem;
     text-transform: uppercase;
     margin-top: 25px;
-    border: solid 5px black;
+    border: solid 5px #000;
     padding: 18px 25px;
     padding-bottom: 13px;
     overflow: hidden;
@@ -4563,19 +4502,22 @@ body.single ul li {
   #romain.membre .container h2,
   #oceane.membre .container h2,
   #guillaume.membre .container h2,
-  #gael.membre .container h2 {
+  #gael.membre .container h2,
+  #gregoire.membre .container h2 {
     padding-bottom: 10px;
   }
   #romain.membre .container h2::after,
   #oceane.membre .container h2::after,
   #guillaume.membre .container h2::after,
-  #gael.membre .container h2::after {
+  #gael.membre .container h2::after,
+  #gregoire.membre .container h2::after {
     margin-right: 20px;
   }
   #romain.membre .container .desc,
   #oceane.membre .container .desc,
   #guillaume.membre .container .desc,
-  #gael.membre .container .desc {
+  #gael.membre .container .desc,
+  #gregoire.membre .container .desc {
     width: 100%;
     margin: 0;
     margin-top: 15px;
@@ -4588,7 +4530,8 @@ body.single ul li {
   #romain.membre .container img,
   #oceane.membre .container img,
   #guillaume.membre .container img,
-  #gael.membre .container img {
+  #gael.membre .container img,
+  #gregoire.membre .container img {
     width: 75%;
   }
 }
@@ -4601,7 +4544,7 @@ body.single ul li {
 @media screen and (max-width: 768px) {
   #lien {
     display: flex;
-    margin-top: 0;
+    margin-top: 4rem;
     margin-bottom: 80px;
   }
 }
@@ -4629,7 +4572,8 @@ body.single ul li {
   }
 }
 @media screen and (max-width: 768px) {
-  #guillaume.membre .container h2 {
+  #guillaume.membre .container h2,
+  #gregoire.membre .container h2 {
     top: 230px;
     left: calc(75% - 20px);
   }
@@ -4681,16 +4625,15 @@ body.single ul li {
     position: relative;
     width: calc(100% - 20px);
     padding: 10px;
+    margin-left: 2em;
   }
   #acc-projet .container .button {
     justify-content: left;
     margin-top: 20px;
   }
-
   #acc-philosophie {
     right: 0;
   }
-
   #acc-methodologie .container h2 {
     top: 13%;
     height: 2%;
@@ -4704,7 +4647,6 @@ body.single ul li {
     padding: 43px 0px 30px 25px;
     margin-left: 0;
   }
-
   #primary .site-main .container .content-blog article .entry-content p {
     text-align: center;
   }
@@ -4717,11 +4659,9 @@ body.single ul li {
     width: calc(100% - 80px);
     margin: 0 40px 20px;
   }
-
   #partners .partners-list .partner {
     width: calc(50% - 30px);
   }
-
   #acc-projet .container h2 {
     top: 215px;
     left: calc(75% - 40px);
@@ -4765,6 +4705,7 @@ body.single ul li {
     position: relative;
     width: calc(100% - 20px);
     padding: 10px;
+    margin-left: 1em;
   }
 }
 @media screen and (max-width: 500px) {
@@ -4783,73 +4724,15 @@ body.single ul li {
     right: -28%;
     top: 50%;
   }
-
   #acc-methodologie .container h2 {
     width: 100%;
   }
 }
 .grecaptcha-badge {
   display: none;
-}
-
-.page-enter-active,
-.page-leave-active {
-  transition: opacity 0.5s;
-}
-.page-enter,
-.page-leave-to {
-  opacity: 0;
-}
-
-.blog .container .content-blog article .entry-header h2 {
-  font-family: "Exo", sans-serif !important;
-  font-weight: 600 !important;
-  font-size: 28px !important;
-  padding: 5px 0 20px 5px !important;
-  color: black;
-  text-transform: uppercase;
-  display: inline-block;
-  line-height: 0.8;
-  white-space: nowrap;
-}
-@media screen and (max-width: 940px) {
-  .blog .container .content-blog article .entry-header h2 {
-    white-space: normal;
-    line-height: 4rem;
-  }
-}
-
-#agency-banner.banner.banner-home.home-img-banner {
-  background: url("../static/icons/blogactu.jpg");
-  background-position: center 80%;
-}
-
-h2.no-after::after {
-  display: none;
-}
-
-.active-sub-menu::before {
-  background-image: url("../static/icons/close.svg") !important;
-}
-
-.route-enter-active,
-.route-leave-active {
-  transition: opacity 0.8s ease;
-}
-
-.route-enter-from,
-.route-leave-to {
-  opacity: 0;
-}
-
-#acc-header {
-  .banner .elem-center .list.loading-list {
-    top: 45%;
-  }
-
-  &.header-load {
-    margin-bottom: 0;
-  }
+} /*# sourceMappingURL=style.css.map */
+.mentions-pages {
+  margin-bottom: 1.5em;
 }
 
 .loader {

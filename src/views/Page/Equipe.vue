@@ -55,6 +55,21 @@
     </div>
   </section>
 
+  <section v-if="!loading" class="membre" id="gregoire">
+    <div class="container">
+      <h2 class="reversed flipped no-transition">{{ data.acf.nom_5 }}</h2>
+      <img
+        :src="data.acf.image_membre_5.url"
+        :alt="data.acf.image_membre_5.alt"
+        :title="data.acf.image_membre_5.title"
+      />
+      <div class="desc">
+        <h3>{{ data.acf.poste_membre_5 }}</h3>
+        <div class="exo-light-16" v-html="data.acf.descriptif_membre_5"></div>
+      </div>
+    </div>
+  </section>
+
   <section id="lien">
     <router-link
       :to="{
