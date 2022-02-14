@@ -40,7 +40,13 @@
     v-if="!loading"
     class="post-template-default single single-post postid-1243 single-format-standard cookies-set cookies-accepted"
   >
-    <HeaderVue :apiUrl="apiUrl" ref="Header" :propsData="article" type="blog" />
+    <HeaderVue
+      :apiUrl="apiUrl"
+      ref="Header"
+      :propsData="article"
+      :pageLoading="loading"
+      type="blog"
+    />
     <div id="primary" class="content-area">
       <main id="main" class="site-main">
         <div class="container">

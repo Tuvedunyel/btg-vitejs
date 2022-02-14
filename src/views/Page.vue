@@ -1,5 +1,11 @@
 <template>
-  <HeaderVue ref="Header" :propsData="data" :apiUrl="apiUrl" />
+  <LoadingVue v-if="loading" :loading="loading" />
+  <HeaderVue
+    ref="Header"
+    :propsData="data"
+    :apiUrl="apiUrl"
+    :pageLoading="loading"
+  />
   <div v-if="!loading">
     <EquipeVue
       v-if="data.template === 'page-equipe'"
@@ -36,6 +42,7 @@
 </template>
 <script>
   import axios from "axios";
+  import LoadingVue from "../components/Loading.vue";
   import HeaderVue from "../layouts/Header.vue";
   import EquipeVue from "./Page/Equipe.vue";
   import AgenceVue from "./Page/Agence.vue";
@@ -76,6 +83,7 @@
       HeaderVue,
       EquipeVue,
       AgenceVue,
+      LoadingVue,
       BlogVue,
       RealVue,
       ClientVue,

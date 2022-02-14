@@ -394,9 +394,9 @@
           }
         });
 
-      // setTimeout(() => {
-      //   this.loading = false;
-      // }, 1000);
+      setTimeout(() => {
+        this.loading = false;
+      }, 1000);
     },
     methods: {
       handleSlideClick(slide) {

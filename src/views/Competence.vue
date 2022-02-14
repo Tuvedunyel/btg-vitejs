@@ -123,7 +123,7 @@
   };
 </script>
 <template>
-  <HeaderVue :propsData="data" :apiUrl="apiUrl" />
+  <HeaderVue :propsData="data" :apiUrl="apiUrl" :pageLoading="loading" />
   <transition name="router" mode="out-in">
     <div v-if="!loading">
       <section id="single-main">

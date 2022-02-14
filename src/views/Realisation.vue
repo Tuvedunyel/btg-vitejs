@@ -79,6 +79,7 @@
     :apiUrl="apiUrl"
     ref="Header"
     :propsData="realisation"
+    :pageLoading="loading"
     type="realisation"
   />
 

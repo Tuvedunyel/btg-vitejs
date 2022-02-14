@@ -3,7 +3,7 @@
     v-if="!loading"
     :id="propsData.slug === 'agence-de-communication-a-tours' && 'acc-header'"
     class="menu-font"
-    :class="{ loading: pageLoading }"
+    :class="{ loadingPage: pageLoading }"
   >
     <div v-if="!loading" class="top">
       <router-link to="/" class="logo" title="BTG Communication"
