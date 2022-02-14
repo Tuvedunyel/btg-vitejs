@@ -1,5 +1,5 @@
 <template>
-  <LoadingVue v-if="loading && menuLoad" :loading="loading" />
+  <LoadingVue v-if="loading" :loading="loading" />
   <HeaderVue
     v-if="!menuLoad"
     ref="Header"
@@ -7,6 +7,7 @@
     :propsMenu="menu"
     :propsSubMenu="subMenu"
     :apiUrl="apiUrl"
+    :pageLoading="loading"
   />
   <section v-if="!loading" id="acc-projet">
     <div class="container">
@@ -393,9 +394,9 @@
           }
         });
 
-      setTimeout(() => {
-        this.loading = false;
-      }, 1000);
+      // setTimeout(() => {
+      //   this.loading = false;
+      // }, 1000);
     },
     methods: {
       handleSlideClick(slide) {

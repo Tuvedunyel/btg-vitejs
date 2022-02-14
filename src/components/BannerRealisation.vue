@@ -16,8 +16,11 @@
 
 <template>
   <div id="single-banner" class="banner">
-    <a
-      href="https://www.btg-communication.fr/agence-de-communication-a-tours/les-projets-de-l-agence/"
+    <router-link
+      :to="{
+        name: 'Page',
+        params: { apiUrl, link: 'les-projets-de-l-agence' },
+      }"
       class="back"
     >
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1276.9 768">
@@ -32,7 +35,7 @@
         ></path>
       </svg>
       <div id="retour-project">Retour aux projets</div>
-    </a>
+    </router-link>
     <div class="main-img">
       <noscript
         ><img

@@ -4875,3 +4875,9 @@ h2.no-after::after {
 #nav-router {
   display: none;
 }
+
+header.loading {
+  opacity: 0;
+  min-height: 0 !important;
+  height: 0 !important;
+}
