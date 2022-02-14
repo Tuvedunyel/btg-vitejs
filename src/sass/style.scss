@@ -4877,6 +4877,12 @@ h2.no-after::after {
   display: none;
 }
 
+.loading-wrapper {
+  height: auto;
+  min-height: auto;
+  opacity: 1;
+  transition: 1s ease-in-out;
+}
 
 .loadingPage {
   opacity: 0;

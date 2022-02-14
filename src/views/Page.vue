@@ -6,39 +6,41 @@
     :apiUrl="apiUrl"
     :pageLoading="loading"
   />
-  <div v-if="!loading">
-    <EquipeVue
-      v-if="data.template === 'page-equipe'"
-      :data="data"
-      :loading="loading"
-      :apiUrl="apiUrl"
-    />
-    <AgenceVue
-      v-else-if="data.template === 'page-agence'"
-      :data="data"
-      :loading="loading"
-      :apiUrl="apiUrl"
-    />
-    <RealVue
-      v-else-if="data.template === 'page-real'"
-      :propsData="data"
-      :loading="loading"
-      :apiUrl="apiUrl"
-    />
-    <ClientVue
-      v-else-if="data.template === 'page-client'"
-      :loading="loading"
-      :clients="data"
-      :apiUrl="apiUrl"
-    />
-    <BlogVue
-      v-else-if="data.template === 'page'"
-      :loading="loading"
-      :data="data"
-      :apiUrl="apiUrl"
-    />
+  <div class="loading-wrapper" :class="{ loadingPage: loading }">
+    <div v-if="!loading">
+      <EquipeVue
+        v-if="data.template === 'page-equipe'"
+        :data="data"
+        :loading="loading"
+        :apiUrl="apiUrl"
+      />
+      <AgenceVue
+        v-else-if="data.template === 'page-agence'"
+        :data="data"
+        :loading="loading"
+        :apiUrl="apiUrl"
+      />
+      <RealVue
+        v-else-if="data.template === 'page-real'"
+        :propsData="data"
+        :loading="loading"
+        :apiUrl="apiUrl"
+      />
+      <ClientVue
+        v-else-if="data.template === 'page-client'"
+        :loading="loading"
+        :clients="data"
+        :apiUrl="apiUrl"
+      />
+      <BlogVue
+        v-else-if="data.template === 'page'"
+        :loading="loading"
+        :data="data"
+        :apiUrl="apiUrl"
+      />
+    </div>
+    <FooterVue v-if="!loading" :apiUrl="apiUrl" />
   </div>
-  <FooterVue v-if="!loading" :apiUrl="apiUrl" />
 </template>
 <script>
   import axios from "axios";

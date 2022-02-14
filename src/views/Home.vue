@@ -9,62 +9,90 @@
     :apiUrl="apiUrl"
     :pageLoading="loading"
   />
-  <section v-if="!loading" id="acc-projet">
-    <div class="container">
-      <h2 class="reversed flipped no-transition">Projets</h2>
-      <div class="glide no-transition">
-        <div class="glide__track" data-glide-el="track">
-          <ul class="glide__slides">
-            <li
-              v-for="(slide, index) in data.acf.slide.slice(
-                this.sliceA,
-                this.sliceB
-              )"
-              :key="index"
-              class="glide__slide"
-            >
-              <img :src="slide.image.url" :alt="slide.image.alt" />
-            </li>
-          </ul>
-        </div>
-        <div class="controls" data-glide-el="controls">
-          <button
-            @click="handleSlideArrow('previous')"
-            class="prev"
-            data-glide-dir="<"
-          >
-            <svg
-              class="arrow"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 100 100"
-              x="0px"
-              y="0px"
-            >
-              <title>Arrows</title>
-              <g data-name="Layer 2">
-                <polygon
-                  points="44.13 72.13 58 86 94.25 50 57.87 13.13 44 27 57.51 41 6 41 6 59 57.51 59 44.13 72.13"
-                ></polygon>
-              </g>
-            </svg>
-          </button>
-          <div
-            v-for="bullet in bulletSlider"
-            :key="bullet"
-            class="glide__bullets"
-            data-glide-el="controls[nav]"
-          >
-            <button
-              @click="handleSlideClick(bullet)"
-              class="glide__bullet"
-              data-glide-dir="="
-            ></button>
+  <div class="loading-wrapper" :class="{ loadingPage: loading }">
+    <section v-if="!loading" id="acc-projet">
+      <div class="container">
+        <h2 class="reversed flipped no-transition">Projets</h2>
+        <div class="glide no-transition">
+          <div class="glide__track" data-glide-el="track">
+            <ul class="glide__slides">
+              <li
+                v-for="(slide, index) in data.acf.slide.slice(
+                  this.sliceA,
+                  this.sliceB
+                )"
+                :key="index"
+                class="glide__slide"
+              >
+                <img :src="slide.image.url" :alt="slide.image.alt" />
+              </li>
+            </ul>
           </div>
-          <button
-            @click="handleSlideArrow('next')"
-            class="next"
-            data-glide-dir=">"
+          <div class="controls" data-glide-el="controls">
+            <button
+              @click="handleSlideArrow('previous')"
+              class="prev"
+              data-glide-dir="<"
+            >
+              <svg
+                class="arrow"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 100 100"
+                x="0px"
+                y="0px"
+              >
+                <title>Arrows</title>
+                <g data-name="Layer 2">
+                  <polygon
+                    points="44.13 72.13 58 86 94.25 50 57.87 13.13 44 27 57.51 41 6 41 6 59 57.51 59 44.13 72.13"
+                  ></polygon>
+                </g>
+              </svg>
+            </button>
+            <div
+              v-for="bullet in bulletSlider"
+              :key="bullet"
+              class="glide__bullets"
+              data-glide-el="controls[nav]"
+            >
+              <button
+                @click="handleSlideClick(bullet)"
+                class="glide__bullet"
+                data-glide-dir="="
+              ></button>
+            </div>
+            <button
+              @click="handleSlideArrow('next')"
+              class="next"
+              data-glide-dir=">"
+            >
+              <svg
+                class="arrow"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 100 100"
+                x="0px"
+                y="0px"
+              >
+                <title>Arrows</title>
+                <g data-name="Layer 2">
+                  <polygon
+                    points="44.13 72.13 58 86 94.25 50 57.87 13.13 44 27 57.51 41 6 41 6 59 57.51 59 44.13 72.13"
+                  ></polygon>
+                </g>
+              </svg>
+            </button>
+          </div>
+        </div>
+        <div class="desc">
+          <p class="exo-light-21" v-html="data.acf.texte_photo"></p>
+          <router-link
+            :to="{
+              name: 'Page',
+              params: { link: 'les-projets-de-l-agence', apiUrl },
+            }"
+            class="resp classic-button"
           >
+            <p>Les réalisations de l'agence</p>
             <svg
               class="arrow"
               xmlns="http://www.w3.org/2000/svg"
@@ -79,79 +107,126 @@
                 ></polygon>
               </g>
             </svg>
-          </button>
+          </router-link>
+        </div>
+        <div class="button">
+          <router-link
+            :to="{
+              name: 'Page',
+              params: { link: 'les-projets-de-l-agence', apiUrl },
+            }"
+            class="resp classic-button"
+          >
+            <p>Les réalisations de l'agence</p>
+            <svg
+              class="arrow"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 100 100"
+              x="0px"
+              y="0px"
+            >
+              <title>Arrows</title>
+              <g data-name="Layer 2">
+                <polygon
+                  points="44.13 72.13 58 86 94.25 50 57.87 13.13 44 27 57.51 41 6 41 6 59 57.51 59 44.13 72.13"
+                ></polygon>
+              </g>
+            </svg>
+          </router-link>
         </div>
       </div>
-      <div class="desc">
-        <p class="exo-light-21" v-html="data.acf.texte_photo"></p>
-        <router-link
-          :to="{
-            name: 'Page',
-            params: { link: 'les-projets-de-l-agence', apiUrl },
-          }"
-          class="resp classic-button"
-        >
-          <p>Les réalisations de l'agence</p>
-          <svg
-            class="arrow"
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 100 100"
-            x="0px"
-            y="0px"
-          >
-            <title>Arrows</title>
-            <g data-name="Layer 2">
-              <polygon
-                points="44.13 72.13 58 86 94.25 50 57.87 13.13 44 27 57.51 41 6 41 6 59 57.51 59 44.13 72.13"
-              ></polygon>
-            </g>
-          </svg>
-        </router-link>
-      </div>
-      <div class="button">
-        <router-link
-          :to="{
-            name: 'Page',
-            params: { link: 'les-projets-de-l-agence', apiUrl },
-          }"
-          class="resp classic-button"
-        >
-          <p>Les réalisations de l'agence</p>
-          <svg
-            class="arrow"
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 100 100"
-            x="0px"
-            y="0px"
-          >
-            <title>Arrows</title>
-            <g data-name="Layer 2">
-              <polygon
-                points="44.13 72.13 58 86 94.25 50 57.87 13.13 44 27 57.51 41 6 41 6 59 57.51 59 44.13 72.13"
-              ></polygon>
-            </g>
-          </svg>
-        </router-link>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <section v-if="!loading" id="acc-activite">
-    <div class="container">
-      <div class="desc">
-        <h2>Ce que l'on fait</h2>
-        <p class="exo-light-21" v-html="data.acf.texte_competences"></p>
+    <section v-if="!loading" id="acc-activite">
+      <div class="container">
+        <div class="desc">
+          <h2>Ce que l'on fait</h2>
+          <p class="exo-light-21" v-html="data.acf.texte_competences"></p>
+          <router-link
+            :to="{
+              name: 'Page',
+              params: {
+                link: 'agence-de-communication-et-savoir-faire',
+                apiUrl,
+              },
+            }"
+            class="classic-button"
+          >
+            <p>L'agence et savoir-faire</p>
+            <svg
+              class="arrow"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 100 100"
+              x="0px"
+              y="0px"
+            >
+              <title>Arrows</title>
+              <g data-name="Layer 2">
+                <polygon
+                  points="44.13 72.13 58 86 94.25 50 57.87 13.13 44 27 57.51 41 6 41 6 59 57.51 59 44.13 72.13"
+                ></polygon>
+              </g>
+            </svg>
+          </router-link>
+        </div>
+      </div>
+      <div class="cards-container">
+        <div class="flipped vague no-transition">
+          <img src="./../static/icons/wave-yellow.gif" alt="Vague jaune" />
+        </div>
+        <div
+          v-for="(poleCompetence, index) in data.acf.poles_de_competences"
+          :key="index"
+          class="card"
+        >
+          <router-link
+            :to="{
+              name: 'Competence',
+              params: { link: subMenu[index].slug, apiUrl },
+            }"
+          >
+            <img
+              :src="poleCompetence.icone.url"
+              :alt="poleCompetence.icone.alt"
+            />
+            <h3>{{ poleCompetence.titre }}</h3>
+            <p class="exo-light-16" v-html="poleCompetence.descriptif"></p>
+          </router-link>
+        </div>
+      </div>
+    </section>
+
+    <section v-if="!loading" id="acc-clients">
+      <div class="container fixed">
+        <h2 class="reversed flipped no-transition">Clients</h2>
+        <div class="pourquoi-pas">
+          <div class="vague">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 188 32">
+              <path
+                d="M156.7 32c-9.5 0-14.2-7.7-18.2-14.5-4.4-7.1-7.4-11.5-13.2-11.5-5.7 0-8.8 4.4-13.1 11.5C108.1 24.3 103.5 32 94 32s-14.2-7.7-18.2-14.5C71.4 10.4 68.4 6 62.7 6c-5.7 0-8.8 4.4-13.1 11.5C45.5 24.3 40.9 32 31.3 32s-14.2-7.7-18.2-14.5C8.8 10.4 5.7 6 0 6V0c9.5 0 14.2 7.7 18.2 14.5C22.6 21.6 25.6 26 31.3 26c5.7 0 8.8-4.4 13.1-11.5C48.5 7.7 53.1 0 62.7 0c9.5 0 14.2 7.7 18.2 14.5C85.2 21.6 88.3 26 94 26s8.8-4.4 13.1-11.5C111.2 7.7 115.8 0 125.3 0s14.2 7.7 18.2 14.5c4.3 7.2 7.4 11.5 13.1 11.5s8.8-4.4 13.1-11.5C173.8 7.7 178.5 0 188 0v6c-5.7 0-8.8 4.4-13.1 11.5-4.1 6.8-8.7 14.5-18.2 14.5z"
+              />
+            </svg>
+          </div>
+          <p>Pourquoi pas vous ?</p>
+        </div>
+        <div class="clients-list">
+          <div class="grille"></div>
+          <a
+            v-for="(client, index) in clientShow"
+            :key="index"
+            :href="client.acf.url"
+            class="client"
+            :title="client.title"
+          >
+            <span class="screen-reader-text">{{ client.title }}</span>
+            <img :src="client.media.thumbnail" :alt="client.title" />
+          </a>
+        </div>
         <router-link
-          :to="{
-            name: 'Page',
-            params: {
-              link: 'agence-de-communication-et-savoir-faire',
-              apiUrl,
-            },
-          }"
+          :to="{ name: 'Page', params: { link: 'experience-clients', apiUrl } }"
           class="classic-button"
         >
-          <p>L'agence et savoir-faire</p>
+          <p>Références</p>
           <svg
             class="arrow"
             xmlns="http://www.w3.org/2000/svg"
@@ -168,122 +243,49 @@
           </svg>
         </router-link>
       </div>
-    </div>
-    <div class="cards-container">
-      <div class="flipped vague no-transition">
-        <img src="./../static/icons/wave-yellow.gif" alt="Vague jaune" />
-      </div>
-      <div
-        v-for="(poleCompetence, index) in data.acf.poles_de_competences"
-        :key="index"
-        class="card"
-      >
-        <router-link
-          :to="{
-            name: 'Competence',
-            params: { link: subMenu[index].slug, apiUrl },
-          }"
-        >
-          <img
-            :src="poleCompetence.icone.url"
-            :alt="poleCompetence.icone.alt"
-          />
-          <h3>{{ poleCompetence.titre }}</h3>
-          <p class="exo-light-16" v-html="poleCompetence.descriptif"></p>
-        </router-link>
-      </div>
-    </div>
-  </section>
-
-  <section v-if="!loading" id="acc-clients">
-    <div class="container fixed">
-      <h2 class="reversed flipped no-transition">Clients</h2>
-      <div class="pourquoi-pas">
-        <div class="vague">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 188 32">
-            <path
-              d="M156.7 32c-9.5 0-14.2-7.7-18.2-14.5-4.4-7.1-7.4-11.5-13.2-11.5-5.7 0-8.8 4.4-13.1 11.5C108.1 24.3 103.5 32 94 32s-14.2-7.7-18.2-14.5C71.4 10.4 68.4 6 62.7 6c-5.7 0-8.8 4.4-13.1 11.5C45.5 24.3 40.9 32 31.3 32s-14.2-7.7-18.2-14.5C8.8 10.4 5.7 6 0 6V0c9.5 0 14.2 7.7 18.2 14.5C22.6 21.6 25.6 26 31.3 26c5.7 0 8.8-4.4 13.1-11.5C48.5 7.7 53.1 0 62.7 0c9.5 0 14.2 7.7 18.2 14.5C85.2 21.6 88.3 26 94 26s8.8-4.4 13.1-11.5C111.2 7.7 115.8 0 125.3 0s14.2 7.7 18.2 14.5c4.3 7.2 7.4 11.5 13.1 11.5s8.8-4.4 13.1-11.5C173.8 7.7 178.5 0 188 0v6c-5.7 0-8.8 4.4-13.1 11.5-4.1 6.8-8.7 14.5-18.2 14.5z"
-            />
-          </svg>
+    </section>
+    <section v-if="!loading" id="acc-philosophie">
+      <div class="container">
+        <div class="desc">
+          <h2>Philosophie</h2>
+          <div class="exo-light-21" v-html="data.acf.texte_philosophie"></div>
+          <div class="flipped vague no-transition">
+            <img src="./../static/icons/wave-yellow.gif" alt="" />
+          </div>
         </div>
-        <p>Pourquoi pas vous ?</p>
       </div>
-      <div class="clients-list">
-        <div class="grille"></div>
-        <a
-          v-for="(client, index) in clientShow"
-          :key="index"
-          :href="client.acf.url"
-          class="client"
-          :title="client.title"
-        >
-          <span class="screen-reader-text">{{ client.title }}</span>
-          <img :src="client.media.thumbnail" :alt="client.title" />
+      <div class="cards-container">
+        <img :src="data.acf.image_philosophie" alt="Notre philosophie" />
+      </div>
+    </section>
+    <section v-if="!loading" id="acc-methodologie">
+      <div class="blue-background"></div>
+      <div class="container">
+        <h2>Méthodologie</h2>
+        <div class="desc">
+          <div class="exo-light-21" v-html="data.acf.texte_methodologie"></div>
+        </div>
+        <a @click="toggleContact()" class="classic-button menu-related">
+          <p>Contactez-nous</p>
+          <svg
+            class="arrow"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 100 100"
+            x="0px"
+            y="0px"
+          >
+            <title>Arrows</title>
+            <g data-name="Layer 2">
+              <polygon
+                points="44.13 72.13 58 86 94.25 50 57.87 13.13 44 27 57.51 41 6 41 6 59 57.51 59 44.13 72.13"
+              ></polygon>
+            </g>
+          </svg>
         </a>
       </div>
-      <router-link
-        :to="{ name: 'Page', params: { link: 'experience-clients', apiUrl } }"
-        class="classic-button"
-      >
-        <p>Références</p>
-        <svg
-          class="arrow"
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 100 100"
-          x="0px"
-          y="0px"
-        >
-          <title>Arrows</title>
-          <g data-name="Layer 2">
-            <polygon
-              points="44.13 72.13 58 86 94.25 50 57.87 13.13 44 27 57.51 41 6 41 6 59 57.51 59 44.13 72.13"
-            ></polygon>
-          </g>
-        </svg>
-      </router-link>
-    </div>
-  </section>
-  <section v-if="!loading" id="acc-philosophie">
-    <div class="container">
-      <div class="desc">
-        <h2>Philosophie</h2>
-        <div class="exo-light-21" v-html="data.acf.texte_philosophie"></div>
-        <div class="flipped vague no-transition">
-          <img src="./../static/icons/wave-yellow.gif" alt="" />
-        </div>
-      </div>
-    </div>
-    <div class="cards-container">
-      <img :src="data.acf.image_philosophie" alt="Notre philosophie" />
-    </div>
-  </section>
-  <section v-if="!loading" id="acc-methodologie">
-    <div class="blue-background"></div>
-    <div class="container">
-      <h2>Méthodologie</h2>
-      <div class="desc">
-        <div class="exo-light-21" v-html="data.acf.texte_methodologie"></div>
-      </div>
-      <a @click="toggleContact()" class="classic-button menu-related">
-        <p>Contactez-nous</p>
-        <svg
-          class="arrow"
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 100 100"
-          x="0px"
-          y="0px"
-        >
-          <title>Arrows</title>
-          <g data-name="Layer 2">
-            <polygon
-              points="44.13 72.13 58 86 94.25 50 57.87 13.13 44 27 57.51 41 6 41 6 59 57.51 59 44.13 72.13"
-            ></polygon>
-          </g>
-        </svg>
-      </a>
-    </div>
-  </section>
-  <FooterVue v-if="!loading" :apiUrl="apiUrl" />
+    </section>
+    <FooterVue v-if="!loading" :apiUrl="apiUrl" />
+  </div>
 </template>
 <script>
   import HeaderVue from "../layouts/Header.vue";
