@@ -124,13 +124,13 @@
       },
       apiUrl: {
         type: String,
-        default: "https://www.btg-dev.com/btg-test",
+        default: "https://www.btg-communication.fr",
         required: true,
       },
     },
     data() {
       return {
-        data: null,
+        data: [],
         sortedTerm: [],
         fetchData: false,
         searchTerm: "",
@@ -157,10 +157,12 @@
         });
       } else {
         await axios
-          .get(`${this.apiUrl}/wp-json/better-rest-endpoints/v1/realisations`)
+          .get(
+            `${this.apiUrl}/wp-json/better-rest-endpoints/v1/realisations?per_page=50`
+          )
           .then(response => {
-            this.data = response.data;
             localStorage.setItem("realisations", JSON.stringify(response.data));
+            this.data = response.data;
             response.data.map(res => {
               res.terms.map(term => {
                 this.sortedTerm.push(term.name);
@@ -175,7 +177,9 @@
     methods: {
       async getUpdatedRealisations() {
         await axios
-          .get(`${this.apiUrl}/wp-json/better-rest-endpoints/v1/realisations`)
+          .get(
+            `${this.apiUrl}/wp-json/better-rest-endpoints/v1/realisations?per_page=50`
+          )
           .then(response => {
             if (localStorage.getItem("realisations") !== response.data) {
               this.data = response.data;
