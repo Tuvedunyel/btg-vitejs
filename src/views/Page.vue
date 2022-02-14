@@ -1,11 +1,6 @@
 <template>
+  <HeaderVue ref="Header" :propsData="data" :apiUrl="apiUrl" />
   <div v-if="!loading">
-    <HeaderVue
-      v-if="!loading"
-      ref="Header"
-      :propsData="data"
-      :apiUrl="apiUrl"
-    />
     <EquipeVue
       v-if="data.template === 'page-equipe'"
       :data="data"
@@ -36,8 +31,8 @@
       :data="data"
       :apiUrl="apiUrl"
     />
-    <FooterVue v-if="!loading" :apiUrl="apiUrl" />
   </div>
+  <FooterVue v-if="!loading" :apiUrl="apiUrl" />
 </template>
 <script>
   import axios from "axios";
@@ -116,7 +111,9 @@
               });
             });
         }
-        this.loading = false;
+        setTimeout(() => {
+          this.loading = false;
+        }, 800);
       },
       async getMetaDescription() {
         await axios

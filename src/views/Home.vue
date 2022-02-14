@@ -1,5 +1,5 @@
 <template>
-  <LoadingVue v-if="loading" :loading="loading" />
+  <LoadingVue v-if="loading && menuLoad" :loading="loading" />
   <HeaderVue
     v-if="!menuLoad"
     ref="Header"

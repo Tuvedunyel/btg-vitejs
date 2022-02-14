@@ -1,5 +1,4 @@
 <script>
-  import axios from "axios";
   import HeaderVue from "../layouts/Header.vue";
   export default {
     name: "Realisation",
@@ -63,7 +62,9 @@
     mounted() {
       this.realisation = JSON.parse(this.real);
       this.objectRealisations = JSON.parse(this.realisations);
-      this.loading = false;
+      setTimeout(() => {
+        this.loading = false;
+      }, 500);
     },
     methods: {
       toggleContact() {
@@ -75,7 +76,6 @@
 
 <template>
   <HeaderVue
-    v-if="!loading"
     :apiUrl="apiUrl"
     ref="Header"
     :propsData="realisation"

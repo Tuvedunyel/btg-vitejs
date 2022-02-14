@@ -98,7 +98,9 @@
               });
             });
           this.otherDomain = [...new Set(this.otherDomain)];
-          this.loading = false;
+          setTimeout(() => {
+            this.loading = false;
+          }, 800);
         }
       },
       async getMetaDescription() {
@@ -121,7 +123,7 @@
   };
 </script>
 <template>
-  <HeaderVue v-if="!loading" :propsData="data" :apiUrl="apiUrl" />
+  <HeaderVue :propsData="data" :apiUrl="apiUrl" />
   <transition name="router" mode="out-in">
     <div v-if="!loading">
       <section id="single-main">
